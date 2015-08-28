@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>transition</title>
+<link href="css/layout.css" rel="stylesheet">
+</head>
+<body>
+    <h1>transition</h1>
+    <blockquote>
+        <p><code>transition</code>属性包括，<code>transition-property</code>，<code>transition-duration</code>，<code>transition-timing-function</code>，<code>transition-delay</code></p>
+        <p><code>transition</code>执行完毕会触发<code>transitionend</code>事件</p>
+        <p>可以给<code>dom</code>设置当前过渡样式属性来停止过渡，这里若改变，不会触发<code>transitionend</code>事件</p>
+    </blockquote>
+    <p>
+        <button id="zoom">zoom</button>
+        <button id="paused">paused</button>
+    </p>
+    <div id="test01" class="test-01"></div>
+
+    <script src="js/fn.js"></script>
+</body>
+</html>

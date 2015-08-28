@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>css text</title>
+    <style>
+        .c-red{color:#f00;}
+        .c-gray{color:gray;}
+        .c-pink{color:pink;}
+        .t-r{text-align:right;}
+        .ltr{direction:ltr;}
+        .rtl{direction:rtl;}
+        .ltr span, .rtl span{display:inline-block;width:80px;border:1px solid red;}
+        .t-l{text-align:left;}
+        .t-c{text-align:center;}
+        .t-j{text-align:justify;}
+        .line-h > div{border:1px solid pink;}
+        .text-align > div, .word-wrap > div, .word-break > div{width:150px;border:1px solid pink;margin-bottom:10px;}
+    </style>
+</head>
+<body>
+    <div id="page">
+        <h1>css 文本熟悉</h1>
+
+        <h2>color</h2>
+        <div>
+            <p class="c-red">文字</p>
+            <p class="c-gray">文字</p>
+            <p class="c-pink">文字</p>
+        </div>
+
+        <h2>direction</h2>
+        <div>
+            <div class="ltr t-r">
+                <strong>direction:ltr; align-center:right;</strong>
+                <span>123</span>
+                <span>456</span>
+                <span>789</span>
+            </div>
+            <div class="rtl">
+                <strong>direction:rtl;</strong>
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+            </div>
+            <div class="rtl t-l">
+                <strong>direction:rtl; algin-center:left;</strong>
+                <input type="text" value="1" class="ltr"><input type="text" value="2" class="ltr">
+                <p class="">
+                    <span>123</span><span>456</span><span>789</span>
+                </p>
+            </div>
+        </div>
+
+        <h2>line-height</h2>
+        <div class="line-h">
+            <div style="line-height:20px;">
+                <strong>line-height:20px;</strong> 123笛子
+                <div style="margin:0;font-size:0.6em;">123456789abcdefghijklmnopqrst</div>
+            </div>
+            <div style="line-height:2em;">
+                <strong>line-height:2em;</strong> 123笛子
+                <div style="font-size:0.5em;">123456789abcdefghijklmnopqrst</div>
+            </div>
+            <div style="line-height:200%;">
+                <strong>line-height:200%;</strong> 123笛子
+                <div style="font-size:0.5em;">123456789abcdefghijklmnopqrst</div>
+            </div>
+            <div style="line-height:2;">
+                <strong>line-height:2;</strong> 123笛子
+                <div style="font-size:0.5em;">123456789abcdefghijklmnopqrst</div>
+            </div>
+        </div>
+
+        <h3>letter-spacing</h3>
+        <div>
+            <div style="letter-spacing:0;">123456789abcdefghijklmnopqrst笛子<strong>123</strong></div>
+            <div style="letter-spacing:3px;">123456789abcdefghijklmnopqrst笛子<strong>123</strong></div>
+            <div style="letter-spacing:1em;">123456789abcdefghijklmnopqrst笛子<strong>123</strong></div>
+            <div style="letter-spacing:-2px;">123456789abcdefghijklmnopqrst笛子<strong>123</strong></div>
+        </div>
+
+        <h3>word-spacing</h3>
+        <div>
+            <div style="word-spacing:0;">1 2 3 4 5 6 7 8 9 abcdef ghijklm nopqrst 笛 子<strong>老 姚</strong></div>
+            <div style="word-spacing:3px;">1 2 3 4 5 6 7 8 9 abcdef ghijklm nopqrst 笛 子<strong>老 姚</strong></div>
+            <div style="word-spacing:1em;">1 2 3 4 5 6 7 8 9 abcdef ghijklm nopqrst 笛 子<strong>老 姚</strong></div>
+            <div style="word-spacing:-2px;">1 2 3 4 5 6 7 8 9 abcdef ghijklm nopqrst 笛 子<strong>老 姚</strong></div>
+        </div>
+
+        <h3>text-align</h3>
+        <div class="text-align">
+            <div class="t-l">1 2 3 4 5 6</div>
+            <div class="t-r">1 2 3 4 5 6</div>
+            <div class="t-c">1 2 3 4 5 6</div>
+            <div class="t-j">this is a div!啊是房价是否健康奥，“设个是什么东西”？斯卡房间啊发顺丰，阿拉房间</div>
+        </div>
+
+        <h3>text-decoration</h3>
+        <div>
+            <p>
+                <span style="text-decoration:none;">123456789abcdefghijklmnopqrst笛子</span>
+            </p>
+            <p>
+                <span style="text-decoration:underline;"><em>underline</em>123456789abcdefghijklmnopqrst笛子<span>asfasfas</span></span>
+                <a href="#">html a tag</a>
+                <u>html u tag</u>
+                <ins>html ins tag</ins>
+            </p>
+            <p>
+                <span style="text-decoration:overline;"><em>overline</em>123456789abcdefghijklmnopqrst笛子</span>
+            </p>
+            <p>
+                <span style="text-decoration:line-through;">123456789abcdefghijklmnopqrst笛子</span>
+                <s>html s tag</s>
+                <strike>html strike tag</strike>
+                <del>html del tag</del>
+            </p>
+        </div>
+
+        <h3>text-indent</h3>
+        <div>
+            <div style="text-indent:10px;">
+                <p><strong>text-indent:10px;</strong>asdfkajsfkjasf asfjasf asfjasfk</p>
+                <p>afjaskdfjsakfa</p>
+            </div>
+            <div style="text-indent:2em;">
+                <p><strong>text-indent:2em;</strong>asdfkajsfkjasf asfjasf asfjasfk</p>
+                <p>afjaskdfjsakfa</p>
+            </div>
+            <div style="text-indent:20%;">
+                <p><strong>text-indent:20%;</strong>asdfkajsfkjasf asfjasf asfjasfk</p>
+                <p>afjaskdfjsakfa</p>
+            </div>
+            <div style="widht:400px;background-color:pink;text-indent:-10em;text-align:center;">
+                <p><strong>text-indent:-10em;text-align:center;</strong>asdfkajsfkjasf<br> asfjasf asfjasfk</p>
+                <p>afjaskdfjsakfa</p>
+            </div>
+        </div>
+
+        <h3>text-transform</h3>
+        <div>
+            <div style="text-transform:none;"><strong>text-transform:none;</strong>123456789abcdefghijklmnopqrst笛子</div>
+            <div style="text-transform:capitalize;"><strong>text-transform:capitalize;</strong>123456789 abc defghij klmnopqrst笛子</div>
+            <div style="text-transform:uppercase;"><strong>text-transform:uppercase;</strong>123456789 abc defghij klmnopqrst笛子</div>
+            <div style="text-transform:lowercase;"><strong>text-transform:lowercase;</strong>123456789 abc defghij klmnopqrst笛子</div>
+        </div>
+
+        <h3>white-space</h3>
+        <div>
+            <div style="white-space:normal;">
+            <strong>white-space:normal;</strong>asdfkajsfkjasf 
+            asfjasf asfja
+            sfk
+            </div>
+            <div style="white-space:pre;">
+            <strong>white-space:pre;</strong>asdfkajsfkjasf 
+            asfjasf asfja<br>
+            sfk
+            </div>
+            <pre>
+            <strong>html pre</strong>   asdfkajsfkjasf 
+            asfjasf asfja
+            sfk 
+            </pre>
+            <div style="white-space:nowrap;">
+            <strong>white-space:nowrap;</strong>asdfkajsfkjasf 
+            asfjasf asfja<br>
+            sfk    
+            </div>
+            <div style="white-space:pre-wrap;">
+            <strong>white-space:pre-wrap;</strong>asdfkajsfkjasf 
+            asfjasf asfja
+            sfk    
+            </div>
+            <div style="white-space:pre-line;">
+            <strong>white-space:pre-line;</strong>asdfkajsfkjasf 
+            asfjasf asfja
+            sfk    
+            </div>
+        </div>
+
+        <h3>word-wrap</h3>
+        <div class="word-wrap">
+            <div style="word-wrap:normal;">
+                <strong>word-wrap:normal;</strong>我是大漠，我在用word-break的break-all值测试我在测试我在测试我在测试this is test. thisistestthdfadfadfadfadfaadfadfadsfadisistest测试我在测试我试
+            </div>
+            <div style="word-wrap:break-word;">
+                <strong>word-wrap:break-word;</strong>我是大漠，我在用word-break的break-all值测试我在测试我在测试我在测试this is test. thisistestthdfadfadfadfadfaadfadfadsfadisistest测试我在测试我试
+            </div>
+        </div>
+
+        <h3>word-break</h3>
+        <div class="word-break">
+            <div style="word-break:noraml;"><strong>word-break:normal;</strong>http://baike.baidu.com/link?url=7aayWWoB43AlE5你好M6ZW163vW9PCZB662qT4OxADmaTG9zxCo5c39bLHWm-DOdaM_GYyoib6Xowfvy8Ak4h9rdua</div>
+            <div style="word-break:break-all;"><strong>word-break:break-all;</strong>http://baike.baidu.com/link?url=7aayWWoB43AlE5你好M6ZW163vW9PCZB662qT4OxADmaTG9zxCo5c39bLHWm-DOdaM_GYyoib6Xowfvy8Ak4h9rdua</div>
+            <div style="word-break:keep-all;"><strong>word-break:keep-all;</strong>http://baike.baidu.com/link?url=7aayWWoB43AlE5你好M6ZW163vW9PCZB662qT4OxADmaTG9zxCo5c39bLHWm-DOdaM_GYyoib6Xowfvy8Ak4h9rdua</div>
+        </div>
+    </div>
+</body>
+</html>

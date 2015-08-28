@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>ie6-7 bug</title>
+<style>
+.test{}
+.wrap{position:relative;margin-left:50px;display:block;width:320px;height:40px;border:1px solid red;}
+.wrap .input{position:relative;left:0;top:0;z-index:1;display:inline-block;width:300px;padding:5px;border:1px solid blue;}
+</style>
+</head>
+<body>
+    <h1>ie 6-7 input和textarea 会继承display等于block父级的margin-left值，而且不能清除</h1>
+
+    <div class="test">
+        <span class="wrap">
+            <p style="float:left;">asdkfjadsf</p>
+            
+            <span class="input" style="display:block;">asfasfasf</span>
+            <!-- <span style="width:0;height:0;overflow:hidden;font-size:0;line-height:0;float:left;"></span> -->
+            <input type="text" class="input" value="222222" style="float:left;">
+            <i class="text">asdkfas</i>
+        </span>
+    </div>
+
+    <q><a href="http://www.ipmtea.net/css_ie_firefox/201111/06_778.html">http://www.ipmtea.net/css_ie_firefox/201111/06_778.html</a></q>
+</body>
+</html>

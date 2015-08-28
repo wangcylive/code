@@ -1,0 +1,35 @@
+@import url(../../src/reset.css);
+
+@media screen {
+    .clearfix:before,
+    .clearfix:after{content:"";display:table;}
+    .clearfix:after{clear:both;}
+    .clearfix{zoom:1;}
+    #page{width:800px;margin:0 auto;}
+    .header{background-color:#eee;}
+    .nav a{float:left;width:55px;height:24px;text-align:center;font-size:12px;line-height:24px;border:1px solid #333;}
+    .container{background-color:#ddd;margin:20px 0;}
+    .main{float:left;width:600px;}
+    .sidebar{float:right;width:180px;}
+    .list{list-style:inside decimal;}
+    .list li{border:1px solid #333;margin:5px;font-size:16px;font-size:1.6rem;}
+    .list strong{font-size:12px;font-size:1.2rem;}
+    .footer{background-color:#ccc;}
+    .footer sup{font-size:12px;display:inline-block;text-transform:uppercase;
+        -webkit-transform: scale(.6);
+        -moz-transform: scale(.6);
+        -ms-transform: scale(.6);
+        -o-transform: scale(.6);
+        transform: scale(.6);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    body{font-size:1.6em;}
+    #page{width:auto;}
+    .header,
+    .container,
+    .footer{padding:0 8px;}
+    .main,
+    .sidebar{float:none;width:auto;}
+}

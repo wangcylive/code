@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>background-size</title>
+    <style>
+        article{width:900px;}
+        [class|="demo"]{width:400px;height:200px;display:inline-block;}
+        .demo-01{background:url(../../../rescources/images/02.jpg) no-repeat;}
+        .demo-02{background:url(../../../rescources/images/02-min.jpg) no-repeat;}
+        .demo-03{background:url(../../../rescources/images/07.jpg) no-repeat;}
+        .demo-04{background:url(../../../rescources/images/07-min.jpg) no-repeat;}
+        .bgs-auto [class|="demo"]{background-size:auto;}
+        .bgs-length [class|="demo"]{background-size:100px 200px;}
+        .bgs-percentage [class|="demo"]{width:200px;height:200px;padding:50px;border:20px dotted #000;
+            background-size:50% 50%;background-origin:content-box;}
+        .bgs-cover [class|="demo"]{background-size:cover;}
+        .bgs-cover textarea{background:url(../../../rescources/images/02.jpg) no-repeat;background-size:cover;}
+        .bgs-contain [class|="demo"]{background-size:contain;}
+        .bgs-contain textarea{background:url(../../../rescources/images/03.jpg) no-repeat;background-size:contain;}
+        .bgs-cover-length [class|="demo"]{background-size:400px auto;}
+        .bgs-short .demo-01{background:url(../../../rescources/images/03.jpg) 0 0 / cover no-repeat;}
+    </style>
+</head>
+<body>
+    <h1>background-size</h1>
+    <article>
+        <section class="bgs-auto">
+            <h2>auto</h2>
+            <div class="demo-01"></div>
+            <div class="demo-02"></div>
+            <div class="demo-03"></div>
+            <div class="demo-04"></div>
+        </section>
+        <section class="bgs-length">
+            <h2>length</h2>
+            <div class="demo-01"></div>
+            <div class="demo-02"></div>
+            <div class="demo-03"></div>
+            <div class="demo-04"></div>
+        </section>
+        <section class="bgs-percentage">
+            <h2>percentage</h2>
+            <div class="demo-01"></div>
+            <div class="demo-02"></div>
+            <div class="demo-03"></div>
+            <div class="demo-04"></div>
+        </section>
+        <section class="bgs-cover">
+            <h2>cover</h2>
+            <div class="demo-01"></div>
+            <div class="demo-02"></div>
+            <div class="demo-03"></div>
+            <div class="demo-04"></div>
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+        </section>
+        <section class="bgs-cover-length">
+            <h2>cover-length</h2>
+            <div class="demo-01"></div>
+            <div class="demo-02"></div>
+            <div class="demo-03"></div>
+            <div class="demo-04"></div>
+        </section>
+        <section class="bgs-contain">
+            <h2>contain</h2>
+            <div class="demo-01"></div>
+            <div class="demo-02"></div>
+            <div class="demo-03"></div>
+            <div class="demo-04"></div>
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+        </section>
+        <section class="bgs-short">
+            <h2>background short</h2>
+            <div class="demo-01"></div>
+        </section>
+    </article>
+</body>
+</html>

@@ -1,0 +1,68 @@
+@import url(../../../src/reset.css);
+
+@media screen {
+    [class|="demo"]{width:150px;height:150px;border:1px solid #333;background-color:#fff;margin:1em auto;
+        -webkit-transition: -webkit-transform .5s linear 0s;
+        -moz-transition: -moz-transform .5s linear 0s;
+        -ms-transition: -ms-transform .5s linear 0s;
+        -o-transition: -o-transform .5s linear 0s;
+        transition: transform .5s linear 0s;
+    }
+    [class*="scale"]:hover{position:relative;}
+    .demo-01{
+        -webkit-transform-origin:0 0;
+        -moz-transform-origin:0 0;
+        -ms-transform-origin:0 0;
+        -o-transform-origin:0 0;
+        transform-origin:0 0;
+    }
+    .demo-02{
+        -webkit-transform-origin: 100% 0;
+        -moz-transform-origin: 100% 0;
+        -ms-transform-origin: 100% 0;
+        -o-transform-origin: 100% 0;
+        transform-origin: 100% 0;
+    }
+    .demo-03{
+        -webkit-transform-origin: 0 -20px;
+        -moz-transform-origin: 0 -20px;
+        -ms-transform-origin: 0 -20px;
+        -o-transform-origin: 0 -20px;
+        transform-origin: 0 -20px;
+    }
+    .scale-1d5:hover{
+        -webkit-transform: scale(1.5);
+        -moz-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        -o-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+    .scaleX-1d5:hover{
+        -webkit-transform: scaleX(1.5);
+        -moz-transform: scaleX(1.5);
+        -ms-transform: scaleX(1.5);
+        -o-transform: scaleX(1.5);
+        transform: scaleX(1.5);
+    }
+    .scaleY-1d5:hover{
+        -webkit-transform: scaleY(1.5);
+        -moz-transform: scaleY(1.5);
+        -ms-transform: scaleY(1.5);
+        -o-transform: scaleY(1.5);
+        transform: scaleY(1.5);
+    }
+    .scale-d5:hover{
+        -webkit-transform: scale(.5);
+        -moz-transform: scale(.5);
+        -ms-transform: scale(.5);
+        -o-transform: scale(.5);
+        transform: scale(.5);
+    }
+    .demo-05:hover{
+        -webkit-transform: scale(1.5, 2.0);
+        -moz-transform: scale(1.5, 2.0);
+        -ms-transform: scale(1.5, 2.0);
+        -o-transform: scale(1.5, 2.0);
+        transform: scale(1.5, 2.0);
+    }
+}

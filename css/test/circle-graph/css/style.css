@@ -1,0 +1,34 @@
+* {
+    margin:0;
+    padding:0;
+}
+html, body {
+    height:100%;
+}
+html {
+    background-color:#f2f2f2;
+    color:#333;
+    font-family:"PT Sans", sans-serif;
+}
+body {
+    text-align:center;
+}
+.diagram {
+    display:inline-block;
+    margin:2em;
+}
+
+.diagram-3{position:relative;width:280px;height:280px;border:4px solid rgb(226, 226, 226);border-radius:50%;z-index:1;}
+.diagram-3 .div-1{display:block;position:relative;z-index:2;text-align:center;font-size:56px;font-family:inherit;
+    height:280px;line-height:280px;color: rgb(88, 88, 88);
+}
+.diagram-3 .div-2{display:none;position:absolute;z-index:1;top:-4px;right:-4px;bottom:-4px;left:-4px;border-width:4px;border-style:solid;
+    border-color:rgb(0, 102, 204) rgb(0, 102, 204) transparent transparent;border-radius:50%;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.diagram-3 .div-3{position:absolute;z-index:1;top:-4px;right:-4px;bottom:-4px;left:-4px;border-width:4px;border-style:solid;
+    border-color:rgb(0, 102, 204) rgb(0, 102, 204) transparent transparent;border-radius:50%;
+    -webkit-transform: rotate(459deg);
+    transform: rotate(459deg);
+}

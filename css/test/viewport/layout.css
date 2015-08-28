@@ -1,0 +1,25 @@
+@-ms-viewport {
+    width: device-width;
+    zoom: 1;
+    user-zoom: fixed;
+}
+@-o-viewport {
+    width: device-width;
+    zoom: 1;
+    user-zoom: fixed;
+}
+@viewport {
+    width: 320px;
+    zoom: 1;
+    max-zoom: 1;
+    user-zoom: fixed;
+}
+
+@media screen {
+    body{background:#005982;}
+}
+
+html{height:100%;}
+body{margin:0;position:relative;min-height:100%;}
+h1,h2,h3{margin:0;}
+.footer{position:absolute;left:0;bottom:0;width:100%;}

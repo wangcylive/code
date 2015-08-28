@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>background-image</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <style>
+        .nav{width:200px;border-radius:10px;overflow:hidden;}
+        .nav .inner{height:40px;}
+        [class*="-g"]{width:200px;height:200px;}
+        .l-g-01{
+            background-image:-webkit-linear-gradient(0deg, red, blue);
+            background-image:-moz-linear-gradient(0deg, red, blue);
+            background-image:linear-gradient(90deg, red, blue);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=red, endColorstr=blue, GradientType=1);
+        }
+        .l-g-02{
+            background-image:-webkit-linear-gradient(0deg, rgba(0,0,0,0), rgba(255,0,0,.8),rgba(255,252,0,.8),rgba(1,180,57,.8),rgba(0,3,144,.8),rgba(255,0,198,.8),rgba(0,0,0,0)),url(../../../rescources/images/02-min.jpg);
+            background-image:-moz-linear-gradient(0deg, rgba(0,0,0,0), rgba(255,0,0,.8),rgba(255,252,0,.8),rgba(1,180,57,.8),rgba(0,3,144,.8),rgba(255,0,198,.8),rgba(0,0,0,0)),url(../../../rescources/images/02-min.jpg);
+            background-image:linear-gradient(90deg, rgba(0,0,0,0), rgba(255,0,0,.8),rgba(255,252,0,.8),rgba(1,180,57,.8),rgba(0,3,144,.8),rgba(255,0,198,.8),rgba(0,0,0,0)),url(../../../rescources/images/02-min.jpg);
+        }
+        .r-g-01{
+            background-image:-webkit-radial-gradient(red, blue);
+            background-image:-moz-radial-gradient(red, blue);
+            background-image:radial-gradient(red, blue);
+        }
+        .r-g-02{
+            background-image:-webkit-radial-gradient(20% 10%, farthest-corner, red, blue);
+            background-image:-moz-radial-gradient(20% 10%, farthest-corner, red, blue);
+            background-image:radial-gradient(circle farthest-side at 20% 10%, red, blue);
+        }
+        .rep-l-g-01{
+            background-image:-webkit-repeating-linear-gradient(0deg, blue 5%, red 20%, yellow 40%, blue 60%);
+            background-image:-moz-repeating-linear-gradient(0deg, blue 5%, red 20%, yellow 40%, blue 60%);
+            background-image:repeating-linear-gradient(90deg, blue 5%, red 20%, yellow 40%, blue 60%);
+        }
+        .rep-r-g-01{
+            background-image:-webkit-repeating-radial-gradient(20% 10%, farthest-corner, red 5%, blue 20%, yellow 30%, red 40%);
+            background-image:-moz-repeating-radial-gradient(20% 10%, farthest-corner, red 5%, blue 20%, yellow 30%, red 40%);
+            background-image:repeating-radial-gradient(circle farthest-side at 20% 10%, red 5%, blue 20%, yellow 30%, red 40%);
+        }
+        .rep-l-g-02{
+            background-image:-webkit-repeating-linear-gradient(0deg, red 0,red 10%, green 10.001%, green 20%, blue 20.001%, blue 30%);
+            background-image:-moz-repeating-linear-gradient(0deg, red 0,red 10%, green 10.001%, green 20%, blue 20.001%, blue 30%);
+            background-image:repeating-linear-gradient(90deg, red 0,red 10%, green 10.001%, green 20%, blue 20.001%, blue 30%);
+        }
+        .rep-r-g-02{
+            background-image:-webkit-repeating-radial-gradient(0 0, circle, red 0,red 10%, green 10.001%, green 20%, blue 20.001%, blue 30%);
+            background-image:-moz-repeating-radial-gradient(0 0, circle, red 0,red 10%, green 10.001%, green 20%, blue 20.001%, blue 30%);
+            background-image:repeating-radial-gradient(circle at 0 0, red 0,red 10%, green 10.001%, green 20%, blue 20.001%, blue 30%);
+        }
+        .bg-png{height:300px;background:no-repeat #f5f5f5;background-size:contain;}
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div class="inner l-g-01"></div>
+    </div>
+    <br>
+    <div class="l-g-01"></div>
+    <br>
+    <div class="l-g-02"></div>
+    <br>
+    <div class="r-g-01"></div>
+    <br>
+    <div class="r-g-02"></div>
+    <br>
+    <div class="rep-l-g-01"></div>
+    <br>
+    <div class="rep-r-g-01"></div>
+    <br>
+    <div class="rep-l-g-02"></div>
+    <br>
+    <div class="rep-r-g-02"></div>
+    <br>
+    <div class="bg-png" style="background-image:url(img/png8-index-01.png);"></div>
+    <div class="bg-png" style="background-image:url(img/png8-alpha-01.png);"></div>
+    <div class="bg-png" style="background-image:url(img/png32-01.png);"></div>
+
+    <div class="bg-png" style="background-image:url(img/png8-index-02.png);"></div>
+    <div class="bg-png" style="background-image:url(img/png8-alpha-02.png);"></div>
+    <div class="bg-png" style="background-image:url(img/png32-02.png);"></div>
+
+    <div class="bg-png" style="background-image:url(img/png8-index-03.png);"></div>
+    <div class="bg-png" style="background-image:url(img/png8-alpha-03.png);"></div>
+    <div class="bg-png" style="background-image:url(img/png32-03.png);"></div>
+    
+
+    <div id="writeWidth">
+    </div>
+    <script>
+        (function() {
+            var e = document.getElementById("writeWidth"),
+                w = document.documentElement.offsetWidth,
+                t = document.createTextNode(w + "\n"),
+                meta = document.getElementsByTagName("meta")[1],
+                metaText = document.createTextNode(meta.content);
+            e.appendChild(t);
+            e.appendChild(metaText);
+        }());
+    </script>
+</body>
+</html>

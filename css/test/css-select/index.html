@@ -1,0 +1,321 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>css选择器</title>
+    <link rel="stylesheet" href="layout.css">
+</head>
+<body>
+    <h1>css 选择器</h1>
+
+    <h2>element1 > element2</h2>
+    <ul class="ele-01">
+        <li>
+            first
+            <ul>
+                <li>first-01</li>
+                <li>first-02</li>
+            </ul>
+        </li>
+        <li>
+            second
+        </li>
+    </ul>
+
+    <h2>element1 + element2</h2>
+    <div class="ele-02">
+        <h3 class="h">headline</h3>
+        <p class="p">paragraph</p>
+        <p class="p">paragraph</p>
+
+        <h3 class="h">headline</h3>
+        <p class="p">paragraph</p>
+    </div>
+
+    <h2>element1 ~ element2</h2>
+    <div class="ele-03">
+        <div class="d">div 01</div>
+        <p class="p">paragraph</p>
+        <div>div</div>
+        <p class="p">paragraph</p>
+        <div class="d">div 02</div>
+        <p class="p">paragraph</p>
+    </div>
+
+    <h2>[attribute]</h2>
+    <div class="ele-04">
+        <p>paragraph</p>
+        <p data-index>paragraph data-index</p>
+        <p data-index="3">paragraph data-index="3"</p>
+    </div>
+
+    <h2>[attribute=value]</h2>
+    <div class="ele-05">
+        <p data-src=>paragraph</p>
+        <p data-src="p">paragraph data-src="p"</p>
+        <p data-src=p>paragraph data-src=p</p>
+    </div>
+
+    <h2>[attribute^=value]</h2>
+    <div class="ele-06">
+        <p data-src="wcy-cd">wcy-cd</p>
+        <p data-src="wcy">wcy</p>
+        <p data-src="wangchunyang">wangchunyang</p>
+    </div>
+
+    <h2>[attribute$=value]</h2>
+    <div class="ele-07">
+        <p data-src="wcy-cd">wcy-cd</p>
+        <p data-src="wcy">wcy</p>
+        <p data-src="cd">cd</p>
+    </div>
+
+    <h2>[attribute*=value]</h2>
+    <div class="ele-08">
+        <p class="c-gray">gray</p>
+        <p class="c-blue">blue</p>
+        <p class="c-high-gray">high-gray</p>
+    </div>
+
+    <h2>[attribute~=value]</h2>
+    <div class="ele-09">
+        <p>paragraph</p>
+        <p data-src="a b01">paragraph data-src="a b01"</p>
+        <p data-src="a-bb">paragraph data-src="a-bb"</p>
+        <p data-src="a-bb a dfdf">paragraph data-src="a-bb a dfdf"</p>
+    </div>
+
+    <h2>[attribute|=value]</h2>
+    <div class="ele-10">
+        <p lang="en">lang="en"</p>
+        <p lang="en-us">lang="en-us"</p>
+        <p lang=en-gb>lang=en-gb</p>
+        <p lang="us">lang="us"</p>
+        <p lang="zh">lang="zh"</p>
+    </div>
+
+    <h2>:link :visited :active :hover :focus</h2>
+    <div class="ele-11">
+        <p>
+            <a href="http://www.baidu.com" target="_blank">百度一下，你就知道</a>
+        </p>
+        <p>
+            <a href="javascript:;">this is null link.</a>
+        </p>
+        <p>
+            <input type="email">
+        </p>
+        <div class="active">
+            <p>content</p>
+        </div>
+    </div>
+
+    <h2>:first-letter</h2>
+    <div class="ele-12">
+        <p>what are you doing tell me?</p>
+        <p>超哥经典名言！</p>
+    </div>
+
+    <h2>:first-line</h2>
+    <div class="ele-13">
+        <p>what are you fucking doing tell me?</p>
+        <p>窗前明月光，<br>疑是地上霜。<br>举头望明月，<br>低头思故乡。</p>
+    </div>
+
+    <h2>:first-child</h2>
+    <div class="ele-14">
+        <ul>
+            <li>list 1</li>
+            <li>list 2</li>
+        </ul>
+        <ul>
+            <li>list 1</li>
+            <li>list 2</li>
+        </ul>
+    </div>
+
+    <h2>:before :after</h2>
+    <div class="ele-15">
+        <p class="before">第一行</p>
+        <p class="after">第二行</p>
+    </div>
+
+    <h2>:lang(language)</h2>
+    <div class="ele-16">
+        <p lang="zh">中文</p>
+        <p lang="en-us">en-us</p>
+        <p lang="en-os">en-os</p>
+    </div>
+
+    <h2>:first-of-type</h2>
+    <div class="ele-17">
+        <p>paragraph first</p>
+        <div>div first</div>
+        <q>first quote</q>
+        <p>paragraph second</p>
+        <q>second quote</q>
+        <div>div second</div>
+        <span>only one span</span>
+    </div>
+
+    <h2>:last-of-type</h2>
+    <div class="ele-18">
+        <p>paragraph first</p>
+        <div>div first</div>
+        <q>first quote</q>
+        <p>paragraph second</p>
+        <q>second quote</q>
+        <div>div second</div>
+        <span>only one span</span>
+    </div>
+
+    <h2>:only-of-type</h2>
+    <div class="ele-19">
+        <p>paragraph</p>
+        <div>div</div>
+        <span>span</span>
+        <div>div</div>
+    </div>
+
+    <h2>:only-child</h2>
+    <div class="ele-20">
+        <p>paragraph</p>
+    </div>
+    <div class="ele-20">
+        <div>div</div>
+        <p>paragraph</p>
+    </div>
+
+    <h2>:nth-child(n)</h2>
+    <div class="ele-21">
+        <ul class="list-01">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <ul class="list-02">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+
+    <h2>:nth-last-child(n)</h2>
+    <div class="ele-22">
+        <ul class="list-01">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <ul class="list-02">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+
+    <h2>:nth-of-type(n)</h2>
+    <div class="ele-23">
+        <p>p01</p>
+        <p>p02</p>
+        <p>p03</p>
+        <div>div01</div>
+        <div>div02</div>
+        <div>div03</div>
+    </div>
+
+    <h2>:nth-last-of-type(n)</h2>
+    <div class="ele-24">
+        <p>p01</p>
+        <p>p02</p>
+        <p>p03</p>
+        <div>div01</div>
+        <div>div02</div>
+        <div>div03</div>
+    </div>
+
+    <h2>:last-child</h2>
+    <div class="ele-25">
+        <p>p01</p>
+        <p>p02</p>
+        <p>p03</p>
+    </div>
+
+    <h2>:root</h2>
+    <div class="ele-26">
+        <p>在html页面中 :root 选择器选择的永远是html</p>
+    </div>
+
+    <h2>:empty</h2>
+    <div class="ele-27">
+        <p></p>
+        <p>2</p>
+        <p><span>3</span></p>
+    </div>
+
+    <h2>:target</h2>
+    <div class="ele-28">
+        <a href="#section01">section01</a>
+        <a href="#section02">section02</a>
+        <p>
+            <a id="section01">section01 content</a>
+        </p>
+        <p>
+            <a id="section02">section02 content</a>
+        </p>
+    </div>
+
+    <h2>:enabled</h2>
+    <div class="ele-29">
+        <input type="text">
+        <input type="text" disabled>
+        <input type="radio">
+        <input type="radio" disabled="">
+        <select name="">
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+        <select name="" disabled="">
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+    </div>
+
+    <h2>:disabled</h2>
+    <div class="ele-30">
+        <input type="text">
+        <input type="text" disabled>
+        <input type="radio">
+        <input type="radio" disabled="">
+        <select name="" multiple>
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+        <select name="" disabled="">
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+    </div>
+
+    <h2>:checked</h2>
+    <div class="ele-31">
+        <input type="checkbox" value="1"><label for="">1</label>
+        <input type="checkbox" value="2"><label for="">2</label>
+        <input type="checkbox" value="3"><label for="">3</label>
+    </div>
+
+    <h2>::selection</h2>
+    <div class="ele-32">
+        <p>朝辞白帝彩云间，千里江陵一日还。两岸猿声啼不住，轻舟已过万重山。</p>
+    </div>
+</body>
+</html>

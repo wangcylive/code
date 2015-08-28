@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>sass</title>
+<link href="styles/layout.css" rel="stylesheet">
+</head>
+<body>
+    <div id="page">
+        <div class="page-header">
+            <div class="page-nav">
+                <a href="javascript:;" class="btn-unfold" id="btnUnfoldNav">展开</a>
+                <ul class="clearfix" id="navList">
+                    <li><a href="javascript:;">homo</a></li>
+                    <li><a href="javascript:;">object</a></li>
+                    <li><a href="javascript:;">contact us</a></li>
+                    <li><a href="javascript:;">about us</a></li>
+                </ul>
+                <div id="jsMedia"></div>
+                <script>
+                    function getCss(ele) {
+                        if(window.getComputedStyle) {
+                            return getComputedStyle(ele, "");
+                        } else {
+                            return ele.currentStyle;
+                        }
+                    }
+
+                    (function() {
+                        var btn = document.getElementById("btnUnfoldNav"),
+                            list = document.getElementById("navList"),
+                            media = document.getElementById("jsMedia");
+
+                        btn.onclick = function() {
+                            if(getCss(list).display !== "block") {
+                                this.innerHTML = "隐藏";
+                                list.style.display = "block";
+                            } else {
+                                this.innerHTML = "展开";
+                                list.style.display = "none";
+                            }
+                        }
+
+                        window.onresize = function() {
+                            if(getCss(media).width == "767px" && getCss(list).display == "none") {
+                                list.style.display = "block";
+                                btn.innerHTML = "隐藏";
+                            }
+                        }
+                    }());
+                </script>
+            </div>
+        </div>
+        <div class="page-container clearfix">
+            <div class="page-main">
+                <form action="" class="form">
+                    <fieldset>
+                        <legend>注册</legend>
+                        <div class="L">
+                            <label for="">邮箱：</label>
+                            <input type="email" placeholder="请输入邮箱">
+                        </div>
+                        <div class="L">
+                            <label for="">手机：</label>
+                            <input type="tel" placeholder="请输入电话号码">
+                        </div>
+                        <div class="L">
+                            <label for="">用户名：</label>
+                            <input type="text" placeholder="请输入用户名">
+                        </div>
+                        <div class="L">
+                            <label for="">密码：</label>
+                            <input type="password" placeholder="请输入6-18位密码">
+                        </div>
+                        <div class="L">
+                            <label for="">确认密码：</label>
+                            <input type="password" placeholder="请再次输入密码">
+                        </div>
+                        <div class="button">
+                            <input type="submit" class="btn-submit" value="确认">
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="page-sidebar">
+                <h2>注册后您将可以使用本站的所有功能</h2>
+            </div>
+        </div>
+        <div class="page-footer">
+            <div class="copyright">&copy;2014 wangcy™-sass-test</div>
+        </div>
+    </div>
+</body>
+</html>

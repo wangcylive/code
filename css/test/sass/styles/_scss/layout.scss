@@ -1,0 +1,215 @@
+@import "reset.scss";
+@import "common.scss";
+@import "bourbon/_bourbon.scss";
+
+@media screen {
+    $color-main: #333;
+    $color-link: #f00;
+
+    body {
+        color: $color-main;
+    }
+
+    #page {
+        max-width: 1240px;
+        margin: 0 auto;
+    }
+    
+    .page-header {
+        padding: 10px 0;
+    }
+    .page-nav .btn-unfold {
+        display: none;
+    }
+    .page-nav li {
+        float: left;
+        width: 25%;
+    }
+    .page-nav li a {
+        display: block;
+        margin:0 10px;
+        padding: 8px 0;
+        font-size: 1.4em;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        text-shadow: 2px 2px 3px hsla(0, 0%, 0%, .5);
+        box-shadow: 0 0 3px 2px hsla(0, 0%, 0%, .3);
+        border:1px solid hsl(120, 50%, 28%);
+        border-radius: 8px;
+        @include linear-gradient(0deg, hsl(120, 50%, 30%), hsl(120, 50%, 40%));
+        &:hover {
+            text-decoration: none;
+            color: #fff;
+        }
+    }
+    #jsMedia {
+        height: 0;
+        width: auto;
+        display: none;
+    }
+    
+    .page-container {
+        margin:20px 0;
+    }
+    .page-main {
+        float: right;
+        width: 70%;
+        background-color: #f5f5f5;
+    }
+    .form {
+        padding:10px;
+    }
+    .form fieldset {
+        border:none;
+    }
+    .form legend {
+        padding:3px;
+        font-size: 1.4em;
+        font-weight: bold;
+        color: #fff;
+        margin-bottom:10px;
+        text-shadow: 0 0 3px hsla(0, 0%, 0%, .5);
+        background-color: #308cfb;
+        border:1px solid darken(#308cfb, 20%);
+        cursor: default;
+        @include user-select;
+    }
+    .form .L {
+        margin-bottom: 10px;
+    }
+    .form label {
+        display: inline-block;
+        width: 5em;
+        text-align: right;
+    }
+    .form .L input {
+        width: 400px;
+    }
+
+    %button {
+        border: 1px solid #ccc;
+        padding: 10px;
+        font-size: 1.2em;
+    }
+
+    .form .btn-submit {
+        @include pill(#005982);
+    }
+
+    .page-sidebar {
+        float: left;
+        width: 28%;
+    }
+    .page-sidebar h2 {
+        text-shadow: 2px 2px 3px hsla(20, 70%, 60%, .3);
+        // @if 1 > 2 {
+        //     font-size: 1.3em;
+        // } @else {
+        //     font-size: 1.5em;
+        // }
+    }
+
+    .copyright {
+        padding:10px 0;
+        text-align: center;
+        color: #fff;
+        background-color: #00a0e9;
+    }
+
+    // @for $i from 1 to 9 {
+    //     .register-0#{$i} {
+    //         font-size: 12 + ($i - 1)*3px;
+    //     }
+    // }
+
+    // @for $i from 1 to 5 {
+    //     .aaa-0#{$i} {
+    //         background-position: ($i - 1)*10px ($i - 1)*12px;
+    //     }
+    // }
+
+    // $i: 6;
+    // @while $i < 10 {
+    //     .bbb-0#{$i} {
+    //         background-color: lighten(#000, 10%*$i);
+    //     }
+    //     $i: $i + 1;
+    // }
+    
+    // %display {
+    //     display: inline-block;
+    // }
+    // @each $i in a, b, c, d {
+    //     #page .#{$i} {
+    //         @extend %display;
+    //     }
+    // }
+
+    // #page {
+    //     .a {
+    //         color: red;
+    //     }
+    //     .b {
+    //         color: blue;
+    //     }
+    //     .c {
+    //         color: green;
+    //     }
+    // }
+}
+
+@include hidpi {
+    body {
+        font-size: 1.6em;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #jsMedia {
+        display: block;
+        width: 767px;
+    }
+    .page-main, .page-sidebar {
+        float: none;
+        width: auto;
+    }
+    .form label {
+        display: block;
+        text-align: left;
+        padding: 0 0 0 6px;
+    }
+    .form .L input {
+        display: block;
+        width: 100%;
+        @include box-sizing(border-box);
+    }
+}
+
+@media only screen and (max-width: 479px) {
+    #jsMedia {
+        display: block;
+        width: 479px;
+    }
+    .page-header {
+        padding: 0;
+    }
+    .page-nav .btn-unfold {
+        display: block;
+        width: 100%;
+        height: 40px;
+        text-indent: 10px;
+        line-height: 40px;
+        font-size: 1.4em;
+    }
+    .page-nav ul {
+        display: none;
+    }
+    .page-nav li {
+        float: none;
+        width: 100%;
+    }
+    .page-container {
+        margin-top: 0;
+    }
+}

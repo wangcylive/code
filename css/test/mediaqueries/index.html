@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>mediaqueries</title>
+<link href="index.css" rel="stylesheet">
+</head>
+<body>
+    <ul class="nav">
+        <li><a href="#width">width</a></li>
+        <li><a href="#min-width">min-width</a></li>
+        <li><a href="#max-width">max-width</a></li>
+        <li><a href="#height">height</a></li>
+        <li><a href="#min-height">min-height</a></li>
+        <li><a href="#max-height">max-height</a></li>
+        <li><a href="#device-width">device-width</a></li>
+        <li><a href="#min-device-width">min-device-width</a></li>
+        <li><a href="#max-device-width">max-device-width</a></li>
+        <li><a href="#device-height">device-height</a></li>
+        <li><a href="#min-device-height">min-device-height</a></li>
+        <li><a href="#max-device-height">max-device-height</a></li>
+        <li><a href="#orientation">orientation</a></li>
+        <li><a href="#aspect-ratio">aspect-ratio</a></li>
+        <li><a href="#device-aspect-ratio">device-aspect-ratio</a></li>
+        <li><a href="#resolution-dpi">resolution dpi</a></li>
+        <li><a href="#resolution-dpcm">resolution dpcm</a></li>
+        <li><a href="#resolution-dppx">resolution dppx</a></li>
+        <li><a href="#min-resolution">min-resolution</a></li>
+        <li><a href="#max-resolution">max-resolution</a></li>
+        <li><a href="#device-pixel-ratio">device-pixel-ratio</a></li>
+        <li><a href="#min-device-pixel-ratio">min-device-pixel-ratio</a></li>
+        <li><a href="#max-device-pixel-ratio">max-device-pixel-ratio</a></li>
+        <li><a href="#color">color</a></li>
+        <li><a href="#min-color">min-color</a></li>
+        <li><a href="#max-color">max-color</a></li>
+    </ul>
+    <a href="#" class="back-top">返回<br>顶部</a>
+
+    <h2 id="width">width</h2>
+    <div class="demo width">
+        <pre>@media screen and (width: 320px) {
+    .min-width{background-color:red;}
+}
+@media screen and (width: 480px) {
+    .min-width{background-color:green;}
+}
+@media screen and (width: 640px) {
+    .min-width{background-color:blue;}
+}</pre>
+    </div> <!-- end width -->
+    
+    <h2 id="min-width">min-width</h2>
+    <div class="demo min-width">
+        <pre>@media screen and (min-width: 320px) {
+    .min-width{background-color:red;}
+}
+@media screen and (min-width: 480px) {
+    .min-width{background-color:green;}
+}
+@media screen and (min-width: 680px) {
+    .min-width{background-color:blue;}
+}</pre>
+    </div> <!-- end min-width -->
+    
+    <h2 id="max-width">max-width</h2>
+    <div class="demo max-width">
+        <pre>@media screen and (max-width: 640px) {
+    .max-width{background-color:blue;}
+}
+@media screen and (max-width: 480px) {
+    .max-width{background-color:green;}
+}
+@media screen and (max-width: 320px) {
+    .max-width{background-color:red;}
+}</pre>
+    </div> <!-- end max-width -->
+    
+    <h2 id="height">height</h2>
+    <div class="demo height">
+        <pre>@media screen and (height: 320px) {
+    .height{background-color:red;}
+}
+@media screen and (height: 480px) {
+    .height{background-color:green;}
+}
+@media screen and (height: 640px) {
+    .height{background-color:blue;}
+}</pre>
+    </div> <!-- end height -->
+    
+    <h2 id="min-height">min-height</h2>
+    <div class="demo min-height">
+        <pre>@media screen and (min-height: 320px) {
+    .min-height{background-color:red;}
+}
+@media screen and (min-height: 480px) {
+    .min-height{background-color:green;}
+}
+@media screen and (min-height: 640px) {
+    .min-height{background-color:blue;}
+}</pre>
+    </div> <!-- end min-height -->
+    
+    <h2 id="max-height">max-height</h2>
+    <div class="demo max-height">
+        <pre>@media screen and (max-height: 640px) {
+    .max-height{background-color:red;}
+}
+@media screen and (max-height: 480px) {
+    .max-height{background-color:green;}
+}
+@media screen and (max-height: 320px) {
+    .max-height{background-color:blue;}
+}</pre>
+    </div> <!-- end max-height -->
+    
+    <h2 id="device-width">device-width</h2>
+    <div class="demo device-width">
+        <pre>@media screen and (device-width: 320px) {
+    .device-width{background-color:red;}
+}
+@media screen and (device-width: 360px) {
+    .device-width{background-color:green;}
+}
+@media screen and (device-width: 1440px) {
+    .device-width{background-color:blue;}
+}</pre>
+    </div> <!-- end device-width -->
+    
+    <h2 id="min-device-width">min-device-width</h2>
+    <div class="demo min-device-width">
+        <pre>@media screen and (min-device-width: 320px) {
+    .min-device-width{background-color:red;}
+    .min-device-width pre:before{content:"min-device-width: 320px";}
+}
+@media screen and (min-device-width: 480px) {
+    .min-device-width{background-color:green;}
+    .min-device-width pre:before{content:"min-device-width: 480px";}
+}
+@media screen and (min-device-width: 640px) {
+    .min-device-width{background-color:blue;}
+    .min-device-width pre:before{content:"min-device-width: 640px";}
+}</pre>
+    </div> <!-- end min-device-width -->
+    
+    <h2 id="max-device-width">max-device-width</h2>
+    <div class="demo max-device-width">
+        <pre>@media screen and (max-device-width: 1440px) {
+    .max-device-width{background-color:red;}
+    .max-device-width pre:before{content:"max-device-width: 1440px";}
+}
+@media screen and (max-device-width: 480px) {
+    .max-device-width{background-color:green;}
+    .max-device-width pre:before{content:"max-device-width: 480px";}
+}
+@media screen and (max-device-width: 320px) {
+    .max-device-width{background-color:blue;}
+    .max-device-width pre:before{content:"max-device-width: 320px";}
+}</pre>
+    </div>
+    
+    <h2 id="device-height">device-height</h2>
+    <div class="demo device-height">
+        <pre>@media screen and (device-height: 480px) {
+    .device-height{background-color:red;}
+    .device-height pre:before{content:"device-height: 480px";}
+}
+@media screen and (device-height: 640px) {
+    .device-height{background-color:green;}
+    .device-height pre:before{content:"device-height: 640px";}
+}
+@media screen and (device-height: 900px) {
+    .device-height{background-color:blue;}
+    .device-height pre:before{content:"device-height: 900px";}
+}</pre>
+    </div> <!-- end device-height -->
+    
+    <h2 id="min-device-height">min-device-height</h2>
+    <div class="demo min-device-height">
+        <pre>@media screen and (min-device-height: 480px) {
+    .min-device-height{background-color:red;}
+    .min-device-height pre:before{content:"min-device-height: 480px";}
+}
+@media screen and (min-device-height: 640px) {
+    .min-device-height{background-color:green;}
+    .min-device-height pre:before{content:"min-device-height: 640px";}
+}
+@media screen and (min-device-height: 900px) {
+    .min-device-height{background-color:blue;}
+    .min-device-height pre:before{content:"min-device-height: 900px";}
+}</pre>
+    </div>  <!-- end min-device-height -->
+
+    <h2 id="max-device-height">max-device-height</h2>
+    <div class="demo max-device-height">
+        <pre>@media screen and (max-device-height: 900px) {
+    .max-device-height{background-color:red;}
+    .max-device-height pre:before{content:"max-device-height: 900px";}
+}
+@media screen and (max-device-height: 640px) {
+    .max-device-height{background-color:green;}
+    .max-device-height pre:before{content:"max-device-height: 640px";}
+}
+@media screen and (max-device-height: 480px) {
+    .max-device-height{background-color:blue;}
+    .max-device-height pre:before{content:"max-device-height: 480px";}
+}</pre>
+    </div>  <!-- end max-device-height -->
+    
+    <h2 id="orientation">orientation</h2>
+    <div class="demo orientation" id="orientation">
+        <pre>@media screen and (orientation: portrait) {
+    .orientation{background-color:red;}
+    .orientation pre:before{content:"orientation: portrait";}
+}
+@media screen and (orientation: landscape) {
+    .orientation{background-color:green;}
+    .orientation pre:before{content:"orientation: landscape";}
+}</pre>
+    </div>  <!-- end orientation -->
+    
+    <h2 id="aspect-ratio">aspect-ratio</h2>
+    <div class="demo aspect-ratio" id="aspect-ratio">
+        <pre>@media screen and (aspect-ratio: 2/3) {
+    .aspect-ratio{background-color:red;}
+    .aspect-ratio pre:before{content:"aspect-ratio: 2/3";}
+}
+@media screen and (aspect-ratio: 16/9) {
+    .aspect-ratio{background-color:green;}
+    .aspect-ratio pre:before{content:"aspect-ratio: 16/9";}
+}
+@media screen and (aspect-ratio: 16/10) {
+    .aspect-ratio{background-color:blue;}
+    .aspect-ratio pre:before{content:"aspect-ratio: 16/10";}
+}</pre>
+    </div>  <!-- end aspect-ratio -->
+    
+    <h2 id="device-aspect-ratio">device-aspect-ratio</h2>
+    <div class="demo device-aspect-ratio">
+        <pre>@media screen and (device-aspect-ratio: 2/3) {
+    .device-aspect-ratio{background-color:red;}
+    .device-aspect-ratio pre:before{content:"device-aspect-ratio: 2/3";}
+}
+@media screen and (device-aspect-ratio: 16/9) {
+    .device-aspect-ratio{background-color:green;}
+    .device-aspect-ratio pre:before{content:"device-aspect-ratio: 16/9";}
+}
+@media screen and (device-aspect-ratio: 16/10) {
+    .device-aspect-ratio{background-color:blue;}
+    .device-aspect-ratio pre:before{content:"device-aspect-ratio: 16/10";}
+}</pre>
+    </div>  <!-- end device-aspect-ratio -->
+    
+    <h2 id="resolution-dpi">resolution-dpi</h2>
+    <div class="demo resolution-dpi">
+        <pre>@media screen and (resolution: 96dpi) {
+    .resolution-dpi{background-color:red;}
+    .resolution-dpi pre:before{content:"resolution: 96dpi";}
+}
+@media screen and (resolution: 192dpi) {
+    .resolution-dpi{background-color:green;}
+    .resolution-dpi pre:before{content:"resolution: 192dpi";}
+}
+@media screen and (resolution: 288dpi) {
+    .resolution-dpi{background-color:blue;}
+    .resolution-dpi pre:before{content:"resolution: 288dpi";}
+}</pre>
+    </div>  <!-- end resolution-dpi -->
+    
+    <h2 id="resolution-dpcm">resolution-dpcm</h2>
+    <div class="demo resolution-dpcm">
+        <pre>@media screen and (resolution: 37.795276dpcm) {
+    .resolution-dpcm{background-color:red;}
+    .resolution-dpcm pre:before{content:"resolution: 37.795276dpcm";}
+}
+@media screen and (resolution: 75.590551dpcm) {
+    .resolution-dpcm{background-color:green;}
+    .resolution-dpcm pre:before{content:"resolution: 75.590551dpcm";}
+}
+@media screen and (resolution: 113.385827dpcm) {
+    .resolution-dpcm{background-color:blue;}
+    .resolution-dpcm pre:before{content:"resolution: 113.385827dpi";}
+}</pre>
+    </div>  <!-- end resolution-decm -->
+    
+    <h2 id="resolution-dppx">resolution-dppx</h2>
+    <div class="demo resolution-dppx">
+        <pre>@media screen and (resolution: 1dppx) {
+    .resolution-dppx{background-color:red;}
+    .resolution-dppx pre:before{content:"resolution-dppx: 1dppx";}
+}
+@media screen and (resolution: 2dppx) {
+    .resolution-dppx{background-color:green;}
+    .resolution-dppx pre:before{content:"resolution-dppx: 2dppx";}
+}
+@media screen and (resolution: 3dppx) {
+    .resolution-dppx{background-color:blue;}
+    .resolution-dppx pre:before{content:"resolution-dppx: 3dppx";}
+}</pre>
+    </div>  <!-- end resolution-dppx -->
+    
+    <h2 id="min-resolution">min-resolution</h2>
+    <div class="demo min-resolution">
+        <pre>@media screen and (min-resolution: 96dpi) {
+    .min-resolution{background-color:red;}
+    .min-resolution pre:before{content:"min-resolution: 96dpi";}
+}
+@media screen and (min-resolution: 192dpi) {
+    .min-resolution{background-color:green;}
+    .min-resolution pre:before{content:"min-resolution: 192dpi";}
+}
+@media screen and (min-resolution: 288dpi) {
+    .min-resolution{background-color:blue;}
+    .min-resolution pre:before{content:"min-resolution: 288dpi";}
+}</pre>
+    </div>  <!-- end min-resolution -->
+    
+    <h2 id="max-resolution">max-resolution</h2>
+    <div class="demo max-resolution">
+        <pre>@media screen and (max-resolution: 288dpi) {
+    .max-resolution{background-color:red;}
+    .max-resolution pre:before{content:"max-resolution: 288dpi";}
+}
+@media screen and (max-resolution: 192dpi) {
+    .max-resolution{background-color:green;}
+    .max-resolution pre:before{content:"max-resolutin: 192dpi";}
+}
+@media screen and (max-resolution: 96dpi) {
+    .max-resolution{background-color:blue;}
+    .max-resolution pre:before{content:"max-resolution: 96dpi";}
+}</pre>
+    </div>  <!-- end max-resolution -->
+    
+    <h2 id="device-pixel-ratio">device-pixel-ratio</h2>
+    <div class="demo device-pixel-ratio">
+        <pre>@media screen and (-webkit-device-pixel-ratio: 1),
+screen and (-moz-device-pixel-ratio: 1),
+screen and (-o-device-pixel-ratio: 1/1) {
+    .device-pixel-ratio{background-color:red;}
+    .device-pixel-ratio pre:before{content:"device-pixel-ratio: 1";}
+}
+@media screen and (-webkit-device-pixel-ratio: 2),
+screen and (-moz-device-pixel-ratio: 2),
+screen and (-o-device-pixel-ratio: 2/1) {
+    .device-pixel-ratio{background-color:green;}
+    .device-pixel-ratio pre:before{content:"device-pixel-ratio: 2";}
+}
+@media screen and (-webkit-device-pixel-ratio: 3),
+screen and (-moz-device-pixel-ratio: 3),
+screen and (-o-device-pixel-ratio: 3/1) {
+    .device-pixel-ratio{background-color:blue;}
+    .device-pixel-ratio pre:before{content:"device-pixel-ratio: 3";}
+}</pre>
+    </div>  <!-- end device-pixel-ratio -->
+    
+    <h2 id="min-device-pixel-ratio">min-device-pixel-ratio</h2>
+    <div class="demo min-device-pixel-ratio">
+        <pre>@media screen and (-webkit-min-device-pixel-ratio: 1),
+screen and (min--moz-device-pixel-ratio: 1),
+screen and (-o-min-device-pixel-ratio: 1/1) {
+    .min-device-pixel-ratio{background-color:red;}
+    .min-device-pixel-ratio pre:before{content:"min-device-pixel-ratio: 1";}
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+screen and (min--moz-device-pixel-ratio: 2),
+screen and (-o-min-device-pixel-ratio: 2/1) {
+    .min-device-pixel-ratio{background-color:green;}
+    .min-device-pixel-ratio pre:before{content:"min-device-pixel-ratio: 2";}
+}
+@media screen and (-webkit-min-device-pixel-ratio: 3),
+screen and (min--moz-device-pixel-ratio: 3),
+screen and (-o-min-device-pixel-ratio: 3/1) {
+    .min-device-pixel-ratio{background-color:blue;}
+    .min-device-pixel-ratio pre:before{content:"min-device-pixel-ratio: 3";}
+}</pre>
+    </div>  <!-- end min-device-pixel-ratio -->
+    
+    <h2 id="max-device-pixel-ratio">max-device-pixel-ratio</h2>
+    <div class="demo max-device-pixel-ratio">
+        <pre>@media screen and (-webkit-max-device-pixel-ratio: 3),
+screen and (max--moz-device-pixel-ratio: 3),
+screen and (-o-max-device-pixel-ratio: 3/1) {
+    .max-device-pixel-ratio{background-color:red;}
+    .max-device-pixel-ratio pre:before{content:"max-device-pixel-ratio: 3";}
+}
+@media screen and (-webkit-max-device-pixel-ratio: 2),
+screen and (max--moz-device-pixel-ratio: 2),
+screen and (-o-max-device-pixel-ratio: 2/1) {
+    .max-device-pixel-ratio{background-color:green;}
+    .max-device-pixel-ratio pre:before{content:"max-device-pixel-ratio: 2";}
+}
+@media screen and (-webkit-max-device-pixel-ratio: 1),
+screen and (max--moz-device-pixel-ratio: 1),
+screen and (-o-max-device-pixel-ratio: 1/1) {
+    .max-device-pixel-ratio{background-color:blue;}
+    .max-device-pixel-ratio pre:before{content:"max-device-pixel-ratio: 1";}
+}</pre>
+    </div>  <!-- end max-device-pixel-ratio -->
+    
+    <h2 id="color">color</h2>
+    <div class="demo color">
+        <pre>@media screen and (color) {
+    .color{background-color:red;}
+    .color pre:before{content:"color";}
+}
+@media screen and (color: 8) {
+    .color{background-color:green;}
+    .color pre:before{content:"color: 8";}
+}</pre>
+    </div>  <!-- end color -->
+    
+    <h2 id="min-color">min-color</h2>
+    <div class="demo min-color">
+        <pre>@media screen and (min-color: 1) {
+    .min-color{background-color:red;}
+    .min-color pre:before{content:"min-color: 1";}
+}
+@media screen and (min-color: 8) {
+    .min-color{background-color:green;}
+    .min-color pre:before{content:"min-color: 8";}
+}</pre>
+    </div>  <!-- end min-color -->
+    
+    <h2 id="max-color">max-color</h2>
+    <div class="demo max-color">
+        <pre>@media screen and (max-color: 1) {
+    .max-color{background-color:red;}
+    .max-color pre:before{content:"max-color: 1";}
+}
+@media screen and (max-color: 8) {
+    .max-color{background-color:green;}
+    .max-color pre:before{content:"max-color: 8";}
+}</pre>
+    </div>  <!-- end max-color -->
+</body>
+</html>

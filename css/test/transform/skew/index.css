@@ -1,0 +1,78 @@
+@import url(../../../src/reset.css);
+
+@media screen {
+    .section-01 [class|="demo"]{
+        -webkit-transform-origin: 0 0;
+        -moz-transform-origin: 0 0;
+        -ms-transform-origin: 0 0;
+        -o-transform-origin: 0 0;
+        transform-origin: 0 0;
+    }
+    .wrap{margin:2em;width:200px;height:200px;display:inline-block;background-color:hsla(0, 0%, 0%, .3);}
+    [class|="demo"]{display:block;height:198px;border:1px solid #333;}
+    [class|="demo"] div{font-size:16px;background-color:hsla(50, 30%, 30%, .3);
+        -webkit-transform-origin:0 0;
+        -moz-transform-origin:0 0;
+        -ms-transform-origin:0 0;
+        -o-transform-origin:0 0;
+        transform-origin:0 0;
+    }
+    [class|="demo"]:before{content:"";width:100%;height:0;border-bottom:1px solid #333;position:absolute;left:0;top:50%;}
+    [class|="demo"]:after{content:"";width:0;height:100%;border-left:1px solid #333;position:absolute;left:50%;top:0;}
+    .demo-01{
+        -webkit-transform: skewX(30deg);
+        -moz-transform: skewX(30deg);
+        -ms-transform: skewX(30deg);
+        -o-transform: skewX(30deg);
+        transform: skewX(30deg);
+    }
+    .demo-01 div{
+        -webkit-transform:skewX(-30deg);
+        -moz-transform:skewX(-30deg);
+        -ms-transform:skewX(-30deg);
+        -o-transform:skewX(-30deg);
+        transform:skewX(-30deg);
+    }
+    .demo-02{
+        -webkit-transform: skewY(20deg);
+        -moz-transform: skewY(20deg);
+        -ms-transform: skewY(20deg);
+        -o-transform: skewY(20deg);
+        transform: skewY(20deg);
+    }
+    .demo-02 div{
+        -webkit-transform:skewY(-20deg);
+        -moz-transform:skewY(-20deg);
+        -ms-transform:skewY(-20deg);
+        -o-transform:skewY(-20deg);
+        transform:skewY(-20deg);
+    }
+    .demo-03{
+        -webkit-transform: skew(-20deg, -20deg);
+        -moz-transform: skew(-20deg, -20deg);
+        -ms-transform: skew(-20deg, -20deg);
+        -o-transform: skew(-20deg, -20deg);
+        transform: skew(-20deg, -20deg);
+    }
+    .demo-03 div{
+        -webkit-transform:skew(20deg, 20deg);
+        -moz-transform:skew(20deg, 20deg);
+        -ms-transform:skew(20deg, 20deg);
+        -o-transform:skew(20deg, 20deg);
+        transform:skew(20deg, 20deg);
+    }
+    .demo-04{
+        -webkit-transform: skew(45deg, -20deg);
+        -moz-transform: skew(45deg, -20deg);
+        -ms-transform: skew(45deg, -20deg);
+        -o-transform: skew(45deg, -20deg);
+        transform: skew(45deg, -20deg);
+    }
+    .demo-04 div{
+        -webkit-transform:skew(-45deg, 20deg);
+        -moz-transform:skew(-45deg, 20deg);
+        -ms-transform:skew(-45deg, 20deg);
+        -o-transform:skew(-45deg, 20deg);
+        transform:skew(-45deg, 20deg);
+    }
+}

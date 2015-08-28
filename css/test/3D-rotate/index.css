@@ -1,0 +1,18 @@
+#page{width:800px;margin:0 auto;}
+.test{width:400px;position:relative;}
+.test img{width:400px;height:160px;
+    -webkit-transition: all 1s;
+    -webkit-transform-style: preserve-3d;}
+.test .pic-01{-webkit-transform: rotateY(90deg);}
+.test .pic-02{position:absolute;left:0;top:0;}
+.test:hover .pic-02{
+    -webkit-transform: rotateY(90deg);
+}
+.test:hover .pic-01{
+    -webkit-transform: rotateY(0);
+}
+
+@-webkit-keyframes spin {
+    form {-webkit-transform: rotateX(0);}
+    to {-webkit-transform: rotateX(360deg);}
+}

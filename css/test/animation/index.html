@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>css3 animation</title>
+<link rel="stylesheet" href="css/layout.css">
+<!-- <link href="css/animate.css" rel="stylesheet"> -->
+</head>
+<body>
+    <h1>animation</h1>
+    <blockquote>
+        <p><code>animation</code>属性包括</p>
+        <ul>
+            <li><code>animation-name: none | IDENT[,none | IDENT]*;</code></li>
+            <li><code>animation-duration: &lt;time&gt;[,&lt;time&gt;]*</code></li>
+            <li><code>animation-timing-function:ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(&lt;number&gt;, &lt;number&gt;, &lt;number&gt;, &lt;number&gt;) </code></li>
+            <li><code>animation-delay: &lt;time&gt;[,&lt;time&gt;]*</code></li>
+            <li><code>animation-iteration-count:infinite | &lt;number&gt; [, infinite | &lt;number&gt;]* </code></li>
+            <li><code>animation-direction: normal | reverse | alternate | alternate-reverse [, normal | reverse | alternate | alternate-reverse]* </code></li>
+            <li><code>animation-fill-mode : none | forwards | backwards | both [, none | forwards | backwards | both]*</code></li>
+            <li><code>animation-play-state:running | paused [, running | paused]* </code></li>
+        </ul>
+    </blockquote>
+
+    <h2>animation-timing-function</h2>
+
+    <div class="timing-function">
+        <div class="list animated alternate count-3 translateX ease">ease</div>
+        <div class="list animated alternate count-3 translateX ease-in">ease-in</div>
+        <div class="list animated alternate count-3 translateX ease-out">ease-out</div>
+        <div class="list animated alternate count-3 translateX ease-in-out">ease-in-out</div>
+        <div class="list animated alternate count-3 translateX linear">linear</div>
+        <div class="list animated alternate count-3 translateX cubic-bezier">cubic-bezier</div>
+    </div>
+
+    <h2>animation-delay</h2>
+
+    <div class="delay">
+        <div class="list animated alternate count-3 translateX delay"></div>
+        <div class="list animated alternate count-3 translateX"></div>
+    </div>
+
+    <h2>animation-iteration-count</h2>
+
+    <div class="iteration-count">
+        <div class="list animated rotate"></div>
+        <div class="list animated rotate count-3"></div>
+        <div class="list animated rotate infinite"></div>
+    </div>
+
+    <h2>animation-direction</h2>
+
+    <div class="direction">
+        <div class="list animated rotate count-3"></div>
+        <div class="list animated rotate count-3 reverse"></div>
+        <div class="list animated rotate count-3 alternate"></div>
+        <div class="list animated rotate count-3 alternate-reverse"></div>
+    </div>
+
+    <h2>animation-fill-mode</h2>
+
+    <div class="fill-mode">
+        <div class="list animated translateXfrom reverse count-3">none</div>
+        <div class="list animated translateXfrom reverse count-3 forwards">forwards</div>
+        <div class="list animated translateXfrom reverse count-3 backwards">backwards</div>
+        <div class="list animated translateXfrom reverse count-3 backwards">backwards</div>
+        <div class="list animated translateXfrom reverse count-3 both">both</div>
+    </div>
+
+    <p>
+        <button id="removeAnimated">remove animated</button>
+    </p>
+    
+    <h2>animation-play-state</h2>
+    <div class="layout reversal animated infinite linear alternate" id="reversal"></div>
+
+    <p>
+        <button id="paused">paused</button>
+        <button id="runing">runing</button>
+    </p>
+    
+    <div class="test-01 animated fadeOut count-3" id="fadeOut"></div>
+
+    <p>
+       <button>paused</button>
+    </p>
+
+    <script src="js/fn.js"></script>
+</body>
+</html>

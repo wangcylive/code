@@ -1,0 +1,5 @@
+#page{width:700px;margin:0 auto;}
+.test-01{border:1px solid #ccc;text-align:justify;}
+.test-01 .list{width:210px;height:140px;border:1px solid #333;display:inline-block;margin-bottom:20px;vertical-align:top;}
+.test-01 .white-list{width:300px;height:1px;display:inline-block;font-size:0;line-height:0;background-color:red;vertical-align:top;}
+.test-01 :not(.list):nth-child(3){background-color:#ccc;}

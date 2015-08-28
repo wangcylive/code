@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>Style base</title>
+<link rel="stylesheet" href="styles/base.css">
+<link rel="stylesheet" href="styles/form.css">
+<link href="index.css" rel="stylesheet">
+<script>
+    document.addEventListener("touchstart", function(){}, true);
+</script>
+</head>
+<body>
+    <h1 class="ta-c">Base Css</h1>
+
+    <h2>自定义字体</h2>
+    <div>
+        <span class="font-icon">&#xe602;</span>
+        <span class="font-icon">&#xe603;</span>
+        <span class="font-icon">&#xe604;</span>
+        <span class="font-icon">&#xe605;</span>
+        <span class="font-icon">&#xe606;</span>
+        <span class="font-icon">&#xe607;</span>
+        <span class="font-icon">&#xe608;</span>
+        <span class="font-icon-error"></span>
+        <span class="font-icon-right"></span>
+        &#x4F60;&#x597D;&#xFF0C;&#x7B1B;&#x7B1B;&#x7B1B;
+    </div>
+
+    <br>
+
+    <h2>浮动</h2>
+    <p><b>clearfix</b>清除浮动，添加父级元素类上</p>
+    <div class="clearfix">
+        <div class="flo-l" style="border:1px solid red;"><b>flo-l</b>左浮动</div>
+        <div class="flo-r" style="border:1px solid blue;"><b>flo-r</b>右浮动</div>
+    </div>
+    <!-- end 浮动 -->
+
+    <br>
+    
+    <h2>缩进</h2>
+    <p>添加<strong>indent</strong>首行缩进<strong>两个文字大小</strong></p>
+    <div class="indent">
+        <p>It reminds me of my days on the rifle range preparing for duty in Vietnam.这使我回想起在射击场上训练准备去越南服役的那些日子。http://www.hao123.com;</p>
+        <p>N-COUNT The range of something is the maximum area in which it can reach things or detect things. </p>
+    </div>
+    <!-- end 缩进 -->
+    
+    <br>
+
+    <h2>隐藏文字</h2>
+    <p><b>to-e</b>隐藏文字，用省略号代替</p>
+    <div style="width:300px;" class="to-e">It reminds me of my days on the rifle range preparing for duty in Vietnam.这使我回想起在射击场上训练准备去越南服役的那些日子。http://www.hao123.com;</div>
+    <!-- end 隐藏文字 -->
+
+    <br>
+
+    <h2>文字对齐方式</h2>
+    <p><b>ta-l</b>左对齐；<b>ta-r</b>右对齐；<b>ta-j</b>两端对齐</p>
+    <div style="width:300px;border:1px solid #999;">
+        <p class="ta-l">It reminds me of my days on the rifle range.</p>
+        <p class="ta-r mtb-v1">http://www.hao123.com</p>
+        <p class="ta-c mtb-v1">It reminds me of my days on the rifle range.</p>
+        <p class="ta-j">It reminds me of my days on the rifle range preparing for duty in Vietnam.这使我回想起在射击场上训练准备去越南服役的那些日子。</p>
+    </div>
+    <!-- end 文字对齐 -->
+    
+    <br>
+    
+    <h2>border-box盒模型</h2>
+    <p><b>bs-bb</b>设置<i>border</i>和<i>padding</i>也不会改变对象的实际宽度</p>
+    <div class="bs-bb" style="width:300px;padding:30px;border:1px solid #999;">笛笛笛</div>
+    <!-- end border-box盒模型 -->
+
+    <br>
+    
+    <h2>定位</h2>
+    <p><b>pos-r</b>相对定位；<b>pos-a</b>绝对定位；<b>pos-f</b>固定定位</p>
+    <div class="pos-r bs-bb" style="width:300px;padding:30px;border:5px double #999;">
+        <div class="pos-a" style="left:0;top:0;width:50px;height:50px;background-color:red;color:#fff;">绝对定位</div>
+    </div>
+    <a href="#" class="pos-f ta-c" style="right:0;bottom:0;width:50px;padding:15px 0;background-color:#666;color:#fff;">返回<br>顶部</a>
+    <!-- end 定位 -->
+    
+    <br>
+
+    <h2>显示</h2>
+    <p><b>dis-n</b>隐藏元素，不占空间，背景图片不会加载；<b>vis-h</b>隐藏元素，占空间，背景图片加载</p>
+    <div class="dis-n" style="height:100px;background-image:url(../../rescources/images/01.gif?dis-n);"></div>
+    <div class="vis-h" style="height:100px;background-image:url(../../rescources/images/01.gif?vis-h);"></div>
+    <!-- end 显示 -->
+    
+    <br>
+
+    <h2>标题</h2>
+    <hgroup>
+        <h1>标题一 header first</h1>
+        <h2>标题二 header second</h2>
+        <h3>标题三 header third</h3>
+        <h4>标题四 header forth</h4>
+        <h5>标题五 header fifth</h5>
+        <h6>标题六 header sixth</h6>
+    </hgroup>
+    <!-- end 标题 -->
+
+    <br>
+    
+    <h2>选择</h2>
+    <p><b>us-n</b>设置不能选中</p>
+    <div class="us-n">这里是一段文字</div>
+    <!-- end 选择 -->
+
+    <br>
+    
+    <h2>form表单</h2>
+    <form action="" id="form">
+        <fieldset style="padding:1em;">
+            <legend>输入类型</legend>
+            <p>
+                <label for="email">email</label>
+                <input type="email" id="email" list="email-list" placeholder="输入邮箱">
+                <datalist id="email-list">
+                    <option label="qq" value="wangcy@qq.com">
+                    <option label="outlook" value="wangcy@outlook.com">
+                    <option label="gmail" value="wangcy@gmail.com">
+                </datalist>
+            </p>
+            <p>
+                <label for="url">url</label>
+                <input type="url" id="url" placeholder="输入网站地址" autocomplete="off">
+            </p>
+            <p>
+                <label for="number">number</label>
+                <input type="number" id="number" min="1" max="999999999" maxlength="9" placeholder="输入数字">
+            </p>
+            <p>
+                <label for="range">range</label>
+                <input type="range" id="range" min="1" max="20" value="3">
+            </p>
+            <p>
+                <label for="tel">tel</label>
+                <input type="tel" id="tel" placeholder="输入电话号码">
+            </p>
+            <p>
+                <label for="text">text</label>
+                <input type="text" id="tel" placeholder="输入文本">
+            </p>
+            <p>
+                <label for="text">text</label>
+                <input type="text" id="tel" value="输入文本" disabled>
+            </p>
+            <p>
+                <label for="password">password</label>
+                <input type="password" id="password" placeholder="输入密码">
+            </p>
+            <p>
+                <label for="search">search</label>
+                <input type="search" id="search" placeholder="输入搜索">
+            </p>
+            <p>
+                <label for="file">file</label>
+                <input type="file" id="file" placeholder="选择文件">
+            </p>
+            <p>
+                <span>radio</span>
+                <input type="radio" id="man" name="sex" value="0" checked><label for="man">man</label>
+                <input type="radio" id="woman" name="sex" value="0"><label for="woman">woman</label>
+                <input type="radio" id="woman" name="sex" value="0" disabled><label>woman</label>
+                <input type="radio" id="" name="sex2" value="0" checked disabled><label>woman</label>
+            </p>
+            <p>
+                <span>checkbox</span>
+                <input type="checkbox" id="game" name="interest" value="0" checked><label for="game">game</label>
+                <input type="checkbox" id="sport" name="interest" value="0"><label for="sport">sport</label>
+                <input type="checkbox" id="travel" name="interest" value="0"><label for="travel">travel</label>
+                <input type="checkbox" id="travel" name="interest" value="0" disabled><label>travel</label>
+                <input type="checkbox" id="" name="interest2" value="0" checked disabled><label>travel</label>
+            </p>
+            <p>
+                <span>select</span>
+                <select name="" id="">
+                    <option value="">--please select--</option>
+                    <optgroup label="一线">
+                        <option value="1">北京</option>
+                        <option value="2">上海</option>
+                        <option value="3">广州</option>
+                        <option value="4">深圳</option>
+                    </optgroup>
+                    <optgroup label="二线">
+                        <option value="5">武汉</option>
+                        <option value="6">南京</option>
+                    </optgroup>
+                </select>
+                <select name="" id="" disabled>
+                    <option value="">--please select--</option>
+                    <optgroup label="一线">
+                        <option value="1">北京</option>
+                        <option value="2">上海</option>
+                        <option value="3">广州</option>
+                        <option value="4">深圳</option>
+                    </optgroup>
+                    <optgroup label="二线">
+                        <option value="5">武汉</option>
+                        <option value="6">南京</option>
+                    </optgroup>
+                </select>
+            </p>
+        </fieldset>
+        <fieldset style="padding:1em;">
+            <legend>输入时间类型</legend>
+            <p>
+                <label for="date">date</label>
+                <input type="date" id="date">
+            </p>
+            <p>
+                <label for="month">month</label>
+                <input type="month" id="month">
+            </p>
+            <p>
+                <label for="week">week</label>
+                <input type="week" id="week">
+            </p>
+            <p>
+                <label for="time">time</label>
+                <input type="time" id="time">
+            </p>
+            <p>
+                <label for="datetime">datetime</label>
+                <input type="datetime" id="datetime">
+            </p>
+            <p>
+                <label for="datetime-local">datetime-local</label>
+                <input type="datetime-local" id="datetime-local">
+            </p>
+        </fieldset>
+        <input type="submit" value="input-submit">
+        <input type="submit" value="input-submit" disabled>
+        <input type="reset" value="input-reset">
+        <button type="button" class="button">button-submit</button>
+        <button type="button" class="button" disabled>button-submit</button>
+        <button type="button" class="button">button-reset</button>
+    </form>
+    <!-- end form表单 -->
+
+    <br>
+
+    <div class="links">
+        <a href="http://www.baidu.com" target="_blank" class="pe-n">百度一下，你就知道</a>
+        <a href="http://www.google.com.hk" target="_blank">google</a>
+        <a href="http://www.hao123.com" target="_blank">hao123</a>
+        <a href="javascript:;">void</a>
+    </div>
+
+
+    <p>奥斯卡房间暗示<br><br><br></p>
+</div>
+</body>
+</html>

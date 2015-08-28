@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>css fixed</title>
+<link href="" rel="stylesheet">
+<style>
+    .video{position:relative;width:100%;height:200px;background-color:#000;}
+    .video div{position:absolute;left:0;top:0;z-index:10;width:100%;height:100%;background-color:green;}
+    .overlay{position:fixed;left:0;top:0;z-index:20;width:100%;height:100%;background-color:hsla(50, 80%, 60%, .8);}
+</style>
+</head>
+<body>
+    <div class="video"><div></div></div>
+    <div class="overlay"></div>
+</body>
+</html>

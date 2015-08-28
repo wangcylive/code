@@ -1,0 +1,186 @@
+/**
+ * Created by Wangcy on 2014/11/4.
+ */
+@media screen {
+    [class|="test"] {
+        margin: 1em 0;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        border: 1px solid #000;
+    }
+    [class|="test"] :nth-child(1) {
+        background-color: #00ff00;
+    }
+    [class|="test"] :nth-child(2) {
+        background-color: #ff0000;
+    }
+    [class|="test"] :nth-child(3) {
+        background-color: #0000ff;
+    }
+    [class|="test"] :nth-child(4) {
+        background-color: #00a0e9;
+    }
+    [class|="test"] :nth-child(5) {
+        background-color: #ff7920;
+    }
+    [class|="test"] :nth-child(6) {
+        background-color: #FE6C9C;
+    }
+    [class|="test"] :nth-child(7) {
+        background-color: #440044;
+    }
+    .test-01 {
+        display: -webkit-box;
+        display: -moz-box;
+        width: 100%;  /* firefox 需要设置宽度 */
+        height: 100px;
+    }
+    .test-01 .list:first-child {
+        -webkit-box-flex: 1;
+        -moz-box-flex: 1;
+    }
+    .test-01 .main {
+        width: 200px;
+        -moz-box-ordinal-group: 3;
+        -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 3;
+        -webkit-order: 3;
+        order: 3;
+    }
+    .test-01 .list:nth-child(3) {
+        -webkit-box-flex: 5;
+        -moz-box-flex: 5;
+    }
+
+    .test-02 {
+        display: -webkit-inline-flex;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        width: 100%;
+        height: 300px;
+    }
+    .test-02 .main {
+        -webkit-flex: 2;
+        -ms-flex: 2;
+        flex: 2;
+    }
+    .test-02 .list:first-child {
+        height: 40px;
+    }
+    .test-02 .list:nth-child(3) {
+        -webkit-flex: .5;
+        -ms-flex: .5;
+        flex: .5;
+    }
+
+    .test-03 {
+        -webkit-flex-flow: row-reverse wrap;
+        -moz-flex-flow: row-reverse wrap;
+        -ms-flex-flow: row-reverse wrap;
+        flex-flow: row-reverse wrap;
+        height: 100px;
+    }
+    .test-03 .list:first-child {
+        flex: 1 0 100px;
+        -webkit-flex: 1 0 100px;
+        -ms-flex: 1 0 100px;
+    }
+    .test-03 .main {
+        width: 300px;
+    }
+    .test-03 .list:nth-child(3) {
+        flex: 2 0 200px;
+        -webkit-flex: 2 0 200px;
+        -ms-flex: 2 0 200px;
+    }
+
+    .test-04 {
+        -webkit-flex-flow: row wrap;
+        -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+        -webkit-justify-content: space-around;
+        -ms-justify-content: space-around;
+        justify-content: space-around;
+        height: 100px;
+    }
+    .test-04 .list {
+        width: 30%;
+        border: 1px solid #ccc;
+    }
+
+    .test-05 {
+        -webkit-flex-flow: row wrap;
+        -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+        -webkit-justify-content: space-around;
+        -ms-justify-content: space-around;
+        justify-content: space-around;
+        -webkit-align-items: center;
+        -ms-align-items: center;
+        align-items: center;
+        height: 100px;
+    }
+    .test-05 .list {
+        width: 30%;
+        border: 1px solid #ccc;
+    }
+    .test-05 :first-child {
+        height: 50px;
+    }
+    .test-05 :nth-child(2) {
+        height: 70px;
+    }
+    .test-05 :nth-child(3) {
+        height: 20px;
+    }
+
+    .test-06 {
+        -webkit-flex-flow: column wrap;
+        -ms-flex-flow: column wrap;
+        flex-flow: column wrap;
+        -webkit-justify-content: space-between;
+        -ms-justify-content: space-between;
+        justify-content: space-between;
+        height: 100px;
+    }
+    .test-06 .list {
+        height: 25%;
+    }
+
+    .test-07 {
+        height: 100px;
+        -webkit-flex-flow: row wrap;
+        -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+        -webkit-justify-content: space-between;
+        -ms-justify-content: space-between;
+        justify-content: space-between;
+        -webkit-align-content: space-between;
+        -ms-align-content: space-between;
+        align-content: space-between;
+    }
+    .test-07 .list {
+        width: 30%;
+        height: 20px;
+    }
+
+    .test-08 {
+        height: 50px;
+        -webkit-flex-flow: row wrap;
+        flex-flow: row wrap;
+    }
+    .test-08 :nth-child(1) {
+        flex: 3 0 200px;
+        order: 3;
+    }
+    .test-08 :nth-child(2) {
+        flex: 1 0 100px;
+        order: 1;
+    }
+    .test-08 :nth-child(3) {
+        flex: .5 0 50px;
+    }
+}

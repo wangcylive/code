@@ -1,0 +1,416 @@
+@import url(../../src/reset.css) screen;
+
+@media screen {
+    html{-webkit-tap-highlight-color:rgba(0, 0, 0, 0);}
+    body{padding:0 1em;font-size:1.6em;}
+    .nav li{display:inline-block;margin:0 10px;padding:10px 0;}
+    .back-top{position:fixed;right:8px;bottom:8px;z-index:10;padding:10px 0;width:60px;height:40px;background-color:hsla(0, 0%, 0%, .6);
+        text-align:center;line-height:20px;text-decoration:none;color:#fff;box-shadow:0 0 4px 2px hsla(190, 60%, 60%, .8);}
+    .back-top:hover,
+    .back-top:active{background-color:hsla(0, 0%, 0%, .9);color:#fff;}
+    .demo{margin-bottom:1em;border:1px solid hsl(120, 50%, 60%);padding:0.5em 1em;overflow:auto;}
+    .demo::-webkit-scrollbar{
+        width:12px;
+        background-color:hsl(0, 0%, 98%);
+    }
+    .demo::-webkit-scrollbar:horizontal{
+        height:12px;
+    }
+    .demo::-webkit-scrollbar-track{
+        border:1px solid hsl(0, 0%, 70%);
+        background-color:hsl(0, 0%, 92%);
+        box-shadow:0 0 2px 1px hsla(0, 0%, 0%, .05) inset;
+    }
+    .demo::-webkit-scrollbar-thumb{
+        border:1px solid hsl(0, 0%, 50%);
+        background-color:hsl(0, 0%, 70%);
+    }
+    .demo::-webkit-scrollbar-thumb:hover{
+        background-color:hsl(0, 0%, 60%);
+    }
+    .demo::-webkit-scrollbar-thumb:active{
+        background-color:hsl(0, 0%, 50%);
+    }
+    .demo::-webkit-scrollbar-thumb:vertical{
+        background-image:-webkit-linear-gradient(0deg, hsla(0, 0%, 100%, .15), hsla(0, 0%, 48%, .1));
+        background-image:linear-gradient(90deg, hsla(0, 0%, 100%, .15), hsla(0, 0%, 48%, .1));
+    }
+    .demo::-webkit-scrollbar-thumb:horizontal{
+        background-image:-webkit-linear-gradient(-90deg, hsla(0, 0%, 100%, .15), hsla(0, 0%, 48%, .1));
+        background-image:linear-gradient(180deg, hsla(0, 0%, 100%, .15), hsla(0, 0%, 48%, .1));
+    }
+    pre{font-family:tahoma, arial, sans-serif;color:#fff;margin:0;
+        text-shadow:0 0 5px hsla(0, 0%, 0%, .8), 0 0 6px hsla(0, 0%, 0%, .6);}
+    pre:before,
+    pre:after{display:block;color:#000;text-shadow:0 0 5px hsla(0, 0%, 100%, .8), 0 0 6px hsla(0, 0%, 100%, .6);}
+}
+
+@media only screen and (max-width: 767px) {
+    .nav li{display:block;margin:0;}
+}
+
+/*width*/
+@media screen and (width: 320px) {
+    .width{background-color:red;}
+    .width pre:before{content:"width: 320px";}
+}
+@media screen and (width: 480px) {
+    .width{background-color:green;}
+    .width pre:before{content:"width: 480px";}
+}
+@media screen and (width: 640px) {
+    .width{background-color:blue;}
+    .width pre:before{content:"width: 640px";}
+}
+
+/*min-width*/
+@media screen and (min-width: 320px) {
+    .min-width{background-color:red;}
+    .min-width pre:before{content:"min-width: 320px";}
+}
+@media screen and (min-width: 480px) {
+    .min-width{background-color:green;}
+    .min-width pre:before{content:"min-width: 480px";}    
+}
+@media screen and (min-width: 640px) {
+    .min-width{background-color:blue;}
+    .min-width pre:before{content:"min-width: 640px";}
+}
+
+/*max-width*/
+@media screen and (max-width: 640px) {
+    .max-width{background-color:blue;}
+    .max-width pre:before{content:"max-width: 640px";}
+}
+@media screen and (max-width: 480px) {
+    .max-width{background-color:green;}
+    .max-width pre:before{content:"max-width: 480px";}
+}
+@media screen and (max-width: 320px) {
+    .max-width{background-color:red;}
+    .max-width pre:before{content:"max-width: 320px";}
+}
+
+/*height*/
+@media screen and (height: 320px) {
+    .height{background-color:red;}
+    .height pre:before{content:"height: 320px";}
+}
+@media screen and (height: 480px) {
+    .height{background-color:green;}
+    .height pre:before{content:"height: 480px";}
+}
+@media screen and (height: 640px) {
+    .height{background-color:blue;}
+    .height pre:before{content:"height: 640px";}
+}
+
+/*min-height*/
+@media screen and (min-height: 320px) {
+    .min-height{background-color:red;}
+    .min-height pre:before{content:"min-height: 320px";}
+}
+@media screen and (min-height: 480px) {
+    .min-height{background-color:green;}
+    .min-height pre:before{content:"min-height: 480px";}
+}
+@media screen and (min-height: 640px) {
+    .min-height{background-color:blue;}
+    .min-height pre:before{content:"min-height: 640px";}
+}
+
+/*max-height*/
+@media screen and (max-height: 640px) {
+    .max-height{background-color:red;}
+    .max-height pre:before{content:"max-height: 640px";}
+}
+@media screen and (max-height: 480px) {
+    .max-height{background-color:green;}
+    .max-height pre:before{content:"max-height: 480px";}
+}
+@media screen and (max-height: 320px) {
+    .max-height{background-color:blue;}
+    .max-height pre:before{content:"max-height: 320px";}
+}
+
+/*device-width*/
+@media screen and (device-width: 320px) {
+    .device-width{background-color:red;}
+    .device-width pre:before{content:"device-width: 320px";}
+}
+@media screen and (device-width: 360px) {
+    .device-width{background-color:green;}
+    .device-width pre:before{content:"device-width: 360px";}
+}
+@media screen and (device-width: 1440px) {
+    .device-width{background-color:blue;}
+    .device-width pre:before{content:"device-width: 1440px";}
+}
+
+/*min-device-width*/
+@media screen and (min-device-width: 320px) {
+    .min-device-width{background-color:red;}
+    .min-device-width pre:before{content:"min-device-width: 320px";}
+}
+@media screen and (min-device-width: 480px) {
+    .min-device-width{background-color:green;}
+    .min-device-width pre:before{content:"min-device-width: 480px";}
+}
+@media screen and (min-device-width: 640px) {
+    .min-device-width{background-color:blue;}
+    .min-device-width pre:before{content:"min-device-width: 640px";}
+}
+
+/*max-device-width*/
+@media screen and (max-device-width: 1440px) {
+    .max-device-width{background-color:red;}
+    .max-device-width pre:before{content:"max-device-width: 1440px";}
+}
+@media screen and (max-device-width: 480px) {
+    .max-device-width{background-color:green;}
+    .max-device-width pre:before{content:"max-device-width: 480px";}
+}
+@media screen and (max-device-width: 320px) {
+    .max-device-width{background-color:blue;}
+    .max-device-width pre:before{content:"max-device-width: 320px";}
+}
+
+/*device-height*/
+@media screen and (device-height: 480px) {
+    .device-height{background-color:red;}
+    .device-height pre:before{content:"device-height: 480px";}
+}
+@media screen and (device-height: 640px) {
+    .device-height{background-color:green;}
+    .device-height pre:before{content:"device-height: 640px";}
+}
+@media screen and (device-height: 900px) {
+    .device-height{background-color:blue;}
+    .device-height pre:before{content:"device-height: 900px";}
+}
+
+/*min-device-height*/
+@media screen and (min-device-height: 480px) {
+    .min-device-height{background-color:red;}
+    .min-device-height pre:before{content:"min-device-height: 480px";}
+}
+@media screen and (min-device-height: 640px) {
+    .min-device-height{background-color:green;}
+    .min-device-height pre:before{content:"min-device-height: 640px";}
+}
+@media screen and (min-device-height: 900px) {
+    .min-device-height{background-color:blue;}
+    .min-device-height pre:before{content:"min-device-height: 900px";}
+}
+
+/*max-device-height*/
+@media screen and (max-device-height: 900px) {
+    .max-device-height{background-color:red;}
+    .max-device-height pre:before{content:"max-device-height: 900px";}
+}
+@media screen and (max-device-height: 640px) {
+    .max-device-height{background-color:green;}
+    .max-device-height pre:before{content:"max-device-height: 640px";}
+}
+@media screen and (max-device-height: 480px) {
+    .max-device-height{background-color:blue;}
+    .max-device-height pre:before{content:"max-device-height: 480px";}
+}
+
+/*orientation*/
+@media screen and (orientation: portrait) {
+    .orientation{background-color:red;}
+    .orientation pre:before{content:"orientation: portrait";}
+}
+@media screen and (orientation: landscape) {
+    .orientation{background-color:green;}
+    .orientation pre:before{content:"orientation: landscape";}
+}
+
+/*aspect-ratio*/
+@media screen and (aspect-ratio: 2/3) {
+    .aspect-ratio{background-color:red;}
+    .aspect-ratio pre:before{content:"aspect-ratio: 2/3";}
+}
+@media screen and (aspect-ratio: 16/9) {
+    .aspect-ratio{background-color:green;}
+    .aspect-ratio pre:before{content:"aspect-ratio: 16/9";}
+}
+@media screen and (aspect-ratio: 16/10) {
+    .aspect-ratio{background-color:blue;}
+    .aspect-ratio pre:before{content:"aspect-ratio: 16/10";}
+}
+
+/*device-aspect-ratio*/
+@media screen and (device-aspect-ratio: 2/3) {
+    .device-aspect-ratio{background-color:red;}
+    .device-aspect-ratio pre:before{content:"device-aspect-ratio: 2/3";}
+}
+@media screen and (device-aspect-ratio: 16/9) {
+    .device-aspect-ratio{background-color:green;}
+    .device-aspect-ratio pre:before{content:"device-aspect-ratio: 16/9";}
+}
+@media screen and (device-aspect-ratio: 16/10) {
+    .device-aspect-ratio{background-color:blue;}
+    .device-aspect-ratio pre:before{content:"device-aspect-ratio: 16/10";}
+}
+
+/*resolution-dpi*/
+@media screen and (resolution: 96dpi) {
+    .resolution-dpi{background-color:red;}
+    .resolution-dpi pre:before{content:"resolution: 96dpi";}
+}
+@media screen and (resolution: 192dpi) {
+    .resolution-dpi{background-color:green;}
+    .resolution-dpi pre:before{content:"resolution: 192dpi";}
+}
+@media screen and (resolution: 288dpi) {
+    .resolution-dpi{background-color:blue;}
+    .resolution-dpi pre:before{content:"resolution: 288dpi";}
+}
+
+/*resolution-dpcm*/
+@media screen and (resolution: 37.795276dpcm) {
+    .resolution-dpcm{background-color:red;}
+    .resolution-dpcm pre:before{content:"resolution: 37.795276dpcm";}
+}
+@media screen and (resolution: 75.590551dpcm) {
+    .resolution-dpcm{background-color:green;}
+    .resolution-dpcm pre:before{content:"resolution: 75.590551dpcm";}
+}
+@media screen and (resolution: 113.385827dpcm) {
+    .resolution-dpcm{background-color:blue;}
+    .resolution-dpcm pre:before{content:"resolution: 113.385827dpi";}
+}
+
+/*resolution-dppx*/
+@media screen and (resolution: 1dppx) {
+    .resolution-dppx{background-color:red;}
+    .resolution-dppx pre:before{content:"resolution-dppx: 1dppx";}
+}
+@media screen and (resolution: 2dppx) {
+    .resolution-dppx{background-color:green;}
+    .resolution-dppx pre:before{content:"resolution-dppx: 2dppx";}
+}
+@media screen and (resolution: 3dppx) {
+    .resolution-dppx{background-color:blue;}
+    .resolution-dppx pre:before{content:"resolution-dppx: 3dppx";}
+}
+
+/*min-resolution*/
+@media screen and (min-resolution: 96dpi) {
+    .min-resolution{background-color:red;}
+    .min-resolution pre:before{content:"min-resolution: 96dpi";}
+}
+@media screen and (min-resolution: 192dpi) {
+    .min-resolution{background-color:green;}
+    .min-resolution pre:before{content:"min-resolution: 192dpi";}
+}
+@media screen and (min-resolution: 288dpi) {
+    .min-resolution{background-color:blue;}
+    .min-resolution pre:before{content:"min-resolution: 288dpi";}
+}
+
+/*max-resolution*/
+@media screen and (max-resolution: 288dpi) {
+    .max-resolution{background-color:red;}
+    .max-resolution pre:before{content:"max-resolution: 288dpi";}
+}
+@media screen and (max-resolution: 192dpi) {
+    .max-resolution{background-color:green;}
+    .max-resolution pre:before{content:"max-resolutin: 192dpi";}
+}
+@media screen and (max-resolution: 96dpi) {
+    .max-resolution{background-color:blue;}
+    .max-resolution pre:before{content:"max-resolution: 96dpi";}
+}
+
+/*device-pixel-ratio*/
+@media screen and (-webkit-device-pixel-ratio: 1),
+screen and (-moz-device-pixel-ratio: 1),
+screen and (-o-device-pixel-ratio: 1/1) {
+    .device-pixel-ratio{background-color:red;}
+    .device-pixel-ratio pre:before{content:"device-pixel-ratio: 1";}
+}
+@media screen and (-webkit-device-pixel-ratio: 2),
+screen and (-moz-device-pixel-ratio: 2),
+screen and (-o-device-pixel-ratio: 2/1) {
+    .device-pixel-ratio{background-color:green;}
+    .device-pixel-ratio pre:before{content:"device-pixel-ratio: 2";}
+}
+@media screen and (-webkit-device-pixel-ratio: 3),
+screen and (-moz-device-pixel-ratio: 3),
+screen and (-o-device-pixel-ratio: 3/1) {
+    .device-pixel-ratio{background-color:blue;}
+    .device-pixel-ratio pre:before{content:"device-pixel-ratio: 3";}
+}
+
+/*min-device-pixel-ratio*/
+@media screen and (-webkit-min-device-pixel-ratio: 1),
+screen and (min--moz-device-pixel-ratio: 1),
+screen and (-o-min-device-pixel-ratio: 1/1) {
+    .min-device-pixel-ratio{background-color:red;}
+    .min-device-pixel-ratio pre:before{content:"min-device-pixel-ratio: 1";}
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+screen and (min--moz-device-pixel-ratio: 2),
+screen and (-o-min-device-pixel-ratio: 2/1) {
+    .min-device-pixel-ratio{background-color:green;}
+    .min-device-pixel-ratio pre:before{content:"min-device-pixel-ratio: 2";}
+}
+@media screen and (-webkit-min-device-pixel-ratio: 3),
+screen and (min--moz-device-pixel-ratio: 3),
+screen and (-o-min-device-pixel-ratio: 3/1) {
+    .min-device-pixel-ratio{background-color:blue;}
+    .min-device-pixel-ratio pre:before{content:"min-device-pixel-ratio: 3";}
+}
+
+/*max-device-pixel-ratio*/
+@media screen and (-webkit-max-device-pixel-ratio: 3),
+screen and (max--moz-device-pixel-ratio: 3),
+screen and (-o-max-device-pixel-ratio: 3/1) {
+    .max-device-pixel-ratio{background-color:red;}
+    .max-device-pixel-ratio pre:before{content:"max-device-pixel-ratio: 3";}
+}
+@media screen and (-webkit-max-device-pixel-ratio: 2),
+screen and (max--moz-device-pixel-ratio: 2),
+screen and (-o-max-device-pixel-ratio: 2/1) {
+    .max-device-pixel-ratio{background-color:green;}
+    .max-device-pixel-ratio pre:before{content:"max-device-pixel-ratio: 2";}
+}
+@media screen and (-webkit-max-device-pixel-ratio: 1),
+screen and (max--moz-device-pixel-ratio: 1),
+screen and (-o-max-device-pixel-ratio: 1/1) {
+    .max-device-pixel-ratio{background-color:blue;}
+    .max-device-pixel-ratio pre:before{content:"max-device-pixel-ratio: 1";}
+}
+
+/*color*/
+@media screen and (color) {
+    .color{background-color:red;}
+    .color pre:before{content:"color";}
+}
+@media screen and (color: 8) {
+    .color{background-color:green;}
+    .color pre:before{content:"color: 8";}
+}
+
+/*min-color*/
+@media screen and (min-color: 1) {
+    .min-color{background-color:red;}
+    .min-color pre:before{content:"min-color: 1";}
+}
+@media screen and (min-color: 8) {
+    .min-color{background-color:green;}
+    .min-color pre:before{content:"min-color: 8";}
+}
+
+/*max-color*/
+@media screen and (max-color: 1) {
+    .max-color{background-color:red;}
+    .max-color pre:before{content:"max-color: 1";}
+}
+@media screen and (max-color: 8) {
+    .max-color{background-color:green;}
+    .max-color pre:before{content:"min-color: 8";}
+}

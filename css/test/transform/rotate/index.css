@@ -1,0 +1,107 @@
+.demo-01{
+    width:300px;
+    height:300px;
+    border:1px solid #ccc;
+    position:relative;
+}
+.demo-01:before{
+    content:"";
+    width:100%;
+    height:0;
+    position:absolute;
+    left:0;
+    top:50%;
+    border-top:1px solid #ccc;
+}
+.demo-01:after{
+    content:"";
+    width:0;
+    height:100%;
+    position:absolute;
+    left:50%;
+    top:0;
+    border-left:1px solid #ccc;
+}
+.demo-01 img{
+    position:absolute;
+    left:90px;
+    top:50px;
+    z-index:10;
+    opacity:.8;
+    border:1px solid red;
+}
+.demo-01 :first-child{
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -ms-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+.demo-01 :nth-child(2){
+    -webkit-transform:rotate(55deg);
+    -moz-transform:rotate(55deg);
+    -ms-transform:rotate(55deg);
+    -o-transform:rotate(55deg);
+    transform:rotate(55deg);
+}
+.demo-01 :nth-child(3){
+    -webkit-transform:rotate(65deg);
+    -moz-transform:rotate(65deg);
+    -ms-transform:rotate(65deg);
+    -o-transform:rotate(65deg);
+    transform:rotate(65deg);
+}
+.demo-01 :nth-child(4){
+    -webkit-transform:rotate(75deg);
+    -moz-transform:rotate(75deg);
+    -ms-transform:rotate(75deg);
+    -o-transform:rotate(75deg);
+    transform:rotate(75deg);
+}
+[class|="demo"]:not(.demo-01){
+    width:200px;
+    height:200px;
+    background:url(../../../rescources/images/05.jpg) no-repeat;
+    background-size:cover;
+    margin:40px 0;
+    font-size:1.5em;
+    line-height:200px;
+    text-align:center;
+    color:hsl(0,0%,100%);
+    text-shadow:1px 1px 2px hsla(0,0%,0%,.9), -1px -1px 2px hsla(0,100%,54%,.8), 2px 2px 2px hsla(0, 91%, 74%, .8);
+}
+.demo-02{
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -ms-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+.demo-03{
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    -o-transform:rotate(90deg);
+    transform:rotate(90deg);
+}
+.demo-04{
+    -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -ms-transform:rotate(180deg);
+    -o-transform:rotate(180deg);
+    transform:rotate(180deg);
+}
+.demo-05{
+    -webkit-transform:rotate(270deg);
+    -moz-transform:rotate(270deg);
+    -ms-transform:rotate(270deg);
+    -o-transform:rotate(270deg);
+    transform:rotate(270deg);
+}
+.demo-06{
+    -webkit-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+    -ms-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+}

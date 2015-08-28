@@ -1,0 +1,45 @@
+body{color:#333;}
+h1{text-align:center;color:#000;}
+h2{margin-top:1.5em;color:green;font-size:1.16em;}
+.ele-01 > li{border:1px solid #ccc;margin-bottom:3px;}
+.ele-02 .h + .p{background-color:#ccc;}
+.ele-03 .d ~ .p{background-color:#ccc;}
+.ele-04 p[data-index]{background-color:#ccc;}
+.ele-05 p[data-src="p"]{background-color:#ccc;}
+.ele-06 p[data-src^="wcy"]{background-color:#ccc;}
+.ele-07 p[data-src$="cd"]{background-color:#ccc;}
+.ele-08 p[class*="gray"]{background-color:#ccc;}
+.ele-09 p[data-src~="a"]{background-color:#ccc;}
+.ele-10 p[lang|="en"]{background-color:#ccc;}
+.ele-11 a:link{color:blue;}
+.ele-11 a:visited{color:gray;}
+.ele-11 a:hover{color:green;}
+.ele-11 a:active{color:red;}
+.ele-11 :focus{border:2px solid #ccc;}
+.ele-11 .active{border:1px solid red;}
+.ele-11 .active:active{background-color:#ccc;}
+.ele-11 .active p:active{background-color:blue;}
+.ele-12 p:first-letter{color:#ff0000;}
+.ele-13 p:first-line{background-color:yellow;}
+.ele-14 li:first-child{background-color:#ccc;}
+.ele-15 .before:before{content:attr(class);background-color:#d6e9c6;}
+.ele-15 .after:after{content:"after";background-color:#0174a5;}
+.ele-16 :lang(en){background-color:#ccc;}
+.ele-17 :first-of-type{background-color:#ccc;}
+.ele-18 :last-of-type{background-color:#ccc;}
+.ele-19 :only-of-type{background-color:#ccc;}
+.ele-20 :only-child{background-color:#ccc;}
+.ele-21 .list-01 :nth-child(-n+2){background-color:#ccc;}
+.ele-21 .list-02 :nth-child(odd){background-color:#ccc;}
+.ele-22 .list-01 :nth-last-child(2){background-color:#ccc;}
+.ele-22 .list-02 :nth-last-child(-n+2){background-color:#ccc;}
+.ele-23 :nth-of-type(2n){background-color:#ccc;}
+.ele-24 :nth-last-of-type(n+2){background-color:#ccc;}
+.ele-25 :last-child{background-color:#ccc;}
+:root{border:2px solid #000000;}
+.ele-27 :empty{border:1px solid red;}
+.ele-28 :target{outline:2px solid blue;}
+.ele-29 :enabled{border:1px solid #ff0000;}
+.ele-30 :disabled{border:1px solid #ff0000;}
+.ele-31 input:checked{margin-right:10px;}
+.ele-32 ::selection{background-color:green;color:red;}

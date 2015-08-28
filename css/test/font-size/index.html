@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>set font-size</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <style>
+        html{font-size:62.5%;}
+        body {
+            font:1.2em/1.5 tahoma, arial, sans-serif;
+            word-break:break-all;
+        }
+        .size-px {
+            font-size:12px;
+        }
+        .size-pt {
+            font-size:9pt;
+        }
+        .size-em {
+            font-size:1em;
+        }
+        .size-rem {
+            font-size:14px;
+            font-size:1.4rem;
+        }
+        .size-vw{font-size:2vw;}
+        .size-vh{font-size:2vh;}
+        .size-vmin{font-size:2vm;font-size:2vmin;}
+    </style>
+</head>
+<body>
+    <button type="button" id="fontSizeAdd">文字大小+</button>
+    <button type="button" id="fontSizeDecrease">文字大小-</button>
+    <div class="size-px">
+    <mark>px</mark>
+    果壳网的基本css http://static.guokr.com/skin/gui.css 里面对body设置了 -webkit-font-smoothing:antialiased （默认值为subpixel-antialiased），在黑又粗的大号文本面前还可以一看，但到了到处是小字的小组帖子那边就快眼瞎了，加上这一项是出于什么考虑？</div>
+    <br>
+    <div class="size-pt">
+    <mark>pt</mark>
+    果壳网的基本css http://static.guokr.com/skin/gui.css 里面对body设置了 -webkit-font-smoothing:antialiased （默认值为subpixel-antialiased），在黑又粗的大号文本面前还可以一看，但到了到处是小字的小组帖子那边就快眼瞎了，加上这一项是出于什么考虑？
+        <div class="size-rem">
+        <mark>rem</mark>
+        果壳网的基本css <a href="javascript:;" style="font-size:20px;font-size:2rem;">http://static.guokr.com/skin/gui.css</a> 里面对body设置了 -webkit-font-smoothing:antialiased （默认值为subpixel-antialiased），在黑又粗的大号文本面前还可以一看，但到了到处是小字的小组帖子那边就快眼瞎了，加上这一项是出于什么考虑？</div>
+        <div class="size-em">
+        <mark>em</mark>
+        果壳网的基本css http://static.guokr.com/skin/gui.css 里面对body设置了 -webkit-font-smoothing:antialiased （默认值为subpixel-antialiased），在黑又粗的大号文本面前还可以一看，但到了到处是小字的小组帖子那边就快眼瞎了，加上这一项是出于什么考虑？
+        </div>
+    </div>
+    <br>
+    <p>    果壳网的基本css http://static.guokr.com/skin/gui.css 里面对body设置了 -webkit-font-smoothing:antialiased （默认值为subpixel-antialiased），在黑又粗的大号文本面前还可以一看，但到了到处是小字的小组帖子那边就快眼瞎了，加上这一项是出于什么考虑？
+</p>
+    <div class="size-em">
+    <mark>em</mark>
+    果壳网的基本css http://static.guokr.com/skin/gui.css 里面对body设置了 -webkit-font-smoothing:antialiased （默认值为subpixel-antialiased），在黑又粗的大号文本面前还可以一看，但到了到处是小字的小组帖子那边就快眼瞎了，加上这一项是出于什么考虑？
+    </div>
+    <br>
+    <div class="size-rem">
+    <mark>rem</mark>
+    果壳网的基本css http://static.guokr.com/skin/gui.css 里面对body设置了 -webkit-font-smoothing:antialiased （默认值为subpixel-antialiased），在黑又粗的大号文本面前还可以一看，但到了到处是小字的小组帖子那边就快眼瞎了，加上这一项是出于什么考虑？
+    </div>
+    <br/>
+    <div class="size-vw">
+        <mark>vm</mark>
+        果壳网的基本css http://static.guokr.com/skin/gui.css 里面对body设置了 -webkit-font-smoothing:antialiased （默认值为subpixel-antialiased），在黑又粗的大号文本面前还可以一看，但到了到处是小字的小组帖子那边就快眼瞎了，加上这一项是出于什么考虑？
+    </div>
+    <div class="size-vh">
+        <mark>vh</mark>
+        果壳网的基本css http://static.guokr.com/skin/gui.css 里面对body设置了 -webkit-font-smoothing:antialiased （默认值为subpixel-antialiased），在黑又粗的大号文本面前还可以一看，但到了到处是小字的小组帖子那边就快眼瞎了，加上这一项是出于什么考虑？
+    </div>
+    <div class="size-vmin">
+        <mark>vmin</mark>
+        果壳网的基本css http://static.guokr.com/skin/gui.css 里面对body设置了 -webkit-font-smoothing:antialiased （默认值为subpixel-antialiased），在黑又粗的大号文本面前还可以一看，但到了到处是小字的小组帖子那边就快眼瞎了，加上这一项是出于什么考虑？
+    </div>
+
+    <script>
+        (function() {
+            var d = document,
+                btnAdd = d.getElementById("fontSizeAdd"),
+                btnDecrease = d.getElementById("fontSizeDecrease"),
+                html = d.documentElement;
+
+            btnAdd.onclick = function() {
+                html.style.fontSize = ((parseFloat(html.style.fontSize) || 12) + 2) + "px";
+                console.log(html.style.fontSize);
+            }
+
+            btnDecrease.onclick = function() {
+                if(parseFloat(html.style.fontSize) >= 14) {
+                    html.style.fontSize = (parseFloat(html.style.fontSize) - 2) + "px";
+                }
+            }
+
+            var body = d.body,
+                first = body.firstChild;
+            var t = d.createTextNode(d.documentElement.offsetWidth);
+            body.insertBefore(t, first);
+        }());
+    </script>
+</body>
+</html>
