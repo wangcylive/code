@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>regExp match</title>
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <h1>regExp match</h1>
+    <h2><code>string.match(regExp|string)</code></h2>
+    <p>使用正则表达式模式对字符串执行查找，并将包含查找的结果作为数组返回，匹配失败，返回null</p>
+    <p>参数：为包含正则表达式模式和可用标志的正则表达式对象。也可以是包含正则表达式模式和可用标志的变量名或字符串文字</p>
+    <p>其余说明与exec一样，<code>match</code>的表达式匹配了全局标记g将出现所有匹配项，但所有匹配中不会包含子匹配项</p>
+
+    <script>
+        (function() {
+            var str = "my name is wangcy!";
+            var reg = /(a)\w/;
+
+            console.group('match 1');
+                console.log(str.match(reg));
+                console.log("regExp.lastIndex: %s", reg.lastIndex);
+
+                console.log("\nexec");
+                console.log(reg.exec(str));
+                console.log("regExp.lastIndex: %s", reg.lastIndex);
+            console.groupEnd();
+        }());
+        
+        (function() {
+            var str = "my name is wangcy!";
+            var reg = /(a)\w/g;
+
+            console.group('match 2');
+                console.log(str.match(reg));
+                console.log("regExp.lastIndex: %s", reg.lastIndex);
+
+                console.log("\nexec");
+                console.log(reg.exec(str));
+                console.log("regExp.lastIndex: %s", reg.lastIndex);
+            console.groupEnd();
+        }());
+
+        (function() {
+            var str = "The rain in Spain falls mainly in the plain!";
+            var reg = "ain";
+
+            console.group("match 3");
+                console.log(str.match(reg));
+            console.groupEnd();
+        }());
+    </script>
+</body>
+</html>

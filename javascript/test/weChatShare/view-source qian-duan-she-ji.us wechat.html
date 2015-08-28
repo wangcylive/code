@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+<title>微信API测试</title>
+<style>
+	button{-webkit-appearance:none;background-color:#000;color:#fff; height:26px;width:100%;display: block;border:0 none;line-height:26px;}
+</style>
+</head>
+<body>
+<h1>微信webview可用API</h1>
+<div>
+<button onclick="network()">查看网络</button><br/>
+<button onclick="img()">查看图片</button><br/>
+<button onclick="shareFriends()">分享给朋友（单独按钮无法唤起分享）</button><br/>
+<button onclick="OptionMenu()">显示/隐藏右上角按钮</button><br/>
+<button onclick="Toolbar()">显示/隐藏工具栏(android)</button><br/>
+<button onclick="addContact('qqauto')">添加联系人</button><br/>
+<button onclick="scanQRCode()">扫一扫</button><br/>
+<button onclick="closeWindow()">关闭窗口</button><br/>
+<a href="http://www.caocao.me">页面跳转后显示底部工具栏</a><br/>
+<a href="http://www.caocao.me#wechat_webview_type=1">页面跳转后隐藏底部工具栏</a><br/>
+<a href="weixin://jump/mainframe"><span>跳转主界面</span></a>
+</div>
+<p class="aaa"></p>
+
+<script>
+
+
+window.onload=function(){
+
+  document.addEventListener("WeixinJSBridgeReady", onWeixinReady, false);
+
+  function onWeixinReady(){
+  
+  	html(window.innerWidth+ "x" + window.innerHeight+ " hello wechat！");
+
+	WeixinJSBridge.on("menu:share:appmessage", shareFriends);  
+
+	WeixinJSBridge.on("menu:share:weibo", shareWeibo);
+
+	WeixinJSBridge.on("menu:share:timeline", shareFriendCycle);
+  }
+}
+
+
+
+function addContact(name){	
+	WeixinJSBridge.invoke("addContact", {
+		webtype: "1",
+		username: name}, 
+	function (res) { 
+	   alert(res.err_msg);
+	});
+}
+
+function closeWindow(){
+	WeixinJSBridge.invoke('closeWindow');
+}
+
+function scanQRCode(){
+	WeixinJSBridge.invoke('scanQRCode', function(res) {alert(res.err_msg)});
+}
+
+var opt=0;
+function OptionMenu(){
+	opt=!opt;
+	WeixinJSBridge.invoke(opt?'hideOptionMenu':'showOptionMenu');
+}
+
+var too=0;
+function Toolbar(){
+	too=!too;
+	WeixinJSBridge.invoke(too?'hideToolbar':'showToolbar', function(res) {alert(res.err_msg)});
+}
+
+function shareFriends(){
+
+	//var data = window.shareData["send2Friend"];
+	var data={};
+	data.img='http://c.hiphotos.baidu.com/image/w%3D2048/sign=5a381851d62a283443a6310b6f8dc8ea/adaf2edda3cc7cd9b7713c953b01213fb80e9119.jpg';
+	data.link=location.href;
+	data.content='测试分享内容';
+	data.title='不要点击我的标题';
+
+	WeixinJSBridge.invoke("sendAppMessage", {                        
+		img_url: data.img,                        
+		img_width: "30",                        
+		img_height: "30",                        
+		link: data.link,                        
+		desc: data.content,                        
+		title: data.title                    
+	}, function(b) {
+		alert("sendAppMessage done")
+	});
+
+}
+
+function shareWeibo() {    
+
+	//var data = window.shareData["share2qqBlog"]; 
+
+	var data={};
+	data.img='http://c.hiphotos.baidu.com/image/w%3D2048/sign=5a381851d62a283443a6310b6f8dc8ea/adaf2edda3cc7cd9b7713c953b01213fb80e9119.jpg';
+	data.link=location.href;
+	data.content='测试分享内容';
+	data.title='不要点击我的标题';
+
+
+	WeixinJSBridge.invoke("shareWeibo", {
+
+	content: 1 ? data.content +" "+ data.link : data.content,
+	img_url:data.img,            
+	url: data.link}, function (a){
+		alert("shareWeibo done")
+	})
+}
+
+function shareFriendCycle() {            
+
+
+
+	var data={};
+	data.img='http://c.hiphotos.baidu.com/image/w%3D2048/sign=5a381851d62a283443a6310b6f8dc8ea/adaf2edda3cc7cd9b7713c953b01213fb80e9119.jpg';
+	data.link=location.href;
+	data.content='测试分享内容';
+	data.title='不要点击我的标题';
+
+
+	WeixinJSBridge.invoke("shareTimeline", {                
+		img_url: data.img,                
+		img_width: "640",                
+		img_height: "640",                
+		link: data.link,                
+		desc:data.content,        // 这个参数是必须的，不填无法弹出分享窗口                
+		title: data.title            
+	}, 
+	function (a) {
+		alert("shareTimeline done")
+	});        
+}
+
+
+
+
+
+
+function network(){
+	WeixinJSBridge.invoke('getNetworkType',{},function(e){    
+		html(e.err_msg);
+	});
+}
+
+function html(e){
+	document.getElementsByClassName("aaa")[0].innerHTML+=e+"<br/>";
+}
+
+function img(){
+	var list=['http://c.hiphotos.baidu.com/image/w%3D2048/sign=5a381851d62a283443a6310b6f8dc8ea/adaf2edda3cc7cd9b7713c953b01213fb80e9119.jpg','http://e.hiphotos.baidu.com/image/w%3D2048/sign=3a9064923f6d55fbc5c67126591a4e4a/14ce36d3d539b60026f407fbeb50352ac65cb747.jpg','http://e.hiphotos.baidu.com/image/w%3D2048/sign=04a37b5f0bf79052ef1f403e38cbd6ca/c75c10385343fbf29616ae6fb27eca8065388f47.jpg'];
+	WeixinJSBridge.invoke('imagePreview',{'current':list[0],'urls':list});
+}
+
+</script>
+</body>
+</html>

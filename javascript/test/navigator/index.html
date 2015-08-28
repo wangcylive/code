@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>navigator test</title>
+</head>
+<body>
+    <noscript>
+        你的浏览器禁用了脚本，网站功能将不能正常使用
+    </noscript>
+
+    <script>
+
+        alert(navigator.platform);
+
+        var browser = {
+            version: (function() {
+                var u = navigator.userAgent;
+                return {
+                    Mobile: /Mobile|Android|Symbian/i.test(u),
+                    Android: /Android|Adr/i.test(u),
+                    iOS: /iPhone|iPad|iPod/i.test(u),
+                    Symbian: /Symbian/i.test(u),
+                    WindowsPhone: /Windows Phone/i.test(u),
+                    BlankBerry: /BB/i.test(u),
+                    weChat: /MicroMessenger/i.test(u)
+                }
+            }())
+        };
+
+        (function(){
+            var fragment = document.createDocumentFragment(),
+                userAgent = document.createTextNode("browser userAgent: " + navigator.userAgent),
+                p_userAgent = document.createElement("p"),
+                p_browserVersion  = document.createElement("p");
+
+            p_userAgent.appendChild(userAgent);
+
+            var versionText = "";
+
+            if(browser.version.Mobile) {
+                versionText += "Mobile";
+            } else {
+                versionText += "Desktop";
+            }
+            versionText += "\n";
+
+            if(browser.version.Android) {
+                versionText += "Android";
+            } else if(browser.version.iOS) {
+                versionText += "iOS";
+            } else if(browser.version.WindowsPhone) {
+                versionText += "WindowsPhone";
+            } else if(browser.version.Symbian) {
+                versionText += "Symbian";
+            } else if(browser.version.BlankBerry) {
+                versionText += "BlankBerry";
+            } else {
+                versionText += "unknown";
+            }
+            versionText += "\n ";
+
+            if(browser.version.weChat) {
+                versionText += "weChat";
+            }
+
+            p_browserVersion.appendChild(document.createTextNode(versionText));
+
+            fragment.appendChild(p_userAgent).appendChild(p_browserVersion);
+            
+            document.body.appendChild(fragment);
+        }());
+    </script>    
+</body>
+</html>

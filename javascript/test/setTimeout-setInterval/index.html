@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>setTimeout setInterval</title>
+<style type="text/css">
+    input:focus{border:5px solid #333;}
+</style>
+</head>
+<body>
+    <h1>setTimeout setInterval</h1>
+
+    <dl>
+        <dt>setTimeout</dt>
+        <dd></dd>
+    </dl>
+
+    <input type="text" id="testInput01">
+
+    <script>
+        (function() {
+            var startTime = +new Date();
+
+            var t = true;
+
+            setTimeout(function() {
+                t = false;
+            }, 1000);
+
+            // while(t) {}
+
+            console.log("t " + (+new Date() - startTime));
+
+            console.log("start");
+
+            setTimeout(function() {
+                console.log("setTimeout 1");
+            }, 0);
+
+            setTimeout(function() {
+                console.log("setTimeout 2");
+            }, 0);
+
+
+            var testInput01 = document.getElementById("testInput01");
+
+            testInput01.onfocus = function() {
+                setTimeout(function() {
+                    console.log(testInput01.ownerDocument.defaultView.getComputedStyle(testInput01, null).border);
+                }, 0);
+            }
+
+            testInput01.onblur = function() {
+                console.log(testInput01.ownerDocument.defaultView.getComputedStyle(testInput01, null).border);
+            }
+
+        }());
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<title>touches-changedTouches-targetTouches</title>
+<style>
+    body{word-wrap:break-word;}
+    h1{font-size:1.2em;}
+    .value{margin-bottom:5px;}
+    .value:after{content:"";display:table;clear:both;}
+    .value input{float:left;width:32%;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;
+        border:1px solid #666;font-size:13px;;padding:8px;vertical-align:top;margin:0;}
+    .value :nth-child(2){margin:0 2%;}
+    #touchEle{height:400px;border:1px solid green;margin:3em;}
+</style>
+</head>
+<body>
+    <h1>touches,changedTouches,targetTouches difference</h1>
+    <div class="value">
+        <input type="text" value="touches">
+        <input type="text" value="changedTouches">
+        <input type="text" value="targetTouches">
+    </div>
+    <div class="value">
+        <input type="text" id="touchesInput1">
+        <input type="text" id="changedTouchesInput1">
+        <input type="text" id="targetTouchesInput1">
+    </div>
+    <div class="value">
+        <input type="text" id="touchesInput2">
+        <input type="text" id="changedTouchesInput2">
+        <input type="text" id="targetTouchesInput2">
+    </div>
+    <div id="touchEle">
+        
+    </div>
+
+    <script>
+        (function() {
+            "use strict";
+
+            function bind(ele, type, fn) {
+                ele.addEventListener(type, fn, false);
+            }
+
+            function writeValue(e) {
+                touchesInput1.value = e.type + " " + e.touches.length;
+                changedTouchesInput1.value = e.type + " " + e.changedTouches.length;
+                targetTouchesInput1.value = e.type + " " + e.targetTouches.length;
+                /*if(e.type == "touchstart" || e.type == "touchmove") {
+                    touchesInput1.value = "x=" + Math.ceil(e.touches[0].screenX) + ", y=" + Math.ceil(e.touches[0].screenY);
+                    if(e.touches.length > 1) {
+                        touchesInput2.value = "x=" + Math.ceil(e.touches[1].screenX) + ", y=" +
+                        Math.ceil(e.touches[1].screenY);
+                    }
+
+                    targetTouchesInput1.value = "x=" + Math.ceil(e.targetTouches[0].screenX) + ", y=" +
+                    Math.ceil(e.targetTouches[0].screenY);
+                    if(e.targetTouches.length > 1) {
+                        targetTouchesInput2.value = "x=" + Math.ceil(e.targetTouches[1].screenX) + ", y=" +
+                        Math.ceil(e.targetTouches[1].screenY);
+                    }
+                }
+
+                changedTouchesInput1.value = "x=" + Math.ceil(e.changedTouches[0].screenX) + ", y=" +
+                Math.ceil(e.changedTouches[0].screenY);
+                if(e.changedTouches.length > 1) {
+                    changedTouchesInput2.value = "x=" + Math.ceil(e.changedTouches[1].screenX) + ", y=" +
+                    Math.ceil(e.changedTouches[1].screenY);
+                }*/
+            }
+
+            var touchEle = document.getElementById("touchEle"),
+                touchesInput1 = document.getElementById("touchesInput1"),
+                touchesInput2 = document.getElementById("touchesInput2"),
+                changedTouchesInput1 = document.getElementById("changedTouchesInput1"),
+                changedTouchesInput2 = document.getElementById("changedTouchesInput2"),
+                targetTouchesInput1 = document.getElementById("targetTouchesInput1"),
+                targetTouchesInput2 = document.getElementById("targetTouchesInput2");
+
+            function touchStart(e) {
+                e.preventDefault();
+
+                writeValue(e);
+            }
+
+            function touchMove(e) {
+                e.preventDefault();
+
+                writeValue(e);
+            }
+
+            function touchEnd(e) {
+                e.preventDefault();
+
+                writeValue(e);
+            }
+
+            bind(touchEle, "touchstart", function(event) {
+                touchStart(event);
+            });
+
+            bind(touchEle, "touchmove", function(event) {
+                touchMove(event);
+            });
+
+            bind(touchEle, "touchend", function(event) {
+                touchEnd(event);
+            });
+
+            bind(touchEle, "touchcancel", function(e) {
+                touchEle.appendChild(document.createTextNode("touchcancel:" + e.changedTouches.length));
+            });
+        }());
+    </script>
+</body>
+</html>

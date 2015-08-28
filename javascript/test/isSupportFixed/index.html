@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>js 判断是否支持fixed定位</title>
+    <style>
+        #page{height:1000px;background-color:#fff799;vertical-align:bottom;}
+        .overlay{position:fixed;left:0;top:0;right:0;bottom:0;background-color:hsla(0, 0%, 0%, .3);
+            z-index:90;display:none;}
+        .dialog{position:fixed;left:50%;top:50%;margin:-50px 0 0 -100px;width:200px;height:100px;background-color:#fff;
+            z-index:100;display:none;}
+        .download{position:fixed;left:0;bottom:0;width:100%;height:50px;background-color:hsla(0, 0%, 0%, .8);
+            z-index:80;-webkit-transform:translateX(100px);}
+    </style>
+</head>
+<body>
+    <div id="page">
+        <h1>js 判断是否支持fixed定位</h1>
+        <button id="button">点击查看</button>
+    </div>
+    <div id="overlay" class="overlay"></div>
+    <div id="dialog" class="dialog"></div>
+    <div class="download" onclick="alert(location.pathname)"></div>
+    <script>
+        function isSupportFixed() {
+            var d = document,
+                a = d.createElement("div"),
+                f = d.createElement("div");
+            a.style.position = "absolute";
+            a.style.visibility = "hidden";
+            a.style.left = "-100px";
+            a.style.top = "-100px";
+            f.style.position = "fixed";
+            a.appendChild(f);
+            d.body.appendChild(a);
+            if(f.offsetParent === a) {
+                d.body.removeChild(a);
+                return false;
+            } else {
+                d.body.removeChild(a);
+                return true;
+            }
+        }
+
+        (function(w, d) {
+            var page = d.getElementById("page"),
+                overlay = d.getElementById("overlay"),
+                dialog = d.getElementById("dialog"),
+                button = d.getElementById("button");
+
+            overlay.addEventListener("touchmove", function(event) {
+                event.preventDefault();
+                overlay.style.display = "none";
+                dialog.style.display = "none";
+            }, false);
+
+            button.addEventListener("click", function() {
+                overlay.style.display = "block";
+                dialog.style.display = "block";
+            }, false);
+
+            window.addEventListener("scroll", function() {
+                var p = document.createElement("p");
+                p.innerHTML = window.scrollY;
+                page.appendChild(p);
+            }, false);
+            window.scrollTo(0, 1);
+            dialog.addEventListener("touchstart", function() {
+                alert(window.innerHeight);
+            }, false);
+        }(window, document));
+    </script>
+</body>
+</html>

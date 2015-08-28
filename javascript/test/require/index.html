@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-cn" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>require js</title>
+    <!--[if lte IE 8]>
+        <script src="js/lib/html5shiv.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+    <h1>js AMD require test</h1>
+    <article class="main">
+        <section>
+            <h2>iscroll</h2>
+            <div class="nav" id="nav">
+                <ul>
+                    <li><a href="#home">home</a></li>
+                    <li><a href="#project">project</a></li>
+                    <li><a href="#issues">issues</a></li>
+                    <li><a href="#bug">bug</a></li>
+                    <li><a href="#about">about</a></li>
+                    <li><a href="#address">address</a></li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h2>jquery mousewheel</h2>
+            <div class="mousewheel" id="mousewheel">
+                <ol>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ol>
+            </div>
+            <input id="mouseDelta" type="number">
+        </section>
+        <section>
+            <h2>load share module</h2>
+            <button id="loadShareModule">load</button>
+        </section>
+    </article>
+    </body>
+    <script src="js/lib/require.js" data-main="js/main" async></script>
+</html>

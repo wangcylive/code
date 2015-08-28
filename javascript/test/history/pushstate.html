@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>history pushstate</title>
+</head>
+<body>
+<h1>history pushstate</h1>
+<a href="javascript:;" id="link1">点击</a>
+
+<script>
+    (function(w, d) {
+        var link1 = d.getElementById("link1");
+
+        link1.addEventListener("click", function() {
+            history.pushState({
+                name: "wangcy"
+            }, "有参数了", "pushstate.html?name=wangcy");
+            d.title = "有参数了";
+        }, false);
+
+        w.addEventListener("popstate", function(event) {
+            var state = history.state;
+            if(state && state.name == "wangcy") {
+                d.title = "有参数了";
+            } else {
+                d.title = "history pushstate";
+            }
+        }, false);
+    }(window, document));
+</script>
+</body>
+</html>

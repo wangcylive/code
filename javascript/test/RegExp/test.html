@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>regExp test</title>
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <h1>regExp test</h1>
+    <h2><code>regExp.test(string)</code></h2>
+    <p>返回一个 Boolean 值，它指出在被查找的字符串中是否匹配给出的正则表达式</p>
+
+    <script>
+        (function() {
+            var str = "wangcy";
+            var reg = /a/;
+
+            console.group('test 1');
+                console.log(reg.test(str));
+            console.groupEnd();
+        }());
+
+        (function() {
+            var str = "wangcy";
+            var reg = /a/g;
+
+            console.group('test 2');
+                console.log(reg.test(str));
+                console.log("reg.lastIndex: %o", reg.lastIndex);
+
+                console.log(reg.test(str));
+                console.log("reg.lastIndex: %o", reg.lastIndex);
+            console.groupEnd();
+        }());
+
+        (function() {
+            var str = "wd110";
+            var reg = /[a-zA-Z]/;
+
+            console.group('test 3');
+                console.log(reg.test(str));
+            console.groupEnd();
+        }());
+    </script>
+</body>
+</html>

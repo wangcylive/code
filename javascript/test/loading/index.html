@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>js loading</title>
+<script>
+    var startTime = +new Date();
+</script>
+<link href="http://wuyou.istudy.com.cn/img/yimo/resources/layout.css" rel="stylesheet">
+<script src="http://wuyou.istudy.com.cn/img/yimo/resources/jquery-1.js" defer></script>
+<script src="http://wuyou.istudy.com.cn/img/yimo/resources/jquery-2.js" defer></script>
+<script src="http://wuyou.istudy.com.cn/img/yimo/resources/jquery-3.js" defer></script>
+<script src="http://wuyou.istudy.com.cn/img/yimo/resources/jquery-4.js" defer></script>
+</head>
+<body>
+    <h1>javascript loading</h1>
+    <blockquote>
+        <p>script async defer</p>
+        <ul>
+            <li>async 异步加载和执行脚本，不因为加载脚本而阻塞页面的加载。一旦加载到就会立刻执行。很有可能不是按照原本的顺序来执行的。如果js前后有依赖性，用async，就很有可能出错。会在window onload 之前执行，docuemnt DOMContentLoaded 之后执行。</li>
+            <li>defer 延迟加载脚本，会在html页面解析完毕之后再去执行，也就是类似于把这个script放在了页面底部。js的加载不会阻塞页面的渲染和资源的加载。不过defer会按照原本的js的顺序执行，所以如果前后有依赖关系的js可以放心使用。会在 document DOMContentLoaded 之前执行。</li>
+        </ul>
+    </blockquote>
+    <img src="http://wuyou.istudy.com.cn/img/yimo/resources/01.gif" alt="">
+    <img src="http://wuyou.istudy.com.cn/img/yimo/resources/02.gif" alt="">
+    <img src="http://wuyou.istudy.com.cn/img/yimo/resources/03.jpg" alt="">
+    <img src="http://wuyou.istudy.com.cn/img/yimo/resources/04.jpg" alt="">
+    <script>
+        (function(w, d) {
+            console.log("paser html bottom %o", +new Date() - startTime);
+
+            function on(dom, type, callback) {
+                if(dom.addEventListener) {
+                    dom.addEventListener(type, callback, false);
+                } else {
+                    dom.attachEvent("on" + type, callback);
+                }
+            }
+
+            on(d, "DOMContentLoaded", function() {
+                console.log("DOMContentLoaded %o", +new Date() - startTime);
+            });
+
+            on(d, "readystatechange", function() {
+                console.log("document readyState %o", d.readyState, +new Date() - startTime);
+            });
+
+            on(w, "load", function() {
+                console.log("window loaded %o", +new Date() - startTime);
+            });
+
+            var img = d.getElementsByTagName("img");
+
+            for(var i = 0, length = img.length; i < length; i++) {
+                on(img[i], "load", function(event) {
+                    console.log("img %o loaded %o", this.src, +new Date() - startTime);
+                });
+
+                on(img[i], "readystatechange", function() {
+                    console.log("img %o readyState %o %o", this.src, this.readyState, +new Date() - startTime);
+                })
+            }
+
+            var js = d.getElementsByTagName("script");
+
+            for(var j = 0, jsLength = js.length; j < jsLength; j++) {
+                if(!!js[j].src) {
+                    on(js[j], "load", function() {
+                        console.log("js %o loaded %o", this.src, +new Date() - startTime);
+                    });
+
+                    on(js[j], "readystatechange", function() {
+                        console.log("js %o readyState %o %o", this.src, this.readyState, +new Date() - startTime);
+                    });
+                }
+            }
+        }(window, document));
+    </script>
+</body>
+</html>

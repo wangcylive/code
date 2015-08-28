@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>javascript onload</title>
+<style>
+    html{font-family:tahoma, arial, sans-serif;}
+    code{color:#690;}
+</style>
+<link rel="stylesheet" href="resources/base.css" id="loadLink">
+<script src="resources/jquery-1.11.0.js" id="loadScript"></script>
+</head>
+<body>
+    <h1>javascript onload</h1>
+    <blockquote>
+        <dl>
+            <dt>window</dt>
+            <dd>有 load 事件，没有 readystatechange 事件</dd>
+            <dt>document</dt>
+            <dd>没有 load 事件，有 readystatechange 事件 [interactive, complete]，readyState=interactive时DOM结构并没有稳定, 此时依然可能会有脚本修改DOM元素，readyState=complete是DOM结构稳定</dd>
+            <dt>body</dt>
+            <dd>有 load 事件，事件源指向 document</dd>
+            <dt>img</dt>
+            <dd>ie11以下有 load readystatechange 事件，readyState 包括[loading, complete]，readyState=complete时图片加载完成，和load触发的时间相同，img插入DOM中才会出现readyState=loading；ie11、chrome、Firefox有 load 事件</dd>
+            <dt>link</dt>
+            <dd>ie11以下有 load readystatechange 事件，readyState 包括[loading, complete]，readyState=complete时link加载完成，和load触发的时间相同；ie11、chrome、Firefox有 load 事件；新创建link插入DOM中才会加载；若是改变现有link的href，会重新加载资源，除chrome外都会再次触发加载事件，不推荐这样加载新资源；删除link DOM，页面样式会重新绘制</dd>
+            <dt>script</dt>
+            <dd>ie9以下有 readystatechange 事件，readyState 包括[loading, loaded]，readyState=loaded时加载完成；ie9 ie10有 load readystatechange 事件，readyState=loaded和load 执行时间相同（readyState=loaded有时稍晚）；ie11 chrome Firefox有 load事件；新创建script插入DOM中才会加载；若是改变现有script的src，ie11以下会重新加载资源，触发 readystatechange 事件，ie10和ie9不会执行，ie9以下会执行新加载的script；chrome、Firefox不会重新加载资源，不推荐这样加载新资源；删除script DOM，里面的方法还可以调用</dd>
+            <dt>iframe</dt>
+            <dd>ie11以下有 load readystatechange 事件，readyState 包括[interactive, complete]，readyState=complete加载完成，时间和load相同；ie11、chrome、Firefox有 load事件；新创建的iframe对象，未插入到DOM中不会加载，Firefox如果页面中有iframe标签，会在现在有iframe上加载新创建的iframe资源</dd>
+        </dl>
+    </blockquote>
+
+    <img src="resources/05.jpg" id="pic" alt="" width="300" height="200">
+
+    <iframe src="" id="iframe" width="300" height="200" frameborder="0" scrolling="no"></iframe>
+    <script>
+        (function(w, d) {
+            // function loadEvent(dom) {
+            //     if(dom.readyState === "complate") {
+            //         console.log(dom + "  readyState=complate");
+            //     } else if(dom.addEventListener) {
+            //         dom.addEventListener("load", function(event) {
+            //             console.log(event.type + "  target=" + event.target + "  " + new Date().getTime());
+            //         }, false);
+            //     } else {
+            //         dom.attachEvent("onreadystatechange", function(event) {
+            //             console.log(event.type + "  target=" + event.srcElement + "  readyState=" +
+            //                     dom.readyState + "  " + new Date().getTime());
+            //         });
+            //     }
+            // }
+
+            function loadEvent(dom) {
+                dom.onload = function(event) {
+                    var event = event || window.event;
+
+                    // console.log(event.target ? event.target : event.srcElement);
+                    console.log(event.type + "  target=" + (event.target ? event.target : event.srcElement) +
+                            "  " + new Date().getTime());
+                }
+
+                dom.onreadystatechange = function(event) {
+                    var event = event || window.event;
+
+                    // console.log(event.target ? event.target : event.srcElement);
+                    console.log(event.type + "  target=" + (event.target ? event.target : event.srcElement) +
+                            "  readyState=" + dom.readyState + "  " + new Date().getTime());
+                }
+            }
+
+            // loadEvent(d.body);
+
+            // var pic = d.getElementById("pic");
+            // var pic = new Image();
+            // loadEvent(pic);
+            // pic.src = "resources/05.jpg";
+            // d.body.appendChild(pic);
+
+            // var css = d.createElement("link");
+            // loadEvent(css);
+            // css.href = "resources/form.css";
+            // css.rel = "stylesheet";
+            // d.getElementsByTagName("head")[0].appendChild(css);
+
+            // var loadLink = d.getElementById("loadLink");
+            // loadEvent(loadLink);
+            // loadLink.href = "resources/form.css";
+
+
+            // var loadScript = d.getElementById("loadScript");
+            // var loadScript = d.createElement("script");
+            // loadScript.type = "text/javascript";
+            // loadEvent(loadScript);
+            // loadScript.src = "resources/jquery-1.11.0.min.js";
+            // d.getElementsByTagName("head")[0].removeChild(loadScript);
+            // aaa();
+            // d.body.appendChild(loadScript);
+
+            // var iframe = d.getElementById("iframe");
+            var iframe = d.createElement("iframe");
+            iframe.width = "200";
+            iframe.height = "200";
+            loadEvent(iframe);
+            iframe.src = "http://detail.zol.com.cn/";
+            d.body.appendChild(iframe);
+            
+
+        }(window, document));
+    </script>
+</body>
+</html>

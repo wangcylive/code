@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title></title>
+</head>
+<body>
+<h1>检测函数支持最大参数长度</h1>
+<script>
+    function getMaximumSupportedArgumentsLength(){ var args={length:0}; function noop(){} function test(n){ args.length=n; try{noop.apply(null,args);}catch(e){return false;} return true; } function getNum(min,max){ var start=min, end=max, mid=Math.ceil((start+end)/2), count=0; while(start<end){ if(test(mid)){ start=mid; mid=Math.floor((start+end)/2); }else{ end=mid-1; mid=Math.floor((start+end)/2); } count++; if(count>32){return max;} } return mid; } return getNum(0x7f,0x7fffffff); } function getMaximumCallStackSize(){ var size=0; function test(){ size++; test(); } try{ test(); }catch(e){ return size; } }
+</script>
+</body>
+</html>

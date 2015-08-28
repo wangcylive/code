@@ -1,0 +1,20 @@
+@media screen {
+    body, h1, h2, h3, h4, h5, h6, dl, dd, ul, ol, p, blockquote, form, fieldset, figure{margin:0;}
+    ul, ol, menu, th, td, legend, fieldset{padding:0;}
+    html{font-size:62.5%;}
+    body{font:1.6em/1.5 sans-serif;}
+    ul, ol, menu{list-style-type:none;}
+    table{border-spacing:0;border-collapse:collapse;}
+    
+    .clearfix{zoom:1;}
+    .clearfix:before, .clearfix:after{content:"";display:table;}
+    .clearfix:after{clear:both;}
+    
+    .tab-box{margin:0 8px;}
+    .nav{background-color:hsl(0, 0%, 95%);}
+    .nav ul{}
+    .nav li{float:left;padding:5px;text-align:center;border-bottom:3px solid transparent;margin-right:5px;}
+    .nav a{font-size:1.2em;text-decoration:none;color:#333;}
+    .nav .on{border-bottom-color:red;}
+    .item > div {height:200px;background-color:hsl(0, 0%, 90%);padding:20px;}
+}

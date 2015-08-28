@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>substring slice substr</title>
+</head>
+<body>
+    <h1>substring slice substr 区别</h1>
+    <dl>
+        <dt>substring(start[, end]) slice(start[, end])</dt>
+        <dd>
+            <ul>
+                <li>提取从start下标开始(包括该下标上的字符)到end下标结束(不包括该下标上的字符)之间的内容,如果不包含end参数则表示提取从start到结尾的全部字符</li>
+                <li>substring不支持负数参数(如果为负数则转换为0来处理)，slice支持负数参数(如果参数为负数则表示从最右边算起</li>
+                <li>如果end > start，substring互换，slice不支持互换</li>
+                <li>slice支持数组分割，substring不支持</li>
+            </ul>
+        </dd>
+    </dl>
+
+    <p><code>"9876543210".substring(-2, 3)-->substring(0, 3)-->"987"</code></p>
+    <p><code>"9876543210".slice(-2, 3)-->""</code></p>
+    <p><code>"9876543210".substring(5, -5)-->substring(0, 5)-->"98765"</code></p>
+    <p><code>"9876543210".slice(5, -5)-->""</code></p>
+    <p><code>"9876543210".substring(-5, -1)-->""</code></p>
+    <p><code>"9876543210".slice(-5, -1)-->"4321"</code></p>
+    <p><code>"9876543210".slice(-2, -4)-->""</code></p>
+    <p><code>"9876543210".substring(5, 2)-->substring(2, 5)-->"765"</code></p>
+    <p><code>"9876543210".slice(5, 2)-->""</code></p>
+    
+    <br>
+    <dl>
+        <dt>substr(start[, length])</dt>
+        <dd>
+            <p>substr(start[, length])函数可以看出其实和上面两种函数的差别，即第二个参数代表的是截取的长度，不再是作为结尾下标来处理，所以该函数表示从开始下标start开始，向右截取length个长度的字符。
+                按照w3c上来讲start是支持负数的,即表示从字符传的结尾开始计算,但是因为该函数并不是标准里的所以各浏览器实现不一，所以还是不建议用负数了。length为负数则不会截取任何字符，因为长度不可能为负的</p>
+        </dd>
+    </dl>
+
+    <p><code>"9876543210".substr(2, 3)-->"765"</code></p>
+    <p><code>"9876543210".substr(-5,2)-->"43"(FireFox)</code></p>
+    <p><code>"9876543210".substr(-5,2)-->"98"(IE8)</code></p>
+</body>
+</html>

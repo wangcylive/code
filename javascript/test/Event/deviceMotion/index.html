@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>devicemotion 设备动作</title>
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <p id="accelerationX">accelerationX: <span> </span></p>
+    <p id="accelerationY">accelerationY: <span> </span></p>
+    <p id="accelerationZ">accelerationZ: <span> </span></p>
+    <script>
+
+        (function(w, d) {
+            var x = d.getElementById("accelerationX").childNodes[1].firstChild,
+                y = d.getElementById("accelerationY").childNodes[1].firstChild,
+                z = d.getElementById("accelerationZ").childNodes[1].firstChild;
+
+            w.addEventListener("devicemotion", function(e) {
+                x.nodeValue = e.acceleration.x;
+                y.nodeValue = e.acceleration.y;
+                z.nodeValue = e.acceleration.z;
+            }, true);
+        }(window, document));
+    </script>
+</body>
+</html>

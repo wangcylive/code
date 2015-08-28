@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>js Number类型方法</title>
+<style>
+body{font:1em/1.5 arial;}
+code{color:#690;}
+</style>
+</head>
+<body>
+    <h1>javascript Number</h1>
+    <p>
+        <code>Number(string)</code><br>
+        <code>parseInt(string[,radix])</code><br>
+        <code>parseFloat(string)</code><br>
+        <code>isNaN(string)</code><br>
+        <code>isFinite(string)</code>
+    </p>
+    <blockquote>
+        <p><code>Number(string)</code>从字符串<code>string</code>非空字符开始转换得到数字，<code>string</code>必须为合法数字串，否则返回<code>NaN</code></p>
+        <p><code>"0.1"</code>返回<code>0.1</code>，<code>".123"</code>返回<code>0.123</code></p>
+        <p><code>"1.1.1"</code>，<code>"134a"</code>返回<code>NaN</code></p>
+        <p><code>""</code>、<code>" "</code>、<code>false</code>、<code>null</code>返回<code>0</code></p>
+        <p><code>true</code>返回<code>1</code></p>
+        <p><code>undefined</code>返回<code>NaN</code></p>
+        <p>如果<code>string</code>是对象，则会先调用对象的<code>valueOf()</code>如无则再调用<code>toString()</code>的值来处理</p>
+    </blockquote>
+    <hr>
+    <blockquote>
+        <p><code>parseInt(string[,radix])</code>从字符串<code>string</code>非空字符开始转换得到整数，遇到小数点或者其他0-9以外的字符就停止，<code>string</code>去掉开头空格以<strong>-[0-9]或者[0-9]开头</strong>返回数字，否则返回<code>NaN</code>。<code>radix</code>一个整数值，指定转换中采用的基数</p>
+        <p><code>"-11vs"</code>返回<code>-11</code>，<code>"23jorden23"</code>返回<code>23</code>，<code>"123.342aaa"</code>
+        返回<code>123</code></p>
+        <p><code>".123"</code>返回<code>NaN</code></p>
+        <p><code>""</code>、<code>" "</code>、<code>Boolean</code>、<code>null</code>、<code>undefined</code>返回<code>NaN</code></p>
+        <p>如果<code>string</code>是对象，则会调用对象的<code>toString()</code>值来处理</p>
+    </blockquote>
+    <hr>
+    <blockquote>
+        <p><code>parseFloat(string)</code>基本和<code>parseInt()</code>相似，不同的是<code>parseFloat()</code>保留小数点后面数字，以小数点开头的返回小于1的数字</p>
+        <p><code>".123"</code>返回<code>0.123</code></p>
+        <p><code>"11.22.aa.bb"</code>返回<code>11.22</code></p>
+    </blockquote>
+
+    <script>
+        (function() {
+            console.group('Number parseInt parseFloat');
+                console.log('Number("") = %o', Number(""));
+                console.log('parseInt("") = %o', parseInt(""));
+                console.log('parseFloat("") = %o', parseFloat(""));
+                console.log("");
+
+                console.log('Number(" ") = %o', Number(" "));
+                console.log('parseInt(" ") = %o', parseInt(" "));
+                console.log('parseFloat(" ") = %o', parseFloat(" "));
+                console.log("");
+
+                console.log('Number("a1") = %o', Number("a1"));
+                console.log('parseInt("a1") = %o', parseInt("a1"));
+                console.log('parseFloat("a1") = %o', parseFloat("a1"));
+                console.log("");
+
+                console.log('Number("1a") = %o', Number("1a"));
+                console.log('parseInt("1a") = %o', parseInt("1a"));
+                console.log('parseFloat("1a") = %o', parseFloat("1a"));
+                console.log("");
+
+                console.log('Number(".22") = %o', Number(".22"));
+                console.log('parseInt(".22") = %o', parseInt(".22"));
+                console.log('parseFloat(".22") = %o', parseFloat(".22"));
+                console.log("");
+
+                console.log('Number("070") = %o', Number("070"));
+                console.log('parseInt("070") = %o', parseInt("070"));
+                console.log('parseInt("070", 10) = %o', parseInt("070", 10));
+                console.log('parseFloat("070") = %o', parseFloat("070"));
+                console.log("");
+
+                console.log('Number([]) = %o', Number([]));
+                console.log('parseInt([]) = %o', parseInt([]));
+                console.log('parseFloat([]) = %o', parseFloat([]));
+                console.log("");
+
+                console.log('Number(["1", "a"]) = %o', Number(["1", "a"]));
+                console.log('parseInt(["1", "a"]) = %o', parseInt(["1", "a"]));
+                console.log('parseFloat(["1", "a"]) = %o', parseFloat(["1", "a"]));
+                console.log("");
+
+                console.log('Number(function(){}) = %o', Number(function(){}));
+                console.log('parseInt(function(){}) = %o', parseInt(function(){}));
+                console.log('parseFloat(function(){}) = %o', parseFloat(function(){}));
+                console.log("");
+
+                console.log('Number(null) = %o', Number(null));
+                console.log('parseInt(null) = %o', parseInt(null));
+                console.log('parseFloat(null) = %o', parseFloat(null));
+                console.log("");
+
+                console.log('Number(undefined) = %o', Number(undefined));
+                console.log('parseInt(undefined) = %o', parseInt(undefined));
+                console.log('parseFloat(undefined) = %o', parseFloat(undefined));
+                console.log("");
+
+                console.log('Number(true) = %o', Number(true));
+                console.log('parseInt(true) = %o', parseInt(true));
+                console.log('parseFloat(true) = %o', parseFloat(true));
+                console.log("");
+
+                console.log('Number(false) = %o', Number(false));
+                console.log('parseInt(false) = %o', parseInt(false));
+                console.log('parseFloat(false) = %o', parseFloat(false));
+                console.log("");
+
+                console.log('Number({}) = %o', Number({}));
+                console.log('parseInt({}) = %o', parseInt({}));
+                console.log('parseFloat({}) = %o', parseFloat({}));
+                console.log("");
+
+                var a = {
+                    valueOf: function() {
+                        return "2222";
+                    },
+                    toString: function() {
+                        return "3333";
+                    }
+                }
+                console.log(a);
+                console.log('Number(a) = %o', Number(a));
+                console.log('parseInt(a) = %o', parseInt(a));
+                console.log('parseFloat(a) = %o', parseFloat(a));
+                console.log("");
+            console.groupEnd();
+        }());
+
+
+        //十进制转其他
+        /*var x=110;
+        alert(x);
+        alert(x.toString(8));
+        alert(x.toString(32));
+        alert(x.toString(16));
+
+        //其他转十进制
+        var x='110';
+        alert(parseInt(x,2));
+        alert(parseInt(x,8));
+        alert(parseInt(x,16));
+
+        //其他转其他
+        //先用parseInt转成十进制再用toString转到目标进制
+        alert(String.fromCharCode(parseInt(141,8)))
+        alert(parseInt('ff',16).toString(2)); */
+
+
+        (function() {
+            console.group('MAX_VALUE MIN_VALUE');
+
+                // 可表示的最大的数
+                console.log("Number.MAX_VALUE = %o", Number.MAX_VALUE);
+
+                // 可表示的最小的数
+                console.log("Number.MIN_VALUE = %o", Number.MIN_VALUE);
+            console.groupEnd();
+
+            console.group('POSITIVE_INFINITY NEGATIVE_INFINITY');
+
+                // 正无穷大，溢出时返回该值
+                console.log("Number.POSITIVE_INFINITY = %o", Number.POSITIVE_INFINITY);
+
+                // 负无穷大，溢出时返回改值
+                console.log("Number.NEGATIVE_INFINITY = %o", Number.NEGATIVE_INFINITY);
+            console.groupEnd();
+
+            console.group('isNaN() isFinite()');
+                console.log("0/0 = %o", 0/0);
+                console.log("1/0 = %o", 1/0);
+                console.log('"a"/1 = %o', "a"/1);
+                console.log("isNaN(null) = %o", isNaN(null));
+                console.log('isNaN("22abb") = %o', isNaN("22abb"));
+
+                console.log("isFinite(NaN) = %o", isFinite(NaN));
+                console.log('isFinite("") = %o', isFinite(""));
+            console.groupEnd();
+        }());
+    </script>
+</body>
+</html>

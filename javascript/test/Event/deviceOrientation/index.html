@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>window deviceorientation</title>
+</head>
+<body>
+    <p id="valueAlpha">alpha(z): <span> </span></p>
+    <p id="valueBeta">beta(x): <span> </span></p>
+    <p id="valueGamma">gamma(y): <span> </span></p>
+
+    <script>
+        (function(w, d) {
+            var alpha = d.getElementById("valueAlpha").childNodes[1].firstChild,
+                beta = d.getElementById("valueBeta").childNodes[1].firstChild,
+                gamma = d.getElementById("valueGamma").childNodes[1].firstChild;
+
+            w.addEventListener("deviceorientation", function(e) {
+                alpha.nodeValue = Math.round(e.alpha);
+                beta.nodeValue = Math.round(e.beta);
+                gamma.nodeValue = Math.round(e.gamma);
+            }, true);
+        }(window, document));
+    </script>
+</body>
+</html>

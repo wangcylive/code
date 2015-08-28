@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>html5 复制粘贴功能</title>
+    <style>
+        .copy{margin:2em 0;width:300px;height:40px;line-height:40px;text-align:center;color:#666;border:1px solid #ccc;}
+    </style>
+</head>
+<body>
+    <h1>html5 复制粘贴功能</h1>
+
+    <div id="copyDiv" class="copy">啊减肥咖啡啊</div>
+
+    <input id="enterInput" type="text" placeholder="输入电话号码">
+    <input id="cutInput" type="text">
+    <input id="pasteInput" type="text">
+
+    <button id="copyBtn" type="button">复制</button>
+    <button id="cutBtn" type="button">剪切</button>
+    <button id="pasteBtn" type="button">粘贴</button>
+
+    <script>
+        (function() {
+
+            var copyDiv = document.getElementById("copyDiv");
+            copyDiv.addEventListener("beforecopy", function(event) {
+                enterInput.value += event.type + "; ";
+            }, false);
+
+            alert("oncopy" in copyDiv);
+
+            copyDiv.addEventListener("copy", function(event) {
+                enterInput.value += event.type;
+            }, false);
+
+
+
+            function setClipboardText(event, value){
+                if(event.clipboardData){
+                    return event.clipboardData.setData("text/plain", value);
+                } else if(window.clipboardData){
+                    return window.clipboardData.setData("text", value);
+                }
+            }
+
+            var d = document,
+                enterInput = d.getElementById("enterInput"),
+                cutInput = d.getElementById("cutInput"),
+                pasteInput = d.getElementById("pasteInput"),
+                copyBtn = d.getElementById("copyBtn"),
+                cutBtn = d.getElementById("cutBtn"),
+                pasteBtn = d.getElementById("pasteBtn");
+
+            enterInput.addEventListener("beforecopy", function(event) {
+                console.log(event.clipboardData.items);
+            }, false);
+
+            enterInput.addEventListener("copy", function(event) {
+                console.log(event.clipboardData);
+            }, false);
+
+            cutInput.addEventListener("beforecut", function(event) {
+                console.log(event.clipboardData);
+            }, false);
+
+            cutInput.addEventListener("cut", function(event) {
+                console.log(event.clipboardData);
+            }, false);
+
+            pasteInput.addEventListener("beforepaste", function(event) {
+                console.log(event.clipboardData);
+            }, false);
+
+            pasteInput.addEventListener("paste", function(event) {
+                console.log(event.clipboardData);
+            }, false);
+
+            copyBtn.addEventListener("click", function(event) {
+                /*enterInput.copy();*/
+            }, false);
+        }());
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>regExp search</title>
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <h1>regExp search</h1>
+    <h2><code>string.search(regExp)</code></h2>
+    <p>返回与正则表达式查找内容匹配的第一个子字符串的位置，如果找到则返回子字符至开始处的偏移位，否则返回-1</p>
+
+    <script>
+        (function() {
+            var str = "I love cd!";
+            var reg = /\w/;
+
+            console.group('search 1');
+                console.log(str.search(reg));
+            console.groupEnd();
+        }());
+
+        (function() {
+            var str = "I love cd!";
+            var reg = /cd/g;
+
+            console.group('search 2');
+                console.log(str.search(reg));
+                console.log("reg.lastIndex: %o", reg.lastIndex);
+            console.groupEnd();
+        }());
+
+        (function() {
+            var str = "I love cd!";
+            var reg = "cd";
+
+            console.group('search 3');
+                console.log(str.search(reg));
+            console.groupEnd();
+        }());
+    </script>
+</body>
+</html>

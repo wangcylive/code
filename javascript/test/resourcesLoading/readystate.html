@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>js 页面加载状态</title>
+<link href="" rel="stylesheet">
+<script src="ready.js"></script>
+<script>
+    function on(dom, type, callback) {
+        if(dom.addEventListener) {
+            dom.addEventListener(type, callback, false);
+        } else if(dom.attachEvent) {
+            dom.attachEvent("on" + type, callback);
+        }
+        return dom;
+    }
+
+
+    (function(w, d) {
+        var startTime = new Date().getTime();
+
+
+        bindReady(function() {
+            console.log(new Date().getTime() - startTime + " bindReady");
+        });
+
+        bindReady(function() {
+            console.log(new Date().getTime() - startTime + " bindReady");
+        });
+
+
+        
+        on(w, "load", function(e) {
+            console.log(new Date().getTime() - startTime + " " + e.target + " " + e.type);
+        });
+
+        on(d, "DOMContentLoaded", function(e) {
+            console.log(new Date().getTime() - startTime + " " + e.target + " " + e.type);
+        });
+
+
+        /**
+         * readyState值：
+         * interactive 仅对已加载的部分文件有效，在此情况下，对象模型是有效但只读的
+         * complete 文件已完全加载，代表加载成功
+         *
+         * ie10+和标准浏览器在readystate值等于 interactive 的时候页面元素可以获取到
+         * 
+         */
+        on(d, "readystatechange", function(e) {
+            console.log(new Date().getTime() - startTime + " " + e.target + " " + e.type + " " + d.readyState);
+        });
+
+    }(window, document));
+</script>
+</head>
+<body>
+    <h1>js 页面加载状态</h1>
+
+    <script>
+        (function(w, d) {
+            var img = new Image();
+            img.onload = function() {
+                console.log(new Date().getTime() + " img " + img.readyState);
+                d.body.appendChild(img);
+                console.log(img.clientWidth);
+            }
+            img.src = "http://cn.bing.com/az/hprichbg/rb/TolbachikVolcano_ZH-CN8980703058_1366x768.jpg";
+            
+        }(window, document));
+    </script>
+
+    <h2>header two</h2>
+</body>
+</html>

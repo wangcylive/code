@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>regExp split</title>
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <h1>regExp split</h1>
+    <h2><code>stringObject.split(separator,howmany)</code></h2>
+    <p>参数</p>
+    <p><strong>separator</strong> 必需。字符串或正则表达式，从该参数指定的地方分割 stringObject</p>
+    <p><strong>howmany</strong> 可选。该参数可指定返回的数组的最大长度。如果设置了该参数，返回的子串不会多于这个参数指定的数组。如果没有设置该参数，整个字符串都会被分割，不考虑它的长度。</p>
+
+    <script>
+        (function() {
+            var str = "wangcy love cd!";
+            var reg = " ";
+
+            console.group('split 1');
+                console.log(str.split(reg));
+            console.groupEnd();
+        }());
+
+        (function() {
+            var str = "wangcy love  cd!";
+            var reg = /\s+/;
+
+            console.group('split 2');
+                console.log(str.split(reg));
+            console.groupEnd();
+        }());
+
+        (function() {
+            var str = "wangcy love cd!";
+            var reg = /\s*/;
+
+            console.group('split 3');
+                console.log(str.split(reg, 4));
+            console.groupEnd();
+        }());
+    </script>
+</body>
+</html>

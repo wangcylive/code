@@ -1,0 +1,25 @@
+@import "reset.css" screen;
+@import "base.css" screen;
+@import "form.css" screen;
+
+@media screen {
+    h1{margin:.5em;font-size:1.6em;font-weight:normal;}
+    .main > section{margin:.6em;}
+    .main h2{font-size:1.4em;font-weight:normal;color:#666;}
+    .nav{width:300px;overflow:hidden;border:1px solid #ccc;border-radius:.3em;
+        box-shadow:2px 2px 5px 1px hsla(0, 0%, 0%, .4);
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .nav ul{display:table;}
+    .nav li{display:table-cell;padding:.4em .8em;}
+    .nav a{color:#0174a5;text-decoration:none;}
+    .nav a:visited{color:#008000;text-decoration:underline;}
+    .nav a:hover,
+    .nav a:active{color:#00a0e9;text-decoration:underline;}
+    .mousewheel{width:300px;height:100px;overflow:hidden;overflow-y:auto;border:1px solid #ccc;}
+    .mousewheel ol{list-style:inside upper-alpha;}
+    .mousewheel li{padding:.6em;}
+}

@@ -1,0 +1,8 @@
+@media screen {
+    .header{background-color:#ccc;border:1px solid #333;padding:1em !important;}
+    .header:before{content:"before";background-color:blue;color:white;}
+    .header:after{content:"after";background-color:yellow;}
+
+    .header:hover{background-color:#666;color:#fff;}
+    .header:active{background-color:#333;color:#fff;}
+}

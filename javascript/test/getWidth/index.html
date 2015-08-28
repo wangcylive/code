@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>js获取大小</title>
+<style>
+body{margin:0;}
+#wrap{/*padding:10px;*/margin:0 20px;/*border:5px solid #ccc;*/overflow:auto;background-color:#ccc;}
+#inner{width:200%;height:200px;}
+#value{padding:1em;}
+</style>
+<script src="../../jquery-1.11.0.min.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="inner">
+            
+        </div>
+    </div>
+
+    <div id="value"></div>
+
+    <script>
+        (function() {
+            // "use strict";
+
+            var wrap = document.getElementById("wrap"),
+                inner = document.getElementById("inner"),
+                value = document.getElementById("value");
+
+            value.appendChild(document.createTextNode("wrap: offsetWidth=" + wrap.offsetWidth + "  clientWidth=" +
+                    wrap.clientWidth + "  scrollWidth=" + wrap.scrollWidth));
+        }());
+    </script>
+</body>
+</html>

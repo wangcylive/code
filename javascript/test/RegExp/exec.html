@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>regExp exec</title>
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <h1>regExp exec</h1>
+    <h2><code>regExp.exec(string)</code></h2>
+    <p>用正则表达式模式在字符串中查找，并返回该查找结果的第一个值（数组），如果匹配失败，返回null</p>
+
+    <script>
+        (function() {
+            var str = "The rain in Spain falls mainly in the plain!";
+            var reg = /(a)in/;
+
+            console.group('exec 1');
+                console.log(reg.exec(str));
+                console.log("regExp.lastIndex: %s", reg.lastIndex);
+                console.log(reg.exec(str));
+                console.log("regExp.lastIndex: %s", reg.lastIndex);
+            console.groupEnd();
+        }());
+
+        (function() {
+            var str = "The rain in Spain falls mainly in the plain!";
+            var reg = /(a)in/g;
+
+            console.group('exec 2');
+                console.log(reg.exec(str));
+                console.log("regExp.lastIndex: %s", reg.lastIndex);
+                console.log(reg.exec(str));
+                console.log("regExp.lastIndex: %s", reg.lastIndex);
+            console.groupEnd();
+        }());
+
+        (function() {
+            var str = "The rain in Spain falls mainly in the plain!";
+            var reg = /(a)in/g;
+
+            console.group('exec 3');
+                // var result;
+
+                while((result = reg.exec(str)) != null) {
+                    console.log(result);
+                    console.log("regExp.lastIndex: %s", reg.lastIndex);
+                }
+            console.groupEnd();
+        }());
+    </script>
+</body>
+</html>

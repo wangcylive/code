@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>regExp replace</title>
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <h1>regExp replace</h1>
+    <h2><code>string.replace(regExp, replaceText)</code></h2>
+    <p>返回根据正则表达式进行文字替换后的字符串的复制</p>
+
+    <script>
+        (function() {
+            var str = "i love %s";
+
+            console.group('replace 1');
+                console.log(str.replace("%s", "cd").toUpperCase());
+            console.groupEnd();
+        }());
+
+        (function() {
+            var str = "I LOVE %s %s";
+            var reg = /%s/g;
+
+            console.group('replace 2');
+                console.log(str.replace(reg, "cd").toLowerCase());
+            console.groupEnd();
+        }());
+
+        (function() {
+            var str = "background-color";
+            var reg = /(\w+)-(\w)(\w+)/;
+
+            console.group('replace 3');
+                console.log(str.replace(reg, "$1" + "$2" + "$3"));
+            console.groupEnd();
+        }());
+
+        (function() {
+            var str = "background-color";
+            var reg = /-[a-z]/;
+
+            console.group('replace 4');
+                console.log(str.replace(reg, function(s) {
+                    return s.charAt(1).toUpperCase();
+                }));
+            console.groupEnd();
+        }());
+
+        (function() {
+            var str = "wangcy love cd!";
+            var reg = /\s/g;
+
+            console.group('replace 5');
+                str.replace(reg, function(str, index, input) {
+                    console.log(index);
+                    console.log(input);
+                })
+            console.groupEnd();
+        }());
+
+        (function() {
+            var str = "---background-color---";
+            var reg = /(\w+)-(\w)(\w+)/;
+
+            console.group('replace 6');
+
+                /**
+                 * @param  {[type]} string [匹配的字符串]
+                 * @param  {[type]} $1     [子表达式相匹配的文本]
+                 * @param  {[type]} $2     [子表达式相匹配的文本]
+                 * @param  {[type]} $3     [子表达式相匹配的文本]
+                 * @param  {[type]} index  [匹配发生位置索引]
+                 * @param  {[type]} input  [源字符串]
+                 */
+                var value = str.replace(reg, function(string, input) {
+                    console.log("string %o", string);
+                    // console.log("index %o", index);
+                    console.log("input %o", input);
+                    // return $1 + $2.toUpperCase() + $3;
+                });
+
+                // console.log(value);
+            console.groupEnd();
+        }());
+
+        (function() {
+            var str = "background-color";
+            var reg = /(-)/;
+
+            console.group('replace 7');
+                console.log(str.replace(reg, "$1"));  // 与 regexp 中的第 1 个子表达式相匹配的文本
+                console.log(str.replace(reg, "$&"));  // 与 regexp 相匹配的子串
+                console.log(str.replace(reg, "$`"));  // 位于匹配子串左侧的文本
+                console.log(str.replace(reg, "$'"));  // 位于匹配子串右侧的文本
+                console.log(str.replace(reg, "$$"));  // 直接量符号
+            console.groupEnd();
+        }());
+    </script>
+</body>
+</html>

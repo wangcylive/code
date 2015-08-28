@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Examples</title>
+<link href="index.css" rel="stylesheet">
+</head>
+<body>
+    <h1>标签切换</h1>
+    <div id="tabBox" class="tab-box">
+        <div class="nav">
+            <ul class="clearfix">
+                <li><a href="javascript:;">财经</a></li>
+                <li><a href="javascript:;">股票</a></li>
+                <li><a href="javascript:;">商业</a></li>
+                <li><a href="javascript:;">房产</a></li>
+            </ul>
+        </div>
+        <div class="item">
+            <div>
+                财经
+            </div>
+            <div>
+                股票
+            </div>
+            <div>
+                商业
+            </div>
+            <div>
+                房产
+            </div>
+        </div>
+    </div>
+    
+    <script src="scripts/TouchSlide.1.1.source.js"></script>
+    <script>
+        TouchSlide({
+            slideCell: "#tabBox",
+            titCell: ".nav li",
+            mainCell: ".item",
+            delayTime: 1000
+        });
+    </script>
+</body>
+</html>

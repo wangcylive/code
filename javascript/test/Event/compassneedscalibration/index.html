@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>compassneedscalibration 指南针校对</title>
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <script type="text/javascript">
+        (function(w, d) {
+            w.addEventListener("compassneedscalibration", function(e) {
+                alert('您的罗盘需要校准，请将设备沿数字8方向移动。');
+                event.preventDefault();
+            }, true);
+        }(window, document));
+    </script>
+</body>
+</html>

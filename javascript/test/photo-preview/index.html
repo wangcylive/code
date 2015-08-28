@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>图片预览</title>
+    <style>
+        @media screen {
+            body{margin:0;}
+            #page{margin:8px;}
+            .empty{height:1000px;background-color:hsla(80, 50%, 50%, .2);}
+            .list{margin:0;padding:0;list-style:none;}
+            .list li{display:inline-block;}
+            .list img{display:block;width:300px;height:auto;}
+            .overlay{position:absolute;left:0;top:0;z-index:10;width:100%;height:100%;background-color:hsla(0, 0%,
+            0%, 1);}
+            .content{position:absolute;left:0;top:0;z-index:20;width:100%;height:100%;}
+            .main{height:100%;padding:20px;
+                -webkit-box-sizing:border-box;
+                -moz-box-sizing:border-box;
+                box-sizing:border-box;}
+            .main .table{display:table;width:100%;height:100%;}
+            .main .td{display:table-cell;vertical-align:middle;}
+            .content img{margin:0 auto;display:block;max-width:100%;max-height:100%;}
+        }
+    </style>
+</head>
+<body>
+    <div id="page">
+        <div class="empty">
+
+        </div>
+        <ul class="list">
+            <li><img src="http://z.k1982.com/design_img/201308/201308212140012302.jpg" alt=""></li>
+            <li><img src="http://z.k1982.com/design_img/201308/201308212140012304.jpg" alt=""></li>
+        </ul>
+    </div>
+    <div id="overlay" class="overlay"></div>
+    <div id="content" class="content">
+        <div class="main">
+            <div class="table">
+                <div class="td">
+                    <img src="http://z.k1982.com/design_img/201308/201308212140012302.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function(w, d) {
+            var img = d.querySelectorAll("img");
+            var start = Date.now();
+            var interval = setInterval(function() {
+                var _t = img[0];
+                if(_t.width > 0 && _t.height > 0) {
+                    clearInterval(interval);
+                    console.log("interval: %s, width=%s, height=%s", Date.now() - start, _t.width, _t.height);
+                }
+            }, 16);
+            img[0].addEventListener("load", function() {
+                console.log("onload: %s, width=%s, height=%s", Date.now() - start, this.width, this.height);
+            })
+        }(window, document));
+    </script>
+</body>
+</html>

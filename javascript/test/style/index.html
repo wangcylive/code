@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>js style</title>
+<style>
+    .demo{width:200px;height:200px;border:1px solid #ccc;}
+</style>
+</head>
+<body>
+    <h1>javascript style</h1>
+
+    <div id="demo" class="demo"></div>
+
+    <button id="addStyle">add style</button>
+    <button id="removeStyle">remove style</button>
+    <button id="showStyle">show style</button>
+
+    <blockquote>
+        <p>ie8及以下不支持getPropertyValue、setProperty、removeProperty，支持对应的getAttribute、setAttribute、removeAttribute</p>
+        <p>ie8设置style简写的属性会分开显示，删除时候也只能分开删除，获取的时候可以获取到，如border-width、margin、padding、font</p>
+    </blockquote>
+
+    <script>
+        (function(w, d) {
+            var demo = d.getElementById("demo"),
+                add = d.getElementById("addStyle"),
+                remove = d.getElementById("removeStyle"),
+                show = d.getElementById("showStyle");
+
+            // 这段代码让ie8支持
+            /*CSSStyleDeclaration.prototype.setProperty = function(a, b) {
+                return this.setAttribute(a, b);
+            }
+            CSSStyleDeclaration.prototype.getPropertyValue = function(a) {
+                return this.getAttribute(a);
+            }
+            CSSStyleDeclaration.prototype.removeProperty = function(a) {
+                return this.removeAttribute(a);
+            }*/
+
+            addStyle.onclick = function() {
+                if(demo.style.setProperty) {
+                    demo.style.setProperty("background-color", "blue", "important");
+                    demo.style.setProperty("padding", "10px", "");
+                } else {
+                    demo.style.setAttribute("background-color", "blue", "important");
+                    demo.style.setAttribute("border-width", "10px", "");
+                }
+            }
+
+            remove.onclick = function() {
+                if(demo.style.removeProperty) {
+                    demo.style.removeProperty("padding");
+                } else {
+                    demo.style.removeAttribute("border-width");
+                }
+            }
+
+            show.onclick = function() {
+                if(demo.style.getPropertyValue) {
+                    alert(demo.style.getPropertyValue("padding"));
+                } else {
+                    alert(demo.style.getAttribute("border-width"));
+                }
+            }
+
+        }(window, document));
+    </script>
+</body>
+</html>

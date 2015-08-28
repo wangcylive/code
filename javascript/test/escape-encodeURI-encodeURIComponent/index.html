@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>javascript 转码</title>
+<style>
+    html, code{font-family: arial, sans-serif;}
+    code{color:#690;}
+</style>
+</head>
+<body>
+    <h1>javascript 转码</h1>
+    <h2 id="escapeHeader">escape unescape</h2>
+    <h2 id="encodeURIHeader">encodeURI unencodeURI</h2>
+    <h2 id="encodeURIComponentHeader">encodeURIComponent unencodeURIComponent</h2>
+    
+    <dl>
+        <dt>URI</dt>
+        <dd>Uniform Resource Identifier（同一资源标识符）</dd>
+    </dl>
+
+    <script>
+        function insertAfter(newDom, dom) {
+            if(dom.nextSibling) {
+                dom.parentNode.insertBefore(newDom, dom.nextSibling);
+            } else {
+                dom.parentNode.appendChild(newDom);
+            }
+        }
+
+        /**
+         * escape方法以Unicode格式返回一个包含传入参数内容的string类型的值
+         * Escape方法会将传入参数中所有的空格、标点符号、重音字符以及其它任何非ASCII字符替换为%xx的编码形式，
+         * 其中xx与其所表示的字符的16进制数表示形式相同。
+         * 如空格字符的16进制表示形式为0x20，则此时xx应为20，即escape(" ") 返回“%20”
+         * @ * + - _ . / 不会被转码
+         */
+        (function() {
+            var str = ["http://www.baidu.com/?url=http://www.163.com",
+                        "@*/+-_.",
+                        "abc123陈笛"];
+
+            var escapeHeader = document.getElementById("escapeHeader");
+
+            var fragment = document.createDocumentFragment();
+
+            for(var i = 0; i < 3; i++) {
+                var p = document.createElement("p");
+
+                p.innerHTML = str[i] + " <code>" + escape(str[i]) + "</code>";
+                fragment.appendChild(p);
+            }
+
+            insertAfter(fragment, escapeHeader);
+        }());
+
+        /**
+         * 把URI字符串采用UTF-8编码格式转化成escape格式的字符串
+         * 该方法的目的是对 URI 进行完整的编码，因此对在 URI 中具有特殊含义的 ASCII 标点符号不会转义，
+         * 不会被此方法编码的字符包括以下：
+         * 
+         * Reserved characters(保留字符)：* ; , / ? : @ & = + $
+         *
+         * Unescaped characters(非转义字符)：alphabetic(基本字符，包括所有大小写字母和数字), 
+         *         decimal digits(小数位数), - _ . ! ~ * ' ( )
+         *
+         * Score：#
+         */
+        (function() {
+            var str = ["http://www.baidu.com/?url=http://www.163.com",
+                        ";,/?:@&=+$-_.!~*'()#",
+                        "abc123陈笛"];
+
+            var encodeURIHeader = document.getElementById("encodeURIHeader");
+
+            var fragment = document.createDocumentFragment();
+
+            for(var i = 0; i < 3; i++) {
+                var p = document.createElement("p");
+
+                p.innerHTML = str[i] + " <code>" + encodeURI(str[i]) + "</code>";
+                fragment.appendChild(p);
+            }
+
+            insertAfter(fragment, encodeURIHeader);
+        }());
+
+        
+        /**
+         * 该函数处理方式和encodeURI只有一个不同点，
+         * 那就是对于Reserved characters(保留字符)和score同样做转义编码
+         */
+        (function() {
+            var str = ["http://www.baidu.com/?url=http://www.163.com",
+                        "-_.!~*'()",
+                        "abc123陈笛"];
+
+            var encodeURIComponentHeader = document.getElementById("encodeURIComponentHeader");
+
+            var fragment = document.createDocumentFragment();
+
+            for(var i = 0; i < 3; i++) {
+                var p = document.createElement("p");
+
+                p.innerHTML = str[i] + " <code>" + encodeURIComponent(str[i]) + "</code>";
+                fragment.appendChild(p);
+            }
+
+            insertAfter(fragment, encodeURIComponentHeader);
+        }()); 
+    </script>
+</body>
+</html>

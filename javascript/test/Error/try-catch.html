@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>下载异常</title>
+</head>
+<body>
+    <button id="btn">下载</button>
+    <script>
+        function requireJs(url, callback) {
+            var js = document.createElement("script");
+
+            if("onload" in js) {
+                js.onload = function(event) {
+                    console.log(event);
+                    fn();
+                };
+                js.onerror = function(event) {
+                    console.log(event);
+                }
+            } else {
+                js.onreadystatechange = function() {
+                    console.log(js.readyState);
+                    if(js.readyState === "loaded" || js.readyState === "complete") {
+                        js.onreadystatechange = null;
+                        fn();
+                    }
+                }
+            }
+
+            js.src = url;
+            js.async = "async";
+
+            var fn = typeof callback === "function" ? callback : function(){};
+
+            document.body.appendChild(js);
+            document.body.removeChild(js);
+            /*window.stop();*/
+        }
+
+        (function() {
+            try {
+
+
+                var btn = document.getElementById("btn");
+
+                btn.onclick = function() {
+                    requireJs("http://10.10.101.229:8010/javascript/test/getStyles/index.css");
+                }
+            } catch (e) {
+                console.log(e);
+            }
+        }());
+    </script>
+</body>
+</html>

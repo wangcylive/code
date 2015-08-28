@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>useragent</title>
+<script src="useragents.js"></script>
+</head>
+<body>
+    <script>
+        (function() {
+            var Browser = new UserAgents(navigator.userAgent),
+                nullField = "<strong>null field</strong>";
+
+            var text = "browserName: " + (Browser.browser.name ? Browser.browser.name : nullField) + "<br><br>" +
+                    "browserChannel: " + (Browser.browser.channel ? Browser.browser.channel : nullField) + "<br><br>" +
+                    "browserVersion: " + (Browser.browser.version ? Browser.browser.version.toString() : nullField) + "<br><br>" +
+                    "browserVersionMajor: " + (Browser.browser.version.major ? Browser.browser.version.major : nullField) + "<br><br>" +
+                    "browserVersionMinor: " + (Browser.browser.version.minor ? Browser.browser.version.minor : nullField) + "<br><br>" +
+                    "browserVersionOriginal: " + (Browser.browser.version.original ? Browser.browser.version.original : nullField) + "<br><br>" +
+                    "browserMode: " + (Browser.browser.mode ? Browser.browser.mode : nullField) + "<br><br>" +
+                    "engineName: " + (Browser.engine.name ? Browser.engine.name : nullField) + "<br><br>" +
+                    "engineVersion: " + (Browser.engine.version ? Browser.engine.version.toString() : nullField) + "<br><br>" +
+                    "OSName: " + (Browser.os.name ? Browser.os.name : nullField) + "<br><br>" +
+                    "OSVersion: " + (Browser.os.version ? Browser.os.version.toString() : "") + "<br><br>" +
+                    "deviceManufacturer: " + (Browser.device.manufacturer ? Browser.device.manufacturer : nullField) + "<br><br>" +
+                    "deviceModel: " + (Browser.device.model ? Browser.device.model : nullField) + "<br><br>" +
+                    "deviceType: " + (Browser.device.type ? Browser.device.type : nullField) + "<br><br>" +
+                    "useragent: " + navigator.userAgent + "<br><br>" +
+                    "humanReadable: " + Browser.toString();
+
+            var p = document.createElement("p");
+            p.innerHTML = text;
+
+            document.body.appendChild(p);
+
+        }());
+    </script>
+</body>
+</html>

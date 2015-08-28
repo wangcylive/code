@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>vibrate 震动</title>
+<style>
+    button{width:100%;margin-bottom:2em;padding:8px;font-size:1em;}
+</style>
+</head>
+<body>
+    <button id="vibrate">vibrate</button>
+
+    <button id="vibrateArray1">vibrate array1</button>
+
+    <button id="vibrateArray2">vibrate array2</button>
+
+    <p id="returnValue"> </p>
+    
+    <p>android4.4 默认浏览器、微信内置浏览器、QQ内置浏览器不支持</p>
+    <p>chrome、Firefox返回ture，QQ、UC无返回值；QQ不支持数组参数</p>
+    <p>多次触发，后面会覆盖前面，数组基数是震动时间，偶数是间隔时间</p>
+
+    <script>
+    (function(w, d) {
+        var $ = function(arg) {
+            return d.getElementById(arg);
+        }
+
+        var vibrate = $("vibrate"),
+            vibrateArray1 = $("vibrateArray1"),
+            vibrateArray2 = $("vibrateArray2"),
+            returnValue = $("returnValue").firstChild;
+
+        navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+
+        if(navigator.vibrate) {
+            var i = 1;
+            vibrate.onclick = function() {
+                returnValue.nodeValue += (i++ + " " + navigator.vibrate(500) + "  ");
+            }
+
+            vibrateArray1.onclick = function() {
+                returnValue.nodeValue += (i++ + " " + navigator.vibrate([200, 400, 200, 400, 200]) + "  ");
+            }
+
+            vibrateArray2.onclick = function() {
+                returnValue.nodeValue += (i++ + " " + navigator.vibrate([100, 200, 100, 200, 100, 200, 100]) + "  ");
+            }
+
+        } else {
+            alert("your browser not supported vibrate!");
+        }
+    }(window, document));
+    </script>
+</body>
+</html>

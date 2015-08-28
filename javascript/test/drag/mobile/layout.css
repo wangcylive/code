@@ -1,0 +1,27 @@
+@media screen {
+    body, h1, h2, h3, h4, h5, h6, dl, dd, ul, ol, p, blockquote, form, fieldset, figure, button{margin:0;}
+    ul, ol, menu, th, td, legend, fieldset{padding:0;}
+    html{font-size:62.5%;-webkit-tap-highlight-color:transparent;}
+    body{font:1.6em/1.5 sans-serif;word-wrap:break-word;}
+    ul, ol, menu{list-style-type:none;}
+    table{border-spacing:0;border-collapse:collapse;}
+
+    .story-item{}
+    .story-item section{margin-bottom:1em;}
+    .story-item section header{background-color:#ccc;}
+    .story-item section h2{margin:0;font-size:1.2em;}
+    .story-state{min-height:7.1em;padding:8px;border:1px dashed #ccc;white-space:nowrap;overflow:auto;}
+    .story{position:relative;display:inline-block;width:6em;min-height:6.5em;padding:.3em;vertical-align:top;
+        background-color:#f6a1a4;border:1px solid #666;white-space:normal;
+    }
+    .story.touch-state{box-shadow:0 0 5px 3px hsla(0, 0%, 0%, .3);
+        -webkit-transform:scale(1.1);
+        -moz-transform:scale(1.1);
+        -ms-transform:scale(1.1);
+        -o-transform:scale(1.1);
+        transform:scale(1.1);
+    }
+    .story p{}
+    .story p:first-child{height:4.5em;}
+    .story p:last-child{margin-top:.5em;text-align:center;font-weight:bold;}
+}

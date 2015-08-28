@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>respond.js</title>
+<link href="layout.css" rel="stylesheet">
+<script src="respond.min.js"></script>
+</head>
+<body>
+    <h1>javascript respond.js</h1>
+    <p>支持ie6-ie8 css3 mediaQueries</p>
+    <div class="layout"></div>
+
+    <button id="update">update</button>
+
+    <script>
+        (function() {
+            var update = document.getElementById("update");
+
+            update.onclick = function() {
+
+                // 是否支持css3 mediaQueries
+                if(!respond.mediaQueriesSupported) {
+
+                    // html文字大小
+                    console.log(respond.getEmValue());
+
+                    // 立即更新，适用于添加了新样式
+                    respond.update();
+                }
+            }
+        }());
+    </script>
+</body>
+</html>

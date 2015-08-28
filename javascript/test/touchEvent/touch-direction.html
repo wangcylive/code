@@ -1,0 +1,126 @@
+<!doctype>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<title>javascript touchEvent</title>
+<style>
+#touch{height:200px;border:2px solid #333;overflow:auto;}
+#touchNext{width:200%;height:50px;border:2px solid #333;}
+#touchValues{height:100px;overflow:auto;border:2px solid #ccc;}
+#clearValue{display:block;margin:1em 0;padding:1em;}
+</style>
+</head>
+<body style="height:800px;">
+    <div id="touchValues"> </div>
+    <button type="button" id="clearValue">clear value</button>
+    <div id="touch">
+        <div id="touchNext"></div>
+    </div>
+    
+    <script>
+        function bind(ele, eventType, fn) {
+            ele.addEventListener(eventType, fn, false);
+        }
+
+        (function() {
+            var touch = document.getElementById("touch"),
+                touchValues = document.getElementById("touchValues"),
+                touchNext = document.getElementById("touchNext"),
+                clearValue = document.getElementById("clearValue"),
+                startX, startY;
+
+            var slideDistance = 10;
+
+            function getEventType(event) {
+                event.preventDefault();
+
+                // var text = document.createTextNode(event.type + " /");
+
+                // var text = document.createTextNode(event.touches.length + "-" + event.targetTouches.length + "-" +
+                //         event.changedTouches.length + "/ ");
+                
+                // var text = document.createTextNode(event.touches[0].clientX + "-" + event.touches[0].screenX + "-" +
+                //         event.touches[0].pageX + " ");
+
+                // var text = document.createTextNode(event.touches[0].clientY + "-" + event.touches[0].screenY + "-" +
+                //         event.touches[0].pageY + " ");
+                
+                // touchValues.appendChild(text);
+            }
+
+            bind(clearValue, "click", function() {
+                touchValues.innerHTML = "";
+            });
+
+            bind(touch, "touchstart", function(e) {
+                e.preventDefault();
+                startX = e.touches[0].screenX;
+                startY = e.touches[0].screenY;
+            });
+
+            bind(touch, "touchmove", function(e) {
+                e.preventDefault();
+                // getEventType(e);
+                
+                var changeX = e.touches[0].screenX - startX,
+                    changeY = e.touches[0].screenY - startY;
+
+                var showMes = "@滑动",
+                    replaceShowMes = function(str) {
+                        return showMes.replace("@", str) + " x:" + changeX + " y:" + changeY + "/ ";
+                    }
+
+
+                if(Math.abs(changeX) >= Math.abs(changeY)) {
+                    if(changeX > slideDistance) {
+                        touchValues.firstChild.nodeValue = replaceShowMes("向右");
+                    } else if(changeX < -slideDistance) {
+                        touchValues.firstChild.nodeValue = replaceShowMes("向左");
+                    } else {
+                        touchValues.firstChild.nodeValue = replaceShowMes("未");
+                    }
+                } else {
+                    if(changeY > slideDistance) {
+                        touchValues.firstChild.nodeValue = replaceShowMes("向下");
+                    } else if(changeY < -slideDistance) {
+                        touchValues.firstChild.nodeValue = replaceShowMes("向上");
+                    } else {
+                        touchValues.firstChild.nodeValue = replaceShowMes("未");
+                    }
+                }
+            });
+
+            bind(touch, "touchend", function(e) {
+                e.preventDefault();
+                // getEventType(e);
+                
+            });
+
+            bind(touch, "touchcancel", function(e) {
+                getEventType(e);
+            });
+
+
+            // touchenter、touchleave不知道如何触发
+            bind(touch, "touchenter", function(e) {
+                alert("touchenter");
+                getEventType(e);
+            });
+
+            bind(touch, "touchleave", function(e) {
+                alert("touchleave");
+                getEventType(e);
+            });
+
+            bind(touchNext, "touchenter", function(e) {
+                getEventType(e);
+            });
+
+            bind(touchNext, "touchleave", function(e) {
+                getEventType(e);
+            });
+        }());
+    </script>
+</body>
+</html>

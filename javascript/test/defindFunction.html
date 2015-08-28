@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>javascript 定义函数</title>
+</head>
+<body>
+    <h1>javascript 定义函数</h1>
+    <script>
+        function warn(string) {
+            if(window.console) {
+                console.log(string)
+            } else {
+                alert(string);
+            }
+        }
+
+
+        // 函数声明，任何地方都可调用
+        // 正常运行
+        warn(returnValue("returnValue") + " " + new Date().getTime());
+
+        
+        // 函数声明
+        function returnValue(x) {
+            return x;
+        }
+
+        // 函数定义表达式，只有函数变量声明提前了，函数的初始化代码仍然在原来的位置
+        // 这里会报错 undefined is not a function
+        try {
+            warn(getValue("getValue") + " " + new Date().getTime());
+        } catch (e) {
+            warn("getValue() " + e.message);
+        }
+        
+        // 函数定义表达式
+        var getValue = function(x) {
+            return x;
+        }
+
+        // 正常运行
+        warn(getValue("getValue") + " " + new Date().getTime());
+
+
+        // 获取函数名
+        // var tmp = arguments.callee.toString();
+        // var re = /function\s*(\w*)/i;
+        // var matches = re.exec(tmp);
+        // alert(matches[1]);
+        
+        warn("");
+
+
+        /*******************/
+
+        function fna(num) {
+            if(num <= 1) {
+                return 1;
+            } else {
+                return num;
+            }
+        }
+
+        var afn = fna;
+        // fna = null;
+        warn(afn + "\n");
+
+
+        var fnb = function(num) {
+            if(num <= 1) {
+                return 1;
+            } else {
+                return num;
+            }
+        }
+        var bfn = fnb;
+        // fnb = null;
+        warn(bfn);
+    </script>
+    <textarea name="" id="" style="width:100%;height:200px;"></textarea>
+    <script>
+        (function() {
+            var code = document.getElementsByTagName("script")[0],
+                textarea = document.getElementsByTagName("textarea")[0];
+
+            textarea.innerHTML = code.innerHTML;
+        }());
+    </script>
+</body>
+</html>

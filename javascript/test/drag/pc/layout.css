@@ -1,0 +1,5 @@
+@media screen {
+    .drag{display:inline-block;width:200px;height:200px;border:1px dashed #ccc;}
+    .drag-list{padding:0;margin:0;list-style:none;}
+    .drag-list{}
+}

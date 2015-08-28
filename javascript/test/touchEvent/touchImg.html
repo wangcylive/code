@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<title>touch img</title>
+<style>
+h1{margin:0;}
+#touchWrap{height:400px;border:2px solid #666;position:relative;}
+#touchImg{width:102.4px;height:76.8px;}
+.show-value{margin-bottom:10px;}
+.show-value:after{content:"";display:table;clear:both;}
+.show-value input{width:48%;padding:.3em .5em;font-size:1em;border:1px solid #333;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+}
+.show-value :first-child{float:left;}
+.show-value :nth-child(2){float:right;}
+</style>
+<script src="../../src/jquery-1.11.0.js"></script>
+</head>
+<body>
+    <h1>touch img</h1>
+    <div class="show-value">
+        <input type="text" id="initialValue">
+        <input type="text" id="changeValue">
+    </div>
+    <div id="touchWrap">
+        <img src="../_images/Koala.jpg" alt="" id="touchImg">
+    </div>
+
+    <script>
+        (function() {
+            "use strict";
+
+            var spportAttribute = {
+                def: "",
+
+                test: function() {
+                    var d = document.documentElement.style;
+                    if("transform" in d) {
+                        this.def = "transform";
+                    } else if ("webkitTransform" in d) {
+                        this.def = "webkitTransform";
+                    } else if ("mozTransform" in d) {
+                        this.def = "mozTransform";
+                    } else if ("msTransform" in d) {
+                        this.def = "msTransform";
+                    }
+                }
+            }
+
+            spportAttribute.test();
+
+            function bind(ele, eventType, fn) {
+                ele.addEventListener(eventType, fn, false);
+            }
+
+            var handleTouch = function(ele) {
+                var style, styleX , styleY, startX, startY;
+
+                function touchStart(e) {
+                    e.preventDefault();
+                    style = ele.style[spportAttribute.def] ? ele.style[spportAttribute.def].replace(/[a-z()\s]/g, "").split(",") : [0, 0];
+                    styleX = parseInt(style[0]);
+                    styleY = parseInt(style[1]);
+
+                    startX = e.changedTouches[0].pageX;
+                    startY = e.changedTouches[0].pageY;
+
+                    document.querySelector("#initialValue").value = styleX + "  " + styleY;
+                }
+
+                function touchMove(e) {
+                    e.preventDefault();
+
+                    var changeX = e.changedTouches[0].pageX - startX + styleX,
+                        changeY = e.changedTouches[0].pageY - startY + styleY;
+
+                    document.querySelector("#changeValue").value = changeX + "  " + changeY;
+
+                    ele.style[spportAttribute.def] = "translate(" + changeX + "px, " + changeY + "px)";
+                }
+
+                function touchEnd(e) {
+                    e.preventDefault();
+                }
+
+                bind(ele, "touchstart", touchStart);
+
+                bind(ele, "touchmove", touchMove);
+
+                bind(ele, "touchend", touchEnd);
+
+                bind(ele, "touchcancel", function(e) {
+                    alert(e.type);
+                });
+            }
+
+            handleTouch(document.querySelector("#touchImg"));
+
+            // console.log("js: " + document.querySelector("#touchImg").style.webkitTransform);
+        }());
+    </script>
+</body>
+</html>

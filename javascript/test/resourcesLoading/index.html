@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>js change resources src</title>
+<link href="resources/test-01.css" rel="stylesheet" id="link">
+<script src="resources/test-01.js" id="script"></script>
+</head>
+<body>
+    <h1>js resources loading</h1>
+    <blockquote>
+        <p>ie9+和标准浏览器改变script src属性不会再加载新的资源，ie8及以下会加载</p>
+        <p>ie10+和标准浏览器针对图片会做优化，如果连续改变图片的src属性，只会加载最后设定路径的图片</p>
+        <p>改变了link href属性，css都会加载，浏览器会应用最后设定路劲的样式表</p>
+    </blockquote>
+    <img src="resources/test-01.jpg" alt="" id="img">
+
+    <script>
+        window.onload = function() {
+            console.log(new Date().getTime() + " load");
+        }
+
+        document.onDOMContentLoaded = function() {
+            console.log(new Date().getTime() + " DOMContentLoaded");
+        }
+
+        (function(w, d) {
+            var link = d.getElementById("link"),
+                script = d.getElementById("script"),
+                img = d.getElementById("img");
+
+            link.href = "resources/test-02.css";
+            script.src = "resources/test-02.js";
+            img.src = "resources/test-02.jpg";
+        }(window, document));
+    </script>
+
+    <script>
+        (function(w, d) {
+            var link = d.getElementById("link"),
+                script = d.getElementById("script"),
+                img = d.getElementById("img");
+
+            link.href = "resources/test-03.css";
+            script.src = "resources/test-03.js";
+            img.src = "resources/test-03.jpg";
+        }(window, document));
+    </script>
+</body>
+</html>
