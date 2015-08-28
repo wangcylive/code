@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>没有画面视频测试</title>
+    <style>
+        .main{width:300px;}
+        .main video{display:block;width:10px;height:10px;}
+    </style>
+</head>
+<body>
+    <h1>no image video</h1>
+
+    <div class="main">
+        <video id="video" width="10" height="10" webkit-playsinline>
+            <source src="http://v.polyv.net/uc/video/getMp4?vid=9db4ad2a0dd8c30c5b87e39fb2d3a793_9" type="video/mp4">
+        </video>
+    </div>
+    <div class="controls" id="controls">
+        <button type="button" id="play">play</button>
+        <button type="button" id="pause">pause</button>
+    </div>
+    <script>
+        !function(w, d) {
+            var video = d.getElementById("video"),
+                controls = d.getElementById("controls"),
+                play = controls.querySelector("#play"),
+                pause = controls.querySelector("#pause");
+
+            play.addEventListener("click", function() {
+                video.play();
+            }, false);
+
+            pause.addEventListener("click", function() {
+                video.pause();
+            }, false);
+        }(window, document);
+    </script>
+</body>
+</html>

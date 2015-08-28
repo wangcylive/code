@@ -1,0 +1,168 @@
+@media screen {
+    .videoplayer{position:relative;display:block;background-color:#555;
+        background-size:cover;background-repeat:no-repeat;overflow:hidden;
+    }
+    .videoplayer .vp-ratio{position:relative;}
+    .videoplayer .vp-video{position:absolute;left:0;top:-9999px;width:100%;height:100%;}
+    .vp-ui{position:absolute;left:0;top:0;width:100%;height:100%;}
+    .vp-ui .play{position:absolute;left:50%;top:50%;width:50px;height:50px;border-radius:5px;
+        background-color:hsla(0, 0%, 0%, .8);
+        -webkit-transform:translate(-50%, -50%);
+        -moz-transform:translate(-50%, -50%);
+        -ms-transform:translate(-50%, -50%);
+        -o-transform:translate(-50%, -50%);
+        transform:translate(-50%, -50%);
+    }
+    .vp-ui .play::before{content:"";position:absolute;left:15px;top:10px;width:0;height:0;border:solid transparent;
+        border-width:15px 0 15px 25.98px;border-left-color:#fff;
+    }
+    .vp-ui .waiting{height:100%;background-color:hsla(0, 0%, 0%, .3);display:none;}
+    .vp-ui .waiting .icon-loading{position:absolute;left:50%;top:50%;margin:-20px 0 0 -20px;width:40px;height:40px;
+        background-image:url(data:image/png;base64,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);
+        background-size:contain;
+    }
+    .vp-ui .message{position:absolute;left:0;top:0;display:none;width:100%;padding:.5em 0;color:#fff;
+        font-size:14px;line-height:1.2;text-align:center;
+    }
+    .vp-controls{position:absolute;left:0;bottom:0;width:100%;background-color:hsla(0, 0%, 0%, .4);
+        -webkit-transform:translateY(100%);
+        -moz-transform:translateY(100%);
+        -ms-transform:translateY(100%);
+        -o-transform:translateY(100%);
+        transform:translateY(100%);
+        -webkit-transition:all .5s;
+        -moz-transition:all .5s;
+        -ms-transition:all .5s;
+        -o-transition:all .5s;
+        transition:all .5s;
+    }
+    .vp-timeline{position:relative;height:6px;background-color:#333;}
+    .vp-buffer{position:absolute;left:0;top:0;height:100%;background-color:#777;}
+    .vp-progress{position:absolute;left:8px;right:8px;top:0;height:100%;}
+    .vp-elapsed{position:absolute;left:0;top:0;height:100%;width:0%;background-color:#8eaf46;}
+    .vp-elapsed::before{content:"";position:absolute;left:-8px;width:8px;height:100%;background-color:#8eaf46;}
+    .vp-seek{position:absolute;right:-15px;top:-12px;width:30px;height:30px;}
+    .vp-seek::before{content:none;position:absolute;left:7px;top:7px;width:6px;height:6px;border:5px solid #fff;
+        border-radius:50%;background-color:#aeaeae;
+    }
+    .vp-seek:hover::before,
+    .vp-seek:active::before{background-color:#cc181e;box-shadow:0 0 5px 3px #cc181e;}
+    .vp-handle{height:40px;font-size:12px;line-height:16px;color:#fff;overflow:hidden;
+        -webkit-transition:height .5s;
+        -moz-transition:height .5s;
+        -ms-transition:height .5s;
+        -o-transition:height .5s;
+        transition:height .5s;
+    }
+    .vp-handle .wrap{height:30px;padding:5px;}
+    .vp-play{float:left;position:relative;width:30px;height:30px;font-size:0;line-height:0;}
+    .vp-play::before{content:"";position:absolute;left:7px;top:6px;width:0;height:0;border:solid transparent;
+        border-width:9px 0 9px 15.588457px;border-left-color:#fff;
+    }
+    .vp-time{float:left;margin-left:5px;line-height:30px;font-size:12px;}
+    .vp-fullscreen{float:right;position:relative;width:30px;height:30px;font-size:0;line-height:0;}
+    .vp-fullscreen .border{position:absolute;left:6px;top:6px;width:18px;height:18px;}
+    .vp-fullscreen .border i{position:absolute;width:4px;height:4px;border:0 solid #fff;}
+    .vp-fullscreen .border .top{left:0;top:0;border-width:2px 0 0 2px;}
+    .vp-fullscreen .border .right{right:0;top:0;border-width:2px 2px 0 0;}
+    .vp-fullscreen .border .bottom{right:0;bottom:0;border-width:0 2px 2px 0;}
+    .vp-fullscreen .border .left{left:0;bottom:0;border-width:0 0 2px 2px;}
+
+
+    /*首次点击播放，视频准备完成可以播放*/
+    .is-ready.videoplayer{background-image:none !important;}
+    .is-ready.videoplayer .vp-video{top:0;}
+    .is-ready.videoplayer .vp-controls{
+        -webkit-transform:translateY(0);
+        -moz-transform:translateY(0);
+        -ms-transform:translateY(0);
+        -o-transform:translateY(0);
+        transform:translateY(0);
+    }
+    .is-ready.videoplayer .vp-timeline .vp-seek::before{content:"";}
+
+    /*暂停状态*/
+    .is-paused.videoplayer .vp-ui .waiting{display:none !important;}
+    .is-paused.videoplayer .vp-ui .play{display:block;}
+
+    /*播放中状态*/
+    .is-playing.videoplayer .vp-ui .play{display:none;}
+    .is-playing.videoplayer .vp-play::before,
+    .is-playing.videoplayer .vp-play::after{content:"";position:absolute;top:7px;width:4px;height:16px;background-color:#fff;border:none;}
+    .is-playing.videoplayer .vp-play::before{left:9px;}
+    .is-playing.videoplayer .vp-play::after{left:17px;}
+
+    /*加载中状态*/
+    .is-loading.videoplayer .vp-ui .waiting{display:block;}
+    .is-loading.videoplayer .vp-ui .play{display:none;}
+    .is-loading.is-paused.videoplayer .vp-ui .play{display:block;}
+
+    /*错误提示*/
+    .is-error.videoplayer{}
+    .is-error.videoplayer .vp-ui{background-color:hsla(0, 0%, 0%, .7);}
+    .is-error.videoplayer .vp-ui .waiting{display:none;}
+    .is-error.videoplayer .vp-ui .play{display:none;}
+    .is-error.videoplayer .vp-ui .message{top:50%;display:block;
+        -webkit-transform:translate(0, -50%);
+        -moz-transform:translate(0, -50%);
+        -ms-transform:translate(0, -50%);
+        -o-transform:translate(0, -50%);
+        transform:translate(0, -50%);
+    }
+
+    /*网速慢提示*/
+    .is-stalled.videoplayer{}
+    .is-stalled.videoplayer .vp-ui .message{display:block;background-color:hsla(0, 0%, 0%, .6);}
+
+    /*全屏效果*/
+    .is-fullscreen.videoplayer{position:fixed !important;left:0 !important;top:0 !important;z-index:99999 !important;
+        width:100% !important;height:100% !important;background-color:#333 !important;
+        background-image:none !important;
+    }
+
+    /*鼠标离开*/
+    .is-mouseout.videoplayer .vp-handle{height:0;}
+    .is-mouseout.videoplayer .vp-timeline .vp-seek::before{content:none;}
+    .is-mouseout.videoplayer .vp-timeline{height:3px;}
+    .is-mouseout.videoplayer .vp-progress{left:0;right:0;}
+    .is-mouseout.videoplayer .vp-elapsed::before{content:none;}
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+.animated.fast{
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+}
+.animated.linear {
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+}
+.animated.infinite {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+@-webkit-keyframes rotate {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.rotate {
+    -webkit-animation-name: rotate;
+    animation-name: rotate;
+}

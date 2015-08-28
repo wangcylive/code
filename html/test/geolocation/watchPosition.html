@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>html5 geolocation watchPosition</title>
+<style>
+.prompts{background-color:#fff799;}
+label{display:block;margin-bottom:5px;}
+input{width:200px;margin-bottom:1em;padding:5px;}
+button{padding:8px 15px;}
+code{color:#690;}
+</style>
+</head>
+<body>
+    <h1>geolocation watchPosition</h1>
+    <p>
+        <code>id = navigator.geolocation.getCurrentPosition(success, error, options)</code>
+    </p>
+
+    <p class="prompts" id="prompts"></p>
+    
+    <fieldset>
+        <legend>动态位置信息</legend>
+        
+        <div>
+            <label for="">watchPositionId：</label>
+            <input type="text" id="watchPositionId" placeholder="watchPositionId">
+        </div>
+
+        <div>
+            <label for="">纬度(latitude)：</label>
+            <input type="text" id="latitude" placeholder="latitude">
+        </div>
+
+        <div>
+            <label for="">经度(longitude)：</label>
+            <input type="text" id="longitude" placeholder="longitude">
+        </div>
+
+        <div>
+            <label for="">位置精度(accuracy)：</label>
+            <input type="text" id="accuracy" placeholder="accuracy">
+        </div>
+
+        <div>
+            <label for="">海拔，海平面以上以米计(altitude)：</label>
+            <input type="text" id="altitude" placeholder="altitude">
+        </div>
+
+        <div>
+            <label for="">位置的海拔精度(altitudeAccuracy)：</label>
+            <input type="text" id="altitudeAccuracy" placeholder="altitudeAccuracy">
+        </div>
+
+        <div>
+            <label for="">方向，从正北开始以度计(heading)：</label>
+            <input type="text" id="heading" placeholder="heading">
+        </div>
+
+        <div>
+            <label for="">速度，以米/每秒计(speed)：</label>
+            <input type="text" id="speed" placeholder="speed">
+        </div>
+
+        <div>
+            <label for="">响应的日期/时间(timestamp)：</label>
+            <input type="text" id="timestamp" placeholder="timestamp" value="0">
+        </div>
+
+        <div>
+            <label for="">触发间隔时间：</label>
+            <input type="text" id="intervalTime" placeholder="intervalTime">
+        </div>
+
+        <button type="button" id="start">开始</button>
+        <button type="button" id="stop">停止</button>
+    </fieldset>
+    
+
+    <script>
+        (function(w, d) {
+
+            var watchPositionId = d.getElementById("watchPositionId"),
+                latitude = d.getElementById("latitude"),
+                longitude = d.getElementById("longitude"),
+                accuracy = d.getElementById("accuracy"),
+                altitude = d.getElementById("altitude"),
+                altitudeAccuracy = d.getElementById("altitudeAccuracy"),
+                heading = d.getElementById("heading"),
+                speed = d.getElementById("speed"),
+                timestamp = d.getElementById("timestamp"),
+                intervalTime = d.getElementById("intervalTime"),
+                start = d.getElementById("start"),
+                stop = d.getElementById("stop"),
+                prompts = d.getElementById("prompts");
+
+
+            var id;
+
+            function watchPosition() {
+                id = navigator.geolocation.watchPosition(success, error, options);
+                watchPositionId.value = id;
+            }
+
+            function success(pos) {
+                console.log(pos);
+                latitude.value = pos.coords.latitude;
+                longitude.value = pos.coords.longitude;
+                accuracy.value = pos.coords.accuracy;
+                altitude.value = pos.coords.altitude;
+                altitudeAccuracy.value = pos.coords.altitudeAccuracy;
+                heading.value = pos.coords.heading;
+                speed.value = pos.coords.speed;
+                intervalTime.value = pos.timestamp - parseInt(timestamp.value);
+                timestamp.value = pos.timestamp;
+            }
+
+            function error(err) {
+                var textMessage = d.createTextNode(err.message + "：");
+
+                switch(err.code) {
+                    case err.PERMISSION_DENIED:
+                        var textCode = d.createTextNode("用户不允许地理定位");
+                        break;
+                    case err.POSITION_UNAVAILABLE:
+                        var textCode = d.createTextNode("无法获得当前位置");
+                        break;
+                    case err.TIMEOUT:
+                        var textCode = d.createTextNode("操作超时");
+                        break;
+                }
+
+                prompts.appendChild(textMessage);
+                prompts.appendChild(textCode);
+            }
+
+            var options = {
+                enableHighAccuracy: true,
+                timeout: 5000,
+                maximumAge: 3000
+            }
+            
+            start.onclick = watchPosition;
+
+            stop.onclick = navigator.geolocation.clearWatch(id);
+            
+        }(window, document));
+    </script>
+</body>
+</html>

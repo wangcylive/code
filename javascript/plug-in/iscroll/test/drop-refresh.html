@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>iScroll drop-refresh</title>
+<style>
+    body, ul{margin:0;}
+    ul{padding:0;}
+    .wrap{height:400px;overflow:hidden;background-color:#333;}
+    .main{position:relative;
+        -webkit-transform:translateZ(0);
+        -moz-transform:translateZ(0);
+        transform:translateZ(0);
+    }
+    .list{list-style:none;padding:10px 0;background-color:#fff;}
+    .list li{margin:0 10px 10px 10px;padding:10px 20px;border:1px solid #ccc;}
+    .list li:last-child{margin-bottom:0;}
+    .refresh-tips{position:absolute;left:0;top:-50px;width:100%;height:50px;
+        color:#fff;text-align:center;line-height:50px;}
+    .refresh-tips.refresh{}
+</style>
+</head>
+<body>
+    <div id="wrap" class="wrap">
+        <div id="main" class="main">
+            <div id="refreshTips" class="refresh-tips">下拉刷新</div>
+            <ul id="list" class="list">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+                <li>11</li>
+                <li>12</li>
+                <li>13</li>
+                <li>14</li>
+                <li>15</li>
+            </ul>
+        </div>
+    </div>
+    <button id="scrollTo">scrollTo</button>
+
+    <script src="../build/iscroll-probe.js"></script>
+    <script>
+        (function() {
+            var wrap = document.getElementById("wrap"),
+                refreshTips = document.getElementById("refreshTips"),
+                scrollTo = document.getElementById("scrollTo");
+
+            var scroll = new IScroll(wrap, {
+                probeType: 2,
+                mouseWheel: true,
+                scrollbars: true
+            });
+        
+
+            var touch = true;
+
+            wrap.addEventListener("mousedown", function(e) {
+                touch = true;
+            }, false);
+
+            wrap.addEventListener("mouseup", function(event) {
+                touch = false;
+
+                if(scroll.y >= 50) {
+                    console.log(2);
+                    scroll.scrollTo(0, 50);
+                }
+            });
+
+            scroll.on("scroll", function() {
+                if(this.y >= 50) {
+                    refreshTips.innerHTML = "放开立即刷新";
+                    refreshTips.classList.add("refresh");
+                } else {
+                    if(touch) {
+                        refreshTips.innerHTML = "下拉刷新";
+                        refreshTips.classList.remove("refresh");
+                    }
+                }
+            });
+
+            scrollTo.onclick = function() {
+                scroll.scrollTo(0, 50);
+            }
+
+            scroll.on("scrollStart", function() {
+                // console.log("scrollStart " + this.y);
+            });
+
+            scroll.on("beforeScrollStart", function() {
+                // console.log("beforeScrollStart " + this.y);
+            });
+
+            scroll.on("scrollCancel", function() {
+                // console.log("scrollCancel " + this.y);
+            });
+
+            scroll.on("flick", function() {
+                // console.log("flick " + this.y);
+            });
+
+            scroll.on("scrollEnd", function() {
+                console.log("scrollEnd " + this.y);
+                // if(/(^|\s)refresh(\s|$)/.test(refreshTips.className)) {
+                //     console.log("刷新");
+                // }
+            });
+        }());
+    </script>
+</body>
+</html>

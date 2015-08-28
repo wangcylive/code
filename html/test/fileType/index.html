@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>file type</title>
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <h1>文件类型过滤</h1>
+
+    <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
+        <fieldset>
+            <legend>文件上传</legend>
+            <p>
+                <label for="file">所有图片</label>
+                <input type="file" name="file" id="file" accept="image/*" multiple="multiple">
+            </p>
+
+            <p>
+                <label for="">自定义图片类型</label>
+                <input type="file" accept=".png,.jpg,.jpeg,.gif">
+            </p>
+
+            <p>
+                <label for="">word文件</label>
+                <input type="file" accept=".doc,.docx">
+            </p>
+
+            <p>
+                <button type="submit">submit</button>
+            </p>
+        </fieldset>
+    </form>
+
+    <script>
+        (function() {
+            var file = document.getElementsByTagName("input");
+
+            var i = 0,
+                length = file.length;
+
+            for(; i < length; i++) {
+                file[i].onchange = function() {
+                    if("files" in this) {
+                        var files = this.files,
+                            j = 0,
+                            m = files.length;
+                        for(; j < m; j++) {
+                            console.log("name:%o, type:%o, size:%okb", files[j].name, files[j].type, Math.floor(files[j].size/1024));
+                        }
+                    } else {
+                        console.log(this.value);
+                    }
+                }
+            }
+        }());
+    </script>
+</body>
+</html>

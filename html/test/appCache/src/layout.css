@@ -1,0 +1,5 @@
+@media screen {
+    body{font:100%/1.5 sans-serif;}
+    figure{margin:1em 0;}
+    figure img{display:block;max-width:50%;height:auto;}
+}

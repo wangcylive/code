@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>上传文件</title>
+</head>
+<body>
+
+<form action="">
+    <h1>上传图片</h1>
+    <label for="files">选择图片</label>
+    <input id="files" type="file" accept="image/*">
+    <div style="margin-top:400px;"></div>
+    <input type="text" id="userName"/>
+</form>
+
+<script>
+    (function() {
+        var filesInput = document.getElementById("files");
+        var formData = new FormData();
+        filesInput.addEventListener("change", function(event) {
+            var files = event.target.files;
+
+            var URL = window.URL || window.webkitURL;
+
+            var img = new Image();
+            img.src = URL.createObjectURL(files[0]);
+            filesInput.parentNode.insertBefore(img, filesInput.nextSibling);
+
+
+            /*var reader = new FileReader();
+            reader.readAsDataURL(files[0]);
+            reader.onload = function() {
+                var img = new Image();
+                img.src = this.result;
+                filesInput.parentNode.insertBefore(img, filesInput.nextSibling);
+            }*/
+        }, false);
+
+
+
+        var input = document.getElementById("userName");
+        input.addEventListener("focus", function() {
+
+        }, false);
+
+        window.addEventListener("resize", function() {
+            input.value = "resize";
+        }, false);
+    }());
+</script>
+</body>
+</html>

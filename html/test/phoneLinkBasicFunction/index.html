@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>链接打开手机基本功能</title>
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <h1>链接打开手机基本功能</h1>
+    
+    <h2>拨号</h2>
+    <dl>
+        <dt>Android</dt>
+        <dd>
+            <p>
+                <!-- 拨打号码 -->
+                <a href="wtai://wp/mc;10086">拨打10086</a>
+            </p>
+            <p>
+                <!-- 拨打号码 -->
+                <a href="wtai://wp/mc;+10086">拨打+10086</a>
+            </p>
+            <p>
+                <!-- 保存号码 -->
+                <a href="wtai://wp/ap;10086;中国移动">保存中国移动号码</a>
+            </p>
+            <p>
+                <!-- 拨打号码 -->
+                <a href="tel:10086">拨打10086-tel</a>
+            </p>
+        </dd>
+    </dl>
+    
+    <dl>
+        <dt>Iphone</dt>
+        <dd>
+            <p>
+                <!-- 拨打号码 -->
+                <a href="tel:10086">拨打10086-tel</a>
+            </p>
+        </dd>
+    </dl>
+
+    <p>Android和Iphone通用的是使用<strong>tel:****</strong></p>
+
+    <h2>短信</h2>
+    
+    <dl>
+        <dt>sms</dt>
+        <dd>
+            <p>
+                <a href="sms:10086">给10086发送短信</a>
+            </p>
+            <p>
+                <a href="sms:10086?body=hello">给10086发送内容为“hello”短信</a>
+            </p>
+            <p>
+                <a href="sms:10086;10010?body=hello">给10086和10010发送内容为“hello”短信</a>
+            </p>
+        </dd>
+    </dl>
+
+    <h2>地理定位</h2>
+
+    <dl>
+        <dt>geopoint</dt>
+        <dd>
+            <p>
+                <a href="geopoint:100,23">位置</a>
+            </p>
+        </dd>
+    </dl>
+
+    <h2>Mail</h2>
+
+    <dl>
+        <dt>mail</dt>
+        <dd>
+            <p>
+                <a href="mailto:wangcylive@outlook.com?cc=1767437012@qq.com&subject=测试链接打开&body=链接发送邮件测试">发送email</a>
+            </p>
+        </dd>
+    </dl>
+    
+</body>
+</html>

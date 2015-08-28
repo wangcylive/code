@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>sessionStorage</title>
+<script src="fn.js"></script>
+</head>
+<body>
+    <h1>sessionStorage</h1>
+    <p>sessionStorage 是个全局对象，它维护着在页面会话(page session)期间有效的存储空间。只要浏览器开着，页面会话周期就会一直持续。当页面重新载入(reload)或者被恢复(restores)时，页面会话也是一直存在的。每在新标签或者新窗口中打开一个新页面，都会初始化一个新的会话</p>
+
+    <h2>syntax</h2>
+    <dl>
+        <dt>getItem(key)</dt>
+        <dd>获取存储值</dd>
+    </dl>
+    <dl>
+        <dt>setItem(key, value)</dt>
+        <dd>设置存储值</dd>
+    </dl>
+    <dl>
+        <dt>removeItem(key)</dt>
+        <dd>删除存储值</dd>
+    </dl>
+    <dl>
+        <dt>length</dt>
+        <dd>获取存储值长度</dd>
+    </dl>
+
+    <h3>example</h3>
+    <p>存储input输入的值</p>
+
+    <div>
+        <input type="email" id="userEmail">
+    </div>
+
+</body>
+</html>

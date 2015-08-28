@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>javascript onLine offLine</title>
+<style>
+code{color:#690;}
+</style>
+<script src="fn.js"></script>
+</head>
+<body>
+    <h1>javascript onLine offLine</h1>
+    
+    <blockquote>
+        <p>返回浏览器的联网状态.正常联网(在线)返回<code>true</code>,不正常联网(离线)返回<code>false</code>.一旦浏览器的联网状态发生改变,该属性值也会随之变化. 当用户点击链接或者脚本进行网络请求时,如果发现浏览器连接不上互联网.则该属性会被赋值为<code>false</code>.</p>
+        <p>在Chrome和Safari中,如果浏览器连接不上局域网 (LAN)或者路由器,就是离线状态; 其他情况都是在线状态. 所以当该属性值为false的时候,你可以说浏览器不能正常联网, 但如果该属性值为true的时候, 并不意味着浏览器一定能连接上互联网.还有其他一些可能引起误判的原因,比如你的电脑安装了虚拟化软件,可能会有一个虚拟网卡.它总是显示正常联网.因此,如果你想得到浏览器确切的联网状态,应该使用其他额外的检查手段.</p>
+        <p>在<code>Firefox</code>和<code>Internet Explorer</code>中, 如果浏览器处于"脱机工作"状态,则返回 <code>false</code>,其他情况都返回true.</p>
+        <p><code>navigator.onLine</code>所有浏览器支持</p>
+        <p><code>window</code>添加事件监听<code>online</code>、<code>offline</code>，当设备网络状态发生改变时，会触发对应事件。ie不支持，chrome、firefox高版本、mobile browser支持.</p>
+    </blockquote>
+    <script>
+        (function() {
+            if(navigator.onLine) {
+                alert("在线");
+            } else {
+                alert("离线");
+            }
+        }());
+    </script>
+</body>
+</html>

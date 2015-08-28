@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>测试播放音频</title>
+</head>
+<body>
+    <h1>html audio</h1>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Container</th>
+            <th>Format(s)</th>
+            <th>File Extensions</th>
+            <th>MIME Type</th>
+            <th>Codec String</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>MP3</td>
+            <td>MP3</td>
+            <td>.mp3</td>
+            <td>audio/mpeg</td>
+            <td>mp3</td>
+        </tr>
+        <tr>
+            <td>MP4</td>
+            <td>AAC, AAC+</td>
+            <td>.mp4, .m4a, .aac</td>
+            <td>audio/mp4</td>
+            <td>mp4a.40.5</td>
+        </tr>
+        <tr>
+            <td>OGA/OGG</td>
+            <td>Ogg Vorbis</td>
+            <td>.oga, .ogg</td>
+            <td>audio/ogg</td>
+            <td>vorbis</td>
+        </tr>
+        <tr>
+            <td>WAV</td>
+            <td>PCM</td>
+            <td>.wav</td>
+            <td>audio/wav</td>
+            <td>1</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="main">
+        <!--<video src="media/ok-Eason.mp4" width="300" height="100" controls></video>-->
+        <!--<audio id="audio">
+            &lt;!&ndash;<source src="media/ok-Eason.mp4" type="audio/mp4">&ndash;&gt;
+            <source src="media/Don_t-Tell-Me.mp3" type="audio/mpeg">
+            <source src="media/Don_t-Tell-Me.OGG" type="audio/ogg">
+        </audio>-->
+    </div>
+    <div class="controls" id="controls">
+        <button type="button" id="play">play</button>
+        <button type="button" id="pause">pause</button>
+    </div>
+    <script>
+        !function(w, d) {
+            var audio = new Audio(),
+                play = d.querySelector("#play"),
+                pause = d.querySelector("#pause");
+
+            play.addEventListener("click", function() {
+                if(!audio.src) {
+                    audio.src = "media/ok-Eason.mp4";
+                }
+                audio.play();
+            }, false);
+
+            pause.addEventListener("click", function() {
+                audio.pause();
+            }, false);
+
+        }(window, document)
+    </script>
+</body>
+</html>

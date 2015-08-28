@@ -1,0 +1,142 @@
+/**
+ * Created by Wangcy on 2015/5/31.
+ */
+@media screen {
+    body, h1, h2, h3, h4, h5, h6, dl, dd, ul, ol, p, blockquote, form, fieldset, figure, button{margin:0;}
+    ul, ol, menu, th, td, legend, fieldset{padding:0;}
+    html{font-size:62.5%;-webkit-tap-highlight-color:transparent;}
+    body{font:1.4em/1.5 sans-serif;word-wrap:break-word;background-color:#333;}
+    ul, ol, menu{list-style-type:none;}
+    table{border-spacing:0;border-collapse:collapse;}
+    #page{position:relative;margin:0 auto;max-width:640px;overflow:hidden;}
+    .btn-back{position:absolute;left:15px;top:20px;z-index:10;width:33px;height:36px;font-size:0;text-indent:-9999px;
+        background:url(img/icon-back.png) 0 0 no-repeat;background-size:33px 36px;
+    }
+    .btn-share{position:absolute;right:15px;top:20px;z-index:10;width:94px;height:36px;font-size:0;text-indent:-9999px;
+        background:url(img/btn-share.png) 0 0 no-repeat;background-size:94px 36px;
+    }
+    .touch-tips{position:absolute;left:50%;bottom:16px;z-index:10;margin-left:-12px;width:24px;height:12px;font-size:0;
+        text-indent:-9999px;background:url(img/touch-tips.png) 50% 0 no-repeat;background-size:contain;
+    }
+    .apply-reason{
+        -webkit-backface-visibility:hidden;
+        -moz-backface-visibility:hidden;
+        -ms-backface-visibility:hidden;
+        backface-visibility:hidden;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+    }
+    .apply-reason .item{}
+    .apply-reason .item .main{position:relative;height:100%;overflow:hidden;}
+    .apply-reason .item .title,
+    .apply-reason .item .content{position:absolute;left:0;width:100%;height:auto;}
+    .apply-reason .item .title{z-index:1;}
+    .apply-reason .item-01{background:50% 50% url(img/item-01-bg.jpg) no-repeat #000;background-size:cover;}
+    .apply-reason .item-01 .title{left:8%;width:78.666667%;}
+    .apply-reason .item-01 .title,
+    .apply-reason .item-02 .title,
+    .apply-reason .item-03 .title{top:10%;}
+    .apply-reason .item-01 .content{left:13.333333%;bottom:4.7226387%;width:75.733333%;}
+    .apply-reason .item-02{background-color:#18a361;}
+    .apply-reason .item-02 .content.left{bottom:26.086956%;width:35.333333%;}
+    .apply-reason .item-02 .content.right{left:auto;right:0;bottom:0;width:68.266667%;}
+    .apply-reason .item-03{background-color:#fa7350;}
+    .apply-reason .item-03 .content{bottom:8%;}
+    .apply-reason .item-04{background-color:#e62f17;}
+    .apply-reason .item-04 .title{left:36.533333%;top:19.715142%;width:26.666666%;}
+    .apply-reason .item-04 .content{bottom:21.889055%;}
+    .apply-reason .item-05{background-color:#e62f17;}
+    .apply-reason .item-05 .title,
+    .apply-reason .item-07 .title,
+    .apply-reason .item-08 .title,
+    .apply-reason .item-09 .title,
+    .apply-reason .item-10 .title,
+    .apply-reason .item-11 .title,
+    .apply-reason .item-12 .title{top:4%;}
+    .apply-reason .item-05 .content,
+    .apply-reason .item-07 .content,
+    .apply-reason .item-08 .content,
+    .apply-reason .item-11 .content,
+    .apply-reason .item-13 .content{bottom:0;}
+    .card-table{width:100%;height:100%;table-layout:fixed;}
+    .card-table td{background:50% 50% no-repeat;background-size:37.333333% auto;}
+    .card-table td span{visibility:hidden;}
+    .card-table tr:nth-child(1) td:nth-child(1){background-color:#fece52;background-image:url(img/item-06-icon-01.png);}
+    .card-table tr:nth-child(1) td:nth-child(2){background-color:#7bdea5;background-image:url(img/item-06-icon-02.png);}
+    .card-table tr:nth-child(2) td:nth-child(1){background-color:#fa8870;background-image:url(img/item-06-icon-03.png);}
+    .card-table tr:nth-child(2) td:nth-child(2){background-color:#9cb4f0;background-image:url(img/item-06-icon-04.png);}
+    .card-table tr:nth-child(3) td:nth-child(1){background-color:#a295d5;background-image:url(img/item-06-icon-05.png);}
+    .card-table tr:nth-child(3) td:nth-child(2){background-color:#f3bb72;background-image:url(img/item-06-icon-06.png);}
+    .apply-reason .item-07{background-color:#e62f17;}
+    .apply-reason .item-08{background-color:#e62f17;}
+    .apply-reason .item-09{background-color:#e62f17;}
+    .apply-reason .item-09 .content{bottom:-5%;}
+    .apply-reason .item-10{background-color:#e62f17;}
+    .apply-reason .item-10 .content{left:3%;bottom:3%;width:94%;}
+    .apply-reason .item-11{background-color:#e62f17;}
+    .apply-reason .item-12{background-color:#e62f17;}
+    .apply-reason .item-12 .content{bottom:8.47076%;}
+    .apply-reason .item-13{background-color:#fb7353;}
+    .apply-reason .item-13 .title{top:20.239881%;}
+    .apply-reason .item-13 .btn-apply{position:absolute;left:50%;bottom:19.5%;margin-left:-75px;width:150px;height:48px;
+        font-size:0;text-indent:-9999px;background:url(img/btn-apply.png) 0 0 no-repeat;
+        background-size:150px 96px;
+    }
+    .apply-reason .item-13 .btn-apply:hover,
+    .apply-reason .item-13 .btn-apply:active{background-position:0 -48px;}
+
+    .free-apply{position:absolute;left:0;bottom:-45px;z-index:100;width:100%;height:45px;font-size:0;text-indent:-9999px;
+        background:url(img/apply-text.png) 50% 50% no-repeat #f77653;background-size:auto 18px;
+        -webkit-transition: all .4s;
+        -moz-transition: all .4s;
+        -ms-transition: all .4s;
+        -o-transition: all .4s;
+        transition: all .4s;
+    }
+    .free-apply.on{bottom:0;}
+    .free-apply:hover,
+    .free-apply:active,
+    .free-apply:visited{background-color:#e75a34;}
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+.animated.infinite {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes flash {
+    0% {
+        opacity: 1;
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    100% {
+        opacity: .4;
+        -webkit-transform: translate(0, -18px);
+        transform: translate(0, -18px);
+    }
+}
+@keyframes flash {
+    0% {
+        opacity: 1;
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    100% {
+        opacity: .4;
+        -webkit-transform: translate(0, -18px);
+        transform: translate(0, -18px);
+    }
+}
+.flash {
+    -webkit-animation-name: flash;
+    animation-name: flash;
+}

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>viewport</title>
+<style>
+    body{padding:8px;border:2px solid green;background-color:#ccc;}
+</style>
+</head>
+<body>
+    <script>
+        (function(w, d) {
+            var text = "window.innerWidth: " + w.innerWidth + "<br>" +
+                    "window.innerHeight: " + w.innerHeight + "<br><hr>" +
+                    "window.outerWidth: " + w.outerWidth + "<br>" +
+                    "window.outerHeight: " + w.outerHeight + "<br><hr>" +
+                    "document.documentElement.clientWidth: " + d.documentElement.clientWidth + "<br>" +
+                    "document.documentElement.clientHeight: " + d.documentElement.clientHeight + "<br><hr>" +
+                    "document.documentElement.offsetWidth: " + d.documentElement.offsetWidth + "<br>" +
+                    "document.documentElement.offsetHeight: " + d.documentElement.offsetHeight + "<br><hr>" +
+                    "document.documentElement.scrollWidth: " + d.documentElement.scrollWidth + "<br>" +
+                    "document.documentElement.scrollHeight: " + d.documentElement.scrollHeight;
+
+            var div = d.createElement("div");
+            div.innerHTML = text;
+            d.body.appendChild(div);
+
+        }(window, document));
+    </script>
+</body>
+</html>

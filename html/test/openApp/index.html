@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<meta  property="al:ios:url"  content="applinks://docs" /> 
+<meta  property="al:ios:app_store_id"  content="12345" /> 
+<meta  property="al:ios:app_name"  content="App Links" /> 
+<meta  property="al:android:url"  content="taobao://www.taobao.com/" /> 
+<meta  property="al:android:app_name" content="taobao" /> 
+<meta  property="al:android:package" content="org.applinks" /> 
+<meta  property="al:web:url" content="http://www.taobao.com" /> 
+<title>open App</title>
+<style>
+.links{display:block;margin:1em 0;padding:8px 0;border:1px solid #ccc;text-align:center;color:#333;text-decoration:none;}
+#btn{width:100%;margin:1em 0;padding:8px 0;}
+code{color:blue;}
+</style>
+<script src="jquery-1.11.1.min.js"></script>
+<script src="jquery.applink.js"></script>
+</head>
+<body>
+    <dl>
+        <td>&lt;a href="[<code>scheme</code>]://[<code>host</code>]/[<code>path</code>]?[<code>query</code>]"&gt;启动应用程序&lt;/a&gt;</td>
+        <dd>
+            <p><code>scheme</code>：判别启动的App</p>
+            <p><code>host</code>：适当记述</p>
+            <p><code>path</code>：传值时必须的key     ※没有也可以</p>
+            <p><code>query</code>：获取值的Key和Value  ※没有也可以</p>
+            <p>android 4.4 htc one  默认浏览器、UC、QQ、Chrome、Firefix、Opera可以点击链接打开，微信内嵌浏览器不能打开，默认浏览器不能调用链接click打开，别的浏览器可以调用click事件打开；iOS Safari可以点击链接打开，调用click也可以打开</p>
+        </dd>
+    </dl>
+    
+
+    <a href="xiaoyuan://www.istudy.com.cn/?type=9&postId=222&token=afafa" class="links">open 校园＋</a>
+
+    <a href="market://details?id=com.google.android.apps.maps" class="links">market id=com.google.android.apps.maps</a>
+    
+    <p>
+        <a id="taobao" href="taobao://www.taobao.com/" data-applink="taobao://www.taobao.com/">打开淘宝</a>
+    </p>
+    
+    
+    <p>
+        <a href="intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;end"> Take a QR code </a>
+    </p>
+
+    <a href="gdxxt://cn.qtone.xxt.guangdong">广东校讯通</a>
+
+    <button id="btn">open App</button>
+
+    <a href="sinaweibosso://">打开试试</a>
+
+    <div>
+        <a href="http://www.baidu.com" target="_blank">百度一下</a>
+    </div>
+
+    <script>
+
+    //     $("#taobao").on("click", function(e) {
+
+    //         e.preventDefault();
+    //         var open = window.open("taobao://www.taobao.com", "taobaoWin");
+
+    //         var hasApp = false;
+
+    //         open.document.addEventListener("visibilitychange", function() {
+    //             if(open.document.visibilityState == "visible") {
+    //                 hasApp = true;
+    //             }
+    //         }, false);
+
+    //         setTimeout(function() {
+    //             if(!hasApp) {
+    //                 alert("未安装app")
+    //             } else {
+    //                 alert("安装app")
+    //             }
+
+    //             open.close();
+    //         }, 300);
+            
+    //         // console.log(open.parent);
+    //         // var i = document.createElement("iframe");
+    //         // i.src = $(this).data("applink");
+    //         // i.style.display = 'none';
+
+    //         // document.body.appendChild(i);
+
+    //         // window.setTimeout(function(){
+    //         //     document.body.removeChild(i);
+    //         // },3000);
+    //     });
+
+    //     (function(w, d) {
+    //         d.onclick = function() {
+    //             window.open("http://www.taobao.com");
+    //             window.location.href = "taobao2://www.taobao.com";
+    //         }
+
+    //     }(window, document));
+    </script>
+</body>
+</html>

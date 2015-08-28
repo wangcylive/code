@@ -1,0 +1,13 @@
+CACHE MANIFEST
+#v6 2014-7-15
+src/layout.css
+src/example.jpg
+404.html
+
+# Use From network if available
+NETWORK:
+logo.html
+
+# Fallback content
+FALLBACK:
+/ 404.html

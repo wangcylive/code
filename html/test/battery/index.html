@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>javascript battery</title>
+<link href="" rel="stylesheet">
+<script src="fn.js"></script>
+</head>
+<body>
+    <h1>javascript battery</h1>
+    <h2>属性</h2>
+    <dl>
+        <dt>charging</dt>
+        <dd>只读. 一个布尔值,表示了系统电池的充电状态.如果电池正在充电,则返回true,其他情况,比如无法获取系统电池的充电状态,或者系统不使用电池,或者电池不在充电,都返回false.</dd>
+    </dl>
+    <dl>
+        <dt>chargingTime</dt>
+        <dd>只读. 一个整字,单位为秒.表示了电池还剩多长时间充满电.如果电池已经充满电了,则返回0.如果电池不在充电,或者无法获取到这个时间值,则返回正无穷大.</dd>
+    </dl>
+    <dl>
+        <dt>dischargingTime</dt>
+        <dd>只读.一个数字,单位为秒.表示了电池中的电量还剩多长时间会消耗完毕.如果电池正在充电,或者无法获取到这个时间值,以及如果系统没有电池,则返回正无穷大.</dd>
+    </dl>
+    <dl>
+        <dt>level</dt>
+        <dd>只读. 一个数字,单位为秒.表示了系统的电池的电量等级,从0到1.0.如果电量已经完全消耗完,则返回0,如果电量为充满状态,或者无法获取到这个等级值,以及如果系统没有电池,则返回1.0.</dd>
+    </dl>
+
+    <h2>事件</h2>
+    <dl>
+        <dt>chargingchange</dt>
+        <dd>当charging属性值发生改变时触发该事件.</dd>
+    </dl>
+    <dl>
+        <dt>chargingtimechange</dt>
+        <dd>当chargingTime属性值发生改变时触发该事件.</dd>
+    </dl>
+    <dl>
+        <dt>dischargingtimechange</dt>
+        <dd>当dischargingTime属性值发生改变时触发该事件.</dd>
+    </dl>
+    <dl>
+        <dt>levelchange</dt>
+        <dd>当level属性值发生改变时触发该事件.</dd>
+    </dl>
+
+    <p>2014.7.15只有高版本火狐支持</p>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>clipboard</title>
+<style>
+    #links{position:relative;display:block;width:100px;height:30px;border:1px solid #ccc;overflow:hidden;white-space:nowrap;
+        word-wrap:normal;text-overflow:ellipsis;}
+    #links em{position:absolute;left:0;top:0;width:100%;height:100%;z-index:1;visibility:hidden;line-height:30px;background-color:#000;}
+    #links i{position:absolute;left:0;top:0;width:100%;height:100%;background-color:#ccc;line-height:30px;text-align:center;}
+    input{width:80px;height:40px;}
+</style>
+</head>
+<body>
+    <span id="links"><em>http://www.baidu.com</em><i>长按复制</i></span>
+    <p>http://www.baidu.com/asfsajf/240140/asfafjajf/321421.html</p>
+    <input type="text" value="http://www.baidu.com" readonly>
+    <script>
+        (function() {
+            var links = document.getElementById("links");
+
+            links.onclick = function(e) {
+                return false;
+            }
+        }());
+    </script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>flowplyer</title>
+<link href="skin/minimalist.css" rel="stylesheet">
+<link rel="stylesheet" href="css/videoplayer.css"/>
+<style>
+    body{margin:0;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;}
+    #page{max-width:640px;margin:0 auto;}
+    #video{background-size:200%;
+        -webkit-transition:background 1s;
+        -o-transition:background 1s;
+        transition:background 1s;
+    }
+    #video.is-poster{background-size:100%;}
+    #video .fp-logo{display:none;}
+    #video .fp-help + a{width:0;height:0;visibility:hidden;}
+</style>
+<script src="js/jquery-2.1.3.min.js"></script>
+<script src="js/flowplayer.js"></script>
+</head>
+<body>
+    <div id="page">
+        <q>video/ogg; codecs="theora, vorbis"
+            video/mp4; codecs="avc1.4D401E, mp4a.40.2"
+            video/webm; codecs="vp8.0, vorbis"
+        </q>
+        <div class="videoplayer" id="video2" style="background-image:url(img/poster.jpg);">
+            <video class="vp-video" preload="none" x-webkit-airplay="allow"
+                   src="http://v.polyv.net/uc/video/getMp4?vid=9db4ad2a0dd8c30c5b87e39fb2d3a793_9">
+            </video>
+            <div class="vp-ratio" style="padding-top:56.666667%;"></div>
+            <div class="vp-ui">
+                <div class="play"></div>
+                <div class="waiting"><i class="icon-loading animated rotate infinite linear"></i></div>
+                <div class="message">视频文件没有找到<!--当前网络较慢，建议先暂停等待缓冲--></div>
+            </div>
+            <div class="vp-controls">
+                <div class="vp-timeline">
+                    <div class="vp-buffer"></div>
+                    <div class="vp-progress">
+                        <div class="vp-elapsed">
+                            <div class="vp-seek"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="vp-handle">
+                    <div class="wrap">
+                        <div class="vp-play" title="播放"></div>
+                        <div class="vp-time">
+                            <span class="vp-current">00:00</span>/<span class="vp-duration">00:00</span>
+                        </div>
+                        <div class="vp-fullscreen" title="全屏">
+                            <div class="border">
+                                <i class="top"></i><i class="right"></i><i class="bottom"></i><i class="left"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="debugMessage" style="word-wrap:break-word;"></div>
+
+        <br/><br/><br/>
+        <div id="video">
+            <!-- <video autoplay>
+                <source type="video/mp4" src="http://v.polyv.net/uc/video/getMp4?vid=9db4ad2a0dd8c30c5b87e39fb2d3a793_9"></source>
+            </video> -->
+        </div>
+
+        <div>
+            <button id="play">play</button>
+            <button id="pause">pause</button>
+            <button id="toggle">toggle</button>
+            <button id="stop">stop</button>
+            <button id="volume">volume</button>
+            <button id="mute">mute(静音)</button>
+            <button id="resume">resume(恢复播放)</button>
+            <button id="seek">seek(快进/快退)</button>
+            <button id="seekTo">seekTo</button>
+            <button id="speed">speed</button>
+            <button id="unload">unload</button>
+            <button id="fullscreen">fullscreen</button>
+        </div>
+    </div>
+    
+
+    <script>
+
+        function play() {
+            var api = flowplayer();
+            api.play();
+            api.fullscreen();
+        }
+
+        $(function() {
+            flowplayer.conf = {
+                ratio: 272/480,
+                fullscreen: true,
+                tooltip: false,
+                embed: false,
+                preload: "none",
+                volume: 0.1,
+                swf: "js/flowplayer.swf"
+            };
+
+            $("#video").flowplayer({
+                playlist: [
+                  [
+                    // { webm:  "http://stream.flowplayer.org/bauhaus.webm" },
+                    { mp4:   "http://v.polyv.net/uc/video/getMp4?vid=9db4ad2a0dd8c30c5b87e39fb2d3a793_9"},
+                    { ogg:   "http://stream.flowplayer.org/bauhaus.ogv" },
+                    // { flash: "mp4:bauhaus" }
+                  ]
+                ]
+            });
+
+            var api = flowplayer();
+            // console.log(api);
+
+            // api.bind("load", function() {
+            //     api.video.setAttribute("autoplay", "autoplay");
+            // });
+
+            api.bind("ready", function() {
+                // console.log(this);
+                // api.fullscreen();
+                // api.pruas();
+                // api.play();
+                // api.fullscreen();
+                
+                // console.log(api.isFullscreen);
+            });
+
+
+
+
+            var videoApi = $("#video").data("flowplayer");
+            /*videoApi.bind("ready", function() {
+                videoApi.play();
+                videoApi.fullscreen();
+            });*/
+
+            // $("#video").on("click", ".fp-ui", function() {
+            //     videoApi.play();
+            //     videoApi.fullscreen();
+            // });
+
+            $("#play").on("click", function() {
+                // videoApi.fullscreen();
+                videoApi.play();
+
+            });
+
+            $("#pause").on("click", function() {
+                videoApi.pause();
+            });
+
+            $("#toggle").on("click", function() {
+                videoApi.toggle();
+            });
+
+            $("#resume").on("click", function() {
+                videoApi.resume();
+            });
+
+            $("#seek").on("click", function() {
+                // console.log(videoApi.video);
+                
+                // 快进10秒
+                videoApi.seek(videoApi.video.time + 10);
+                
+                // 快进10%
+                // videoApi.seek(true);
+                
+                // 快退10% 
+                // videoApi.seek(false);
+            });
+
+            $("#seekTo").on("click", function() {
+                videoApi.seekTo(5);
+            });
+
+            $("#speed").on("click", function() {
+                console.log(videoApi.video);
+                videoApi.speed(0.5);
+            });
+
+            $("#mute").on("click", function() {
+                videoApi.mute(true);
+            });
+
+            $("#volume").on("click", function() {
+                console.log(videoApi.video);
+                videoApi.volume(0.5);
+            });
+            
+            $("#fullscreen").on("click", function() {
+                videoApi.fullscreen();
+            });
+
+            $("#stop").on("click", function() {
+                videoApi.stop();
+            });
+
+            $("#unload").on("click", function() {
+                videoApi.unload();
+            });
+
+        });
+        
+    </script>
+    <script src="js/videoplayer.js"></script>
+</body>
+</html>
