@@ -3,22 +3,25 @@
  */
 ({
     baseUrl: "../js",
-    paths: {
-        getHrefParam: "app/get-href-param",
-        getHrefParamArray: "app/get-href-param-array",
-        getDomSize: "app/get-dom-size",
-        jquery: typeof addEventListener === "function" ? "lib/jquery-2.1.3.min" : "lib/jquery-1.11.1.min",
-        zepto: "lib/zepto.min",
-        json: "lib/json2.min",
-        iscroll: "lib/iscroll-lite.min",
-        "jquery.mousewheel": "lib/jquery.mousewheel.min",
-        "jquery.color": "lib/jquery.colors",
-        "jquery.nodeName": "app/jquery.nodeName",
-        appLog: "app/app-log"
-    },
-    shim: {
-        "jquery.color": ["jquery"]
-    },
+    mainConfigFile: "../js/main-config.js",
     name: "main",
-    out: "../build/index-main.js"
+    out: "../build/main.js",
+    include: [
+        "appLog",
+        "getHrefParam",
+        "getHrefParamArray",
+        "getDomSize",
+        "jquery.nodeName",
+        "jquery.color",
+        "jquery.mousewheel"
+    ],
+
+    /**
+     * uglify(default)
+     * uglify2
+     * closure
+     * closure.keepLines
+     * none
+     */
+    optimize: "none"
 })
