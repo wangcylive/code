@@ -51,10 +51,10 @@
         -moz-perspective: 9999em;
         -ms-perspective: 9999em;
         perspective: 9999em;
-        -webkit-perspective-origin:0 0;
-        -moz-perspective-origin:0 0;
-        -o-perspective-origin:0 0;
-        perspective-origin:0 0;
+        -webkit-perspective-origin:50% 50%;
+        -moz-perspective-origin:50% 50%;
+        -o-perspective-origin:50% 50%;
+        perspective-origin:50% 50%;
         -webkit-transform: rotateX(-10deg) rotateY(30deg);
         -moz-transform: rotateX(-10deg) rotateY(30deg);
         -ms-transform: rotateX(-10deg) rotateY(30deg);
@@ -71,7 +71,7 @@
         backface-visibility:hidden;
     }
     .front{
-        background-image:url(../../../../rescources/images/01.jpg);
+        background-image:url(/css/resources/images/01.jpg);
         -webkit-transform: translateZ(100px);
         -moz-transform: translateZ(100px);
         -ms-transform: translateZ(100px);
@@ -79,7 +79,7 @@
         transform: translateZ(100px);
     }
     .top{
-        background-image:url(../../../../rescources/images/02.jpg);
+        background-image:url(/css/resources/images/02.jpg);
         -webkit-transform: rotateX(90deg) translateZ(100px);
         -moz-transform: rotateX(90deg) translateZ(100px);
         -ms-transform: rotateX(90deg) translateZ(100px);
@@ -87,7 +87,7 @@
         transform: rotateX(90deg) translateZ(100px);
     }
     .left{
-        background-image:url(../../../../rescources/images/03.jpg);
+        background-image:url(/css/resources/images/03.jpg);
         -webkit-transform: rotateX(-90deg) translateZ(100px);
         -moz-transform: rotateX(-90deg) translateZ(100px);
         -ms-transform: rotateX(-90deg) translateZ(100px);
@@ -95,7 +95,7 @@
         transform: rotateX(-90deg) translateZ(100px);
     }
     .right{
-        background-image:url(../../../../rescources/images/04.jpg);
+        background-image:url(/css/resources/images/04.jpg);
         -webkit-transform: rotateY(90deg) translateZ(100px);
         -moz-transform: rotateY(90deg) translateZ(100px);
         -ms-transform: rotateY(90deg) translateZ(100px);
@@ -103,7 +103,7 @@
         transform: rotateY(90deg) translateZ(100px);
     }
     .bottom{
-        background-image:url(../../../../rescources/images/05.jpg);
+        background-image:url(/css/resources/images/05.jpg);
         -webkit-transform: rotateY(-90deg) translateZ(100px);
         -moz-transform: rotateY(-90deg) translateZ(100px);
         -ms-transform: rotateY(-90deg) translateZ(100px);
@@ -111,7 +111,7 @@
         transform: rotateY(-90deg) translateZ(100px);
     }
     .back{
-        background-image:url(../../../../rescources/images/06.jpg);
+        background-image:url(/css/resources/images/06.jpg);
         -webkit-transform: rotateY(-180deg) translateZ(100px);
         -moz-transform: rotateY(-180deg) translateZ(100px);
         -ms-transform: rotateY(-180deg) translateZ(100px);

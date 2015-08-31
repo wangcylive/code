@@ -1,18 +1,58 @@
-#page{width:800px;margin:0 auto;}
-.test{width:400px;position:relative;}
-.test img{width:400px;height:160px;
-    -webkit-transition: all 1s;
-    -webkit-transform-style: preserve-3d;}
-.test .pic-01{-webkit-transform: rotateY(90deg);}
-.test .pic-02{position:absolute;left:0;top:0;}
-.test:hover .pic-02{
-    -webkit-transform: rotateY(90deg);
-}
-.test:hover .pic-01{
-    -webkit-transform: rotateY(0);
-}
+@import "/css/src/reset.css";
 
-@-webkit-keyframes spin {
-    form {-webkit-transform: rotateX(0);}
-    to {-webkit-transform: rotateX(360deg);}
+@media screen {
+    #page{margin:0 auto;width:640px;}
+
+    .card{position:relative;width:300px;height:200px;
+        -webkit-perspective: 600px;
+        -moz-perspective: 600px;
+        -ms-perspective: 600px;
+        perspective: 600px;
+    }
+    .front,
+    .back{position:absolute;left:0;top:0;width:100%;height:100%;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transition: -webkit-transform 1s;
+        -moz-transition: -moz-transform 1s;
+        -ms-transition: -ms-transform 1s;
+        -o-transition: -o-transform 1s;
+        transition: transform 1s;
+    }
+    .front{background:url(/css/resources/images/01.gif) 50% 50% no-repeat #000;
+        background-size:contain;
+        -webkit-transform: rotateX(0deg);
+        -moz-transform: rotateX(0deg);
+        -ms-transform: rotateX(0deg);
+        -o-transform: rotateX(0deg);
+        transform: rotateX(0deg);
+    }
+    .card.on .front{
+        -webkit-transform: rotateX(180deg);
+        -moz-transform: rotateX(180deg);
+        -ms-transform: rotateX(180deg);
+        -o-transform: rotateX(180deg);
+        transform: rotateX(180deg);
+    }
+    .back{background:url(/css/resources/images/02.gif) 50% 50% no-repeat #000;
+        background-size:contain;
+        -webkit-transform: rotateX(-180deg);
+        -moz-transform: rotateX(-180deg);
+        -ms-transform: rotateX(-180deg);
+        -o-transform: rotateX(-180deg);
+        transform: rotateX(-180deg);
+    }
+    .card.on .back{
+        -webkit-transform: rotateX(0deg);
+        -moz-transform: rotateX(0deg);
+        -ms-transform: rotateX(0deg);
+        -o-transform: rotateX(0deg);
+        transform: rotateX(0deg);
+    }
 }

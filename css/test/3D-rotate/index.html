@@ -1,22 +1,26 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>css3 3d旋转</title>
-<link rel="stylesheet" href="../../src/reset.css">
-<link rel="stylesheet" href="index.css">
+    <meta charset="utf-8">
+    <title>css3 3d旋转</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div class="id">
-        <ul></ul>
-        <ol></ol>
-    </div>
-
     <div id="page">
-        <div class="test">
-            <img src="../images/01.gif" alt="" class="pic-01">
-            <img src="../images/02.gif" alt="" class="pic-02">
+        <h1>3d rotate</h1>
+
+        <div class="card" id="card">
+            <div class="front" id="front"></div>
+            <div class="back" id="back"></div>
+        </div>
+
+        <div class="btn">
+            <button type="button" id="btnFront">rotate front</button>
+            <button type="button" id="btnBack">rotate back</button>
+            <button type="button" id="btnCard">rotate card</button>
         </div>
     </div>
+    <script src="main.js" async></script>
 </body>
 </html>

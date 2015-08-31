@@ -2,11 +2,11 @@
 
 @font-face {
     font-family:"fonticon";
-    src:url("../../../rescources/fonts/fonticon.eot");
-    src:url("../../../rescources/fonts/fonticon.eot?#iefix") format("embedded-opentype"),
-        url("../../../rescources/fonts/fonticon.woff") format("woff"),
-        url("../../../rescources/fonts/fonticon.ttf") format("truetype"),
-        url("../../../rescources/fonts/fonticon.svg") format("svg");
+    src:url("../../../resources/fonts/fonticon.eot");
+    src:url("../../../resources/fonts/fonticon.eot?#iefix") format("embedded-opentype"),
+        url("../../../resources/fonts/fonticon.woff") format("woff"),
+        url("../../../resources/fonts/fonticon.ttf") format("truetype"),
+        url("../../../resources/fonts/fonticon.svg") format("svg");
     font-weight:normal;
     font-style:normal;
 }

@@ -61,7 +61,7 @@
 [class|="demo"]:not(.demo-01){
     width:200px;
     height:200px;
-    background:url(../../../rescources/images/05.jpg) no-repeat;
+    background:url(/css/resources/images/05.jpg) no-repeat;
     background-size:cover;
     margin:40px 0;
     font-size:1.5em;
