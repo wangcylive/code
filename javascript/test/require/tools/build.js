@@ -5,15 +5,14 @@
     baseUrl: "../js",
     mainConfigFile: "../js/main-config.js",
     name: "main",
-    out: "../build/main.js",
+    paths: {
+        jquery: "empty"
+    },
     include: [
         "appLog",
         "getHrefParam",
         "getHrefParamArray",
-        "getDomSize",
-        "jquery.nodeName",
-        "jquery.color",
-        "jquery.mousewheel"
+        "getDomSize"
     ],
 
     /**
@@ -23,5 +22,6 @@
      * closure.keepLines
      * none
      */
-    optimize: "none"
+    optimize: "uglify2",
+    out: "../build/main.js"
 })

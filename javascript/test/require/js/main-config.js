@@ -7,7 +7,7 @@ require.config({
         getHrefParam: "app/get-href-param",
         getHrefParamArray: "app/get-href-param-array",
         getDomSize: "app/get-dom-size",
-        jquery: "lib/jquery-2.1.3.min",
+        jquery: ["http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min", "lib/jquery-2.1.3.min"],
         zepto: "lib/zepto.min",
         json: "lib/json2.min",
         iscroll: "lib/iscroll-lite.min",
