@@ -1,5 +1,5 @@
 /**
- * Created by Wangcy on 2015/8/28.
+ * Created by wangcy on 2015/8/30.
  */
 require.config({
     baseUrl: "js/",
@@ -7,7 +7,7 @@ require.config({
         getHrefParam: "app/get-href-param",
         getHrefParamArray: "app/get-href-param-array",
         getDomSize: "app/get-dom-size",
-        jquery: typeof addEventListener === "function" ? "lib/jquery-2.1.3.min" : "lib/jquery-1.11.1.min",
+        jquery: "lib/jquery-2.1.3.min",
         zepto: "lib/zepto.min",
         json: "lib/json2.min",
         iscroll: "lib/iscroll-lite.min",
@@ -16,7 +16,7 @@ require.config({
         "jquery.nodeName": "app/jquery.nodeName",
         appLog: "app/app-log"
     },
-    bundles: {
-        jquery: ["jQuery"]
+    shim: {
+        "jquery.color": ["jquery"]
     }
 });

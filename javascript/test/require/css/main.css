@@ -1,6 +1,6 @@
-@import "reset.css" screen;
-@import "base.css" screen;
-@import "form.css" screen;
+@import "reset.css";
+@import "base.css";
+@import "form.css";
 
 @media screen {
     h1{margin:.5em;font-size:1.6em;font-weight:normal;}
