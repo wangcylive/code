@@ -7,51 +7,20 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
     <title>上传文件</title>
+    <link rel="stylesheet" href="layout.css"/>
 </head>
 <body>
+<div id="page">
+    <h1>上传文件或文件夹</h1>
 
-<form action="">
-    <h1>上传图片</h1>
-    <label for="files">选择图片</label>
-    <input id="files" type="file" accept="image/*">
-    <div style="margin-top:400px;"></div>
-    <input type="text" id="userName"/>
-</form>
+    <div class="btn-files">
+        <label for="files" class="label">选择图片</label>
+        <input class="files" id="files" type="file" accept="image/*" multiple webkitdirectory mozdirectory directory>
+    </div>
 
-<script>
-    (function() {
-        var filesInput = document.getElementById("files");
-        var formData = new FormData();
-        filesInput.addEventListener("change", function(event) {
-            var files = event.target.files;
+    <div class="preview" id="preview"></div>
+</div>
 
-            var URL = window.URL || window.webkitURL;
-
-            var img = new Image();
-            img.src = URL.createObjectURL(files[0]);
-            filesInput.parentNode.insertBefore(img, filesInput.nextSibling);
-
-
-            /*var reader = new FileReader();
-            reader.readAsDataURL(files[0]);
-            reader.onload = function() {
-                var img = new Image();
-                img.src = this.result;
-                filesInput.parentNode.insertBefore(img, filesInput.nextSibling);
-            }*/
-        }, false);
-
-
-
-        var input = document.getElementById("userName");
-        input.addEventListener("focus", function() {
-
-        }, false);
-
-        window.addEventListener("resize", function() {
-            input.value = "resize";
-        }, false);
-    }());
-</script>
+<script src="main.js"></script>
 </body>
 </html>
