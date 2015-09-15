@@ -38,7 +38,7 @@ console.log("********** prototype **********");
             }
         }
         return result;
-    }
+    };
     Cat.prototype.country = ["China", "America", "Russia"];
 
     var cat1 = new Cat("大黄", "黄色");
@@ -129,18 +129,18 @@ console.log("********** Object.create() **********");
         name: "大毛",
         color: "黄色",
         eat: ["snake", "fish"]
-    }
+    };
 
     /**
      * 目前，各大浏览器的最新版本（包括IE9）都部署了这个方法。
      * 如果遇到老式浏览器，可以用下面的代码自行部署
      */
     if (!Object.create) {
-    　　Object.create = function (o) {
-    　　　　function F() {}
-    　　    F.prototype = o;
-    　　　　return new F();
-    　　}
+        Object.create = function (o) {
+            function F() {}
+            F.prototype = o;
+            return new F();
+        }
     }
 
     /**
@@ -196,11 +196,11 @@ console.log("********** 极简注意法 **********");
                 handle: arg,
                 publicSound: Animal.publicSound,
                 privateSound: privateSound
-            }
+            };
 
             return animal;
         }
-    }
+    };
 
     var Cat = {
         createNew: function(args, name, color) {
@@ -215,7 +215,7 @@ console.log("********** 极简注意法 **********");
 
             return cat;
         }
-    }
+    };
 
     var cat1 = Cat.createNew("Test inheirt", "小黑", "黑色");
     var cat2 = Cat.createNew("Test inheirt", "小白", "白色");

@@ -1,30 +1,61 @@
-function getElemById(ele) {
-    return document.getElementById(ele);
-}
+(function(w, undefined) {
+    var $ = window.jQ = function(selector) {
+        return new init(selector);
+    };
 
-function getElemsByName(eles) {
-    return document.getElementsByName(eles);
-}
+    var d = document,
+        html = document.documentElement,
+        body = document.body;
 
-function getElemsByTag(eles) {
-    return document.getElementsByTagName(eles);
-}
+    $.fn = $.prototype = {
+        version: "1.0",
+        constructor: $,
+        length: 0,
+        splice: function() {
 
-function getElemByQuery(ele) {
-    if(document.querySelector) {
-        return document.querySelector(ele);
-    } else {
-        return null;
-    }
-}
+        },
+        push: function() {
 
-function getElemsByQuery(eles) {
-    if(document.querySelectorAll) {
-        return document.querySelectorAll(eles);
-    } else {
-        return null;
-    }
-}
+        },
+        setColor: function(color) {
+            this[0].style.color = color;
+        }
+    };
+
+    var init = $.fn.init = function(selector) {
+        if(selector.indexOf("#") === 0) {
+            try {
+                this[0] = d.querySelector(selector);
+                this.context = d;
+                this.selector = selector;
+                this.length = 1;
+            } catch (e) {
+
+            }
+            return this;
+        }
+        if(selector.indexOf(".") === 0) {
+            try {
+                var ele = d.querySelectorAll(selector);
+                this.context = d;
+                this.selector = selector;
+                this.length = ele.length;
+                for(var i = 0; i < ele.length; i++) {
+                    this[i] = ele[i];
+                }
+            } catch (e) {}
+            return this;
+        }
+    };
+
+    init.prototype = $.fn;
+}(window, undefined));
+
+
+
+console.info($("#header"));
+console.log(jQ("#header"));
+
 
 function getElemsByClass(search) {
     if(document.getElementsByClassName) {
@@ -49,28 +80,5 @@ function getElemsByClass(search) {
 }
 
 (function() {
-    // getElementById
-    console.log("ById:" + "nodeName=" + getElemById("header").nodeName + "\n");
 
-    // getElementsByName
-    console.log("ByName:" + "length=" + getElemsByName("sex").length + "  [0].nodeName="
-            + getElemsByName("sex")[0].nodeName + "\n");
-
-    // getElementsByTagName
-    console.log("ByTagName:" + "length=" + getElemsByTag("li").length + "  [0].nodeType="
-            + getElemsByTag("li")[0].nodeType + "\n");
-
-    // querySelector
-    console.log("querySelector:" + "nodeName=" + getElemByQuery(".clearfix").nodeName 
-            + "  instanceof Object  " + (getElemByQuery(".clearfix") instanceof Object) + "\n");
-
-    // querySelectorAll
-    console.log("querySelectorAll:" + "length=" + getElemsByQuery(".clearfix").length
-            + "  [1].nodeName=" + getElemsByQuery(".clearfix")[1].nodeName +
-            "  instanceof Object  " + (getElemsByQuery(".clearfix") instanceof Object) + "\n");
-
-    // getElementsByClassName
-    console.log("ByTagClassName:" + "length=" + getElemsByClass("clearfix").length + "  [0].nodeName="
-            + getElemsByClass("clearfix")[0].nodeName + "  instanceof Object  "
-            + (getElemsByClass("clearfix") instanceof Object) + "\n");
 }());
