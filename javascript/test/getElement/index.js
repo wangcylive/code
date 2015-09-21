@@ -1,28 +1,52 @@
 (function(w, undefined) {
-    var $ = window.jQ = function(selector) {
-        return new init(selector);
+    var $ = w.jQ = function(selector) {
+        return new $.fn.init(selector);
     };
 
     var d = document,
         html = document.documentElement,
-        body = document.body;
+        body = document.body,
+        ArrayFn = Array.prototype;
 
     $.fn = $.prototype = {
         version: "1.0",
         constructor: $,
         length: 0,
         splice: function() {
-
+            return ArrayFn.splice.apply(this, arguments);
         },
         push: function() {
-
+            return ArrayFn.push.apply(this, arguments);
+        },
+        pop: function() {
+            return ArrayFn.pop.apply(this, arguments);
+        },
+        shift: function() {
+            return ArrayFn.shift.apply(this, arguments);
+        },
+        unshift: function() {
+            return ArrayFn.unshift.apply(this, arguments);
+        },
+        each: function(callback) {
+            for(var i = 0; i < this.length; i++) {
+                callback.call(this[i], this[i], i);
+            }
         },
         setColor: function(color) {
-            this[0].style.color = color;
+            this.each(function(item, index) {
+                item.style.color = color;
+            });
         }
     };
 
-    var init = $.fn.init = function(selector) {
+    $.fn.init = function(selector) {
+        if(selector.nodeType === 1) {
+            this[0] = selector;
+            this.context = d;
+            this.selector = selector;
+            this.length = 1;
+            return this;
+        }
         if(selector.indexOf("#") === 0) {
             try {
                 this[0] = d.querySelector(selector);
@@ -48,13 +72,18 @@
         }
     };
 
-    init.prototype = $.fn;
+    $.fn.init.prototype = $.fn;
 }(window, undefined));
 
+var a = $("#header"),
+    b = jQ("#header");
 
+b.each(function(item, index) {
+    console.log(this, item, index);
+});
 
-console.info($("#header"));
-console.log(jQ("#header"));
+console.info(a);
+console.log(b);
 
 
 function getElemsByClass(search) {
