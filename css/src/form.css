@@ -2,7 +2,7 @@
     input,
     button,
     select,
-    textarea{color:#333;font-size:14px;}
+    textarea{color:#333;font:14px sans-serif;}
 
     input:not([type]){padding:5px;border:1px solid #999;background-color:#fcfcfc;}
 
@@ -38,6 +38,12 @@
         -moz-user-select:none;
         -ms-user-select:none;
         user-select:none;
+    }
+
+    ::-ms-expand,
+    ::-ms-clear,
+    ::-ms-reveal{
+        display:none;
     }
 }
 
@@ -113,9 +119,6 @@
         background-repeat:no-repeat;
         background-position:100% 50%;
         background-size:20px auto;
-    }
-    select::-ms-expand{
-        display:none;
     }
 
     select:disabled{
