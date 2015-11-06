@@ -1,18 +1,18 @@
 @media screen {
-    h1{font-size:1.666667em;}  /*20px*/
-    h2{font-size:1.5em;}       /*18px*/
-    h3{font-size:1.333333em;}  /*16px*/
-    h4{font-size:1.166667em;}  /*14px*/
-    h5,
-    h6{font-size:1.083333em;}  /*13px*/
+    body, h1, h2, h3, h4, h5, h6, dl, dd, ul, ol, p, blockquote, form, fieldset, figure, button{margin:0;}
+    ul, ol, menu, th, td, legend, fieldset{padding:0;}
+    html{font-size:100%;-webkit-tap-highlight-color:transparent;}
+    body{font:1em/1.5 tahoma, arial, "\5b8b\4f53", sans-serif;word-wrap:break-word;}
+    ul, ol, menu{list-style-type:none;}
+    table{border-spacing:0;border-collapse:collapse;}
 
     .clearfix{zoom:1;}
     .clearfix::before, .clearfix::after{content:"";display:table;}
     .clearfix::after{clear:both;}
-    .f-left{float:left;}
-    .f-right{float:right;}
+    .ftl{float:left;}
+    .ftr{float:right;}
 
-    a{text-decoration:none;color:#1a35ff;}
+    a, a:link{text-decoration:none;color:#1a35ff;}
     a:hover, a:active{text-decoration:underline;}
 
     .relative{position:relative;}
@@ -20,17 +20,17 @@
     .fixed{position:fixed;}
 
     .indent{text-indent:2em;}
-    .t-center{text-align:center;}
-    .t-right{text-align:right;}
-    .t-left{text-align:left;}
-    .t-justify{text-align:justify;}
-    .t-ellipsis{white-space:nowrap;word-wrap:normal;overflow:hidden;text-overflow:ellipsis;}
+    .tac{text-align:center;}
+    .tar{text-align:right;}
+    .tal{text-align:left;}
+    .taj{text-align:justify;}
+    .toe{white-space:nowrap;word-wrap:normal;overflow:hidden;text-overflow:ellipsis;}
 
     .none{display:none;}
     .hidden{visibility:hidden;}
 
-    .m-auto{margin-left:auto;margin-right:auto;}
-    .v-middle{vertical-align:middle;}
+    .hor-cen{margin-left:auto;margin-right:auto;}
+    .ver-cen{vertical-align:middle;}
     .box-b{
         -webkit-box-sizing:border-box;
         -moz-box-sizing:border-box;

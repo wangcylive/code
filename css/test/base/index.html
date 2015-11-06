@@ -6,27 +6,22 @@
 <meta name="renderer" content="webkit|ie-comp|ie-stand">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
 <title>Style base</title>
-<link rel="stylesheet" href="styles/base.css">
-<link rel="stylesheet" href="styles/form.css">
 <link href="index.css" rel="stylesheet">
-<script>
-    document.addEventListener("touchstart", function(){}, true);
-</script>
 </head>
 <body>
-    <h1 class="ta-c">Base Css</h1>
+    <h1 class="tac">Base Css</h1>
 
     <h2>自定义字体</h2>
     <div>
-        <span class="font-icon">&#xe602;</span>
-        <span class="font-icon">&#xe603;</span>
-        <span class="font-icon">&#xe604;</span>
-        <span class="font-icon">&#xe605;</span>
-        <span class="font-icon">&#xe606;</span>
-        <span class="font-icon">&#xe607;</span>
-        <span class="font-icon">&#xe608;</span>
-        <span class="font-icon-error"></span>
-        <span class="font-icon-right"></span>
+        <span class="font-icon smile"></span>
+        <span class="font-icon sadness"></span>
+        <span class="font-icon top"></span>
+        <span class="font-icon right"></span>
+        <span class="font-icon bottom"></span>
+        <span class="font-icon left"></span>
+        <span class="font-icon hint"></span>
+        <span class="font-icon error"></span>
+        <span class="font-icon right"></span>
         &#x4F60;&#x597D;&#xFF0C;&#x7B1B;&#x7B1B;&#x7B1B;
     </div>
 
@@ -35,8 +30,8 @@
     <h2>浮动</h2>
     <p><b>clearfix</b>清除浮动，添加父级元素类上</p>
     <div class="clearfix">
-        <div class="flo-l" style="border:1px solid red;"><b>flo-l</b>左浮动</div>
-        <div class="flo-r" style="border:1px solid blue;"><b>flo-r</b>右浮动</div>
+        <div class="ftl" style="border:1px solid red;"><b>flo-l</b>左浮动</div>
+        <div class="ftr" style="border:1px solid blue;"><b>flo-r</b>右浮动</div>
     </div>
     <!-- end 浮动 -->
 
@@ -53,45 +48,45 @@
     <br>
 
     <h2>隐藏文字</h2>
-    <p><b>to-e</b>隐藏文字，用省略号代替</p>
-    <div style="width:300px;" class="to-e">It reminds me of my days on the rifle range preparing for duty in Vietnam.这使我回想起在射击场上训练准备去越南服役的那些日子。http://www.hao123.com;</div>
+    <p><b>toe</b>隐藏文字，用省略号代替</p>
+    <div style="width:300px;" class="toe">It reminds me of my days on the rifle range preparing for duty in Vietnam.这使我回想起在射击场上训练准备去越南服役的那些日子。http://www.hao123.com;</div>
     <!-- end 隐藏文字 -->
 
     <br>
 
     <h2>文字对齐方式</h2>
-    <p><b>ta-l</b>左对齐；<b>ta-r</b>右对齐；<b>ta-j</b>两端对齐</p>
+    <p><b>tal</b>左对齐；<b>tar</b>右对齐；<b>taj</b>两端对齐</p>
     <div style="width:300px;border:1px solid #999;">
-        <p class="ta-l">It reminds me of my days on the rifle range.</p>
-        <p class="ta-r mtb-v1">http://www.hao123.com</p>
-        <p class="ta-c mtb-v1">It reminds me of my days on the rifle range.</p>
-        <p class="ta-j">It reminds me of my days on the rifle range preparing for duty in Vietnam.这使我回想起在射击场上训练准备去越南服役的那些日子。</p>
+        <p class="tal">It reminds me of my days on the rifle range.</p>
+        <p class="tar">http://www.hao123.com</p>
+        <p class="tac">It reminds me of my days on the rifle range.</p>
+        <p class="taj">It reminds me of my days on the rifle range preparing for duty in Vietnam.这使我回想起在射击场上训练准备去越南服役的那些日子。</p>
     </div>
     <!-- end 文字对齐 -->
     
     <br>
     
     <h2>border-box盒模型</h2>
-    <p><b>bs-bb</b>设置<i>border</i>和<i>padding</i>也不会改变对象的实际宽度</p>
-    <div class="bs-bb" style="width:300px;padding:30px;border:1px solid #999;">笛笛笛</div>
+    <p><b>box-b</b>设置<i>border</i>和<i>padding</i>也不会改变对象的实际宽度</p>
+    <div class="box-b" style="width:300px;padding:30px;border:1px solid #999;">笛笛笛</div>
     <!-- end border-box盒模型 -->
 
     <br>
     
     <h2>定位</h2>
-    <p><b>pos-r</b>相对定位；<b>pos-a</b>绝对定位；<b>pos-f</b>固定定位</p>
-    <div class="pos-r bs-bb" style="width:300px;padding:30px;border:5px double #999;">
-        <div class="pos-a" style="left:0;top:0;width:50px;height:50px;background-color:red;color:#fff;">绝对定位</div>
+    <p><b>relative</b>相对定位；<b>absolute</b>绝对定位；<b>fixed</b>固定定位</p>
+    <div class="relative box-b" style="width:300px;padding:30px;border:5px double #999;">
+        <div class="absolute" style="left:0;top:0;width:50px;height:50px;background-color:red;color:#fff;">绝对定位</div>
     </div>
-    <a href="#" class="pos-f ta-c" style="right:0;bottom:0;width:50px;padding:15px 0;background-color:#666;color:#fff;">返回<br>顶部</a>
+    <a href="#" class="fixed tac" style="right:0;bottom:0;width:50px;padding:15px 0;background-color:#666;color:#fff;">返回<br>顶部</a>
     <!-- end 定位 -->
     
     <br>
 
     <h2>显示</h2>
-    <p><b>dis-n</b>隐藏元素，不占空间，背景图片不会加载；<b>vis-h</b>隐藏元素，占空间，背景图片加载</p>
-    <div class="dis-n" style="height:100px;background-image:url(../../resources/images/01.gif?dis-n);"></div>
-    <div class="vis-h" style="height:100px;background-image:url(../../resources/images/01.gif?vis-h);"></div>
+    <p><b>none</b>隐藏元素，不占空间，背景图片不会加载；<b>hidden</b>隐藏元素，占空间，背景图片加载</p>
+    <div class="none" style="height:100px;background-image:url(../../resources/images/01.gif?dis-n);"></div>
+    <div class="hidden" style="height:100px;background-image:url(../../resources/images/01.gif?vis-h);"></div>
     <!-- end 显示 -->
     
     <br>
@@ -110,8 +105,8 @@
     <br>
     
     <h2>选择</h2>
-    <p><b>us-n</b>设置不能选中</p>
-    <div class="us-n">这里是一段文字</div>
+    <p><b>us-none</b>设置不能选中</p>
+    <div class="us-none">这里是一段文字</div>
     <!-- end 选择 -->
 
     <br>
@@ -146,12 +141,12 @@
                 <input type="tel" id="tel" placeholder="输入电话号码">
             </p>
             <p>
-                <label for="text">text</label>
-                <input type="text" id="tel" placeholder="输入文本">
+                <label for="text1">text</label>
+                <input type="text" id="text1" placeholder="输入文本">
             </p>
             <p>
-                <label for="text">text</label>
-                <input type="text" id="tel" value="输入文本" disabled>
+                <label for="text2">text</label>
+                <input type="text" id="text2" value="输入文本" disabled>
             </p>
             <p>
                 <label for="password">password</label>
@@ -168,21 +163,21 @@
             <p>
                 <span>radio</span>
                 <input type="radio" id="man" name="sex" value="0" checked><label for="man">man</label>
-                <input type="radio" id="woman" name="sex" value="0"><label for="woman">woman</label>
-                <input type="radio" id="woman" name="sex" value="0" disabled><label>woman</label>
-                <input type="radio" id="" name="sex2" value="0" checked disabled><label>woman</label>
+                <input type="radio" id="woman1" name="sex" value="0"><label for="woman1">woman</label>
+                <input type="radio" id="woman2" name="sex" value="0" disabled><label>woman</label>
+                <input type="radio" id="woman3" name="sex2" value="0" checked disabled><label>woman</label>
             </p>
             <p>
                 <span>checkbox</span>
                 <input type="checkbox" id="game" name="interest" value="0" checked><label for="game">game</label>
                 <input type="checkbox" id="sport" name="interest" value="0"><label for="sport">sport</label>
-                <input type="checkbox" id="travel" name="interest" value="0"><label for="travel">travel</label>
-                <input type="checkbox" id="travel" name="interest" value="0" disabled><label>travel</label>
-                <input type="checkbox" id="" name="interest2" value="0" checked disabled><label>travel</label>
+                <input type="checkbox" id="travel1" name="interest" value="0"><label for="travel1">travel</label>
+                <input type="checkbox" id="travel2" name="interest" value="0" disabled><label>travel</label>
+                <input type="checkbox" id="travel3" name="interest2" value="0" checked disabled><label>travel</label>
             </p>
             <p>
                 <span>select</span>
-                <select name="" id="">
+                <select name="">
                     <option value="">--please select--</option>
                     <optgroup label="一线">
                         <option value="1">北京</option>
@@ -195,7 +190,7 @@
                         <option value="6">南京</option>
                     </optgroup>
                 </select>
-                <select name="" id="" disabled>
+                <select name="" disabled>
                     <option value="">--please select--</option>
                     <optgroup label="一线">
                         <option value="1">北京</option>
@@ -256,7 +251,7 @@
     </div>
 
 
-    <p>奥斯卡房间暗示<br><br><br></p>
+    <p>奥斯卡<br><br><br></p>
 </div>
 </body>
 </html>

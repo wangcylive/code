@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>测试</title>
+</head>
+<body>
+<h1>webview test</h1>
+<button id="button">点击判断是否安装校园家</button>
+<br><br>
+<div>
+    <a href="zhuHai-xxt.html?target=blank" target="_blank">在新窗口打开此页面</a>
+</div>
+<br><br>
+<div>
+    <a href="http://dl.istudy.com.cn/app/apk/xiaoyuan_site.apk">下载校园家App</a>
+</div>
+<script>
+    (function() {
+        var btn = document.getElementById("button");
+        btn.addEventListener("click", function() {
+            window.webview.installed();
+        }, false);
+        
+        
+    }());
+    
+    function isInstalled(boolean) {
+        alert(typeof boolean);
+    }
+
+
+    if(window.location.search == "?target=blank") {
+        var text = document.createElement("p");
+        text.textContent = document.cookie;
+        document.body.appendChild(text);
+    } else {
+        document.cookie = "name=wangcy";
+    }
+</script>
+</body>
+</html>
