@@ -48,6 +48,6 @@ if (!window.localStorage) {
     // localStorage.name = "wangcy";
     // localStorage.setItem("姓名", "王春阳");
     // localStorage.removeItem("name");
-    alert(localStorage.getItem("name"));
-    alert(localStorage.getItem("姓名"));
+    /*alert(localStorage.getItem("name"));
+    alert(localStorage.getItem("姓名"));*/
 }());

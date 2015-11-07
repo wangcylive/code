@@ -34,5 +34,20 @@
     <blockquote>
         <p>ie7+支持，移动端支持</p>
     </blockquote>
+
+    <script type="text/javascript">
+        function isLocalStorageSupported() {
+            var testKey = 'test',
+                storage = window.sessionStorage;
+            try {
+                storage.setItem(testKey, 'testValue');
+                storage.removeItem(testKey);
+                return true;
+            } catch (error) {
+                return false;
+            }
+        }
+        alert(isLocalStorageSupported());
+    </script>
 </body>
 </html>

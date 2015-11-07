@@ -13,6 +13,7 @@
 <h1>history pushstate</h1>
 <a href="javascript:;" id="link1">点击</a>
 
+<script src="/jquery/src/jquery-2.1.3.min.js"></script>
 <script>
     (function(w, d) {
         var link1 = d.getElementById("link1");
@@ -20,7 +21,7 @@
         link1.addEventListener("click", function() {
             history.pushState({
                 name: "wangcy"
-            }, "有参数了", "pushstate.html?name=wangcy");
+            }, "有参数了", "test.html");
             d.title = "有参数了";
         }, false);
 
