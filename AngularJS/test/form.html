@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>AngularJS</title>
+</head>
+<body>
+    <h1>AngularJS Form</h1>
+
+    <article>
+        <section>
+            <h2>form 1</h2>
+
+            <form novalidate ng-app="app1" ng-controller="ctrl" name="myForm">
+                <fieldset>
+                    <legend>user info</legend>
+                    <p>
+                        <label for="name">name:</label>
+                        <input type="text" id="name" placeholder="please enter your name" ng-model="name" name="name" required>
+                        <span style="color:#f00;" ng-show="myForm.name.$dirty && myForm.name.$invalid">
+                            <span ng-show="myForm.name.$error.required">please enter your name</span>
+                        </span>
+                    </p>
+                    <p>
+                        <label for="email">email:</label>
+                        <input type="email" id="email" placeholder="please enter your email" ng-model="email" name="email" required>
+                        <span style="color:#f00"; ng-show="myForm.email.$dirty && myForm.email.$invalid">
+                            <span ng-show="myForm.email.$error.required">please enter your email</span>
+                            <span ng-show="myForm.email.$error.email">illegal email address</span>
+                        </span>
+                    </p>
+                    <button type="submit">submit</button>
+                    <button ng-click="reset()">reset</button>
+                </fieldset>
+            </form>
+        </section>
+    </article>
+
+    <script src="../src/angular.min.js"></script>
+    <script>
+        (function() {
+            function getEle(id) {
+                return document.getElementById(id);
+            }
+
+            var app1 = angular.module("app1", []);
+
+            app1.controller("ctrl", function($scope, $http) {
+                $scope.reset = function() {
+                    $scope.name = "";
+                    $scope.email = "";
+                }
+            });
+        }());
+    </script>
+</body>
+</html>

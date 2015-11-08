@@ -10,9 +10,142 @@
     <title>AngularJs</title>
     <script src="../src/angular.min.js"></script>
 </head>
-<body ng-app>
-    <h1>开始测试</h1>
-    <p>Your Name: <input type="text" ng-model="yourname" placeholder="World"></p>
-    <p>Hello {{yourname || 'World'}}</p>
+<body>
+    <h1>AngularJS Test</h1>
+
+    <article>
+        <section ng-app="app1" ng-controller="controller1" ng-init="quantity=1;cost=5;person={firstName:'Jone', lastName:'Doe'};yourname='王春阳'">
+            <h2>初始值</h2>
+            <p>Your Name: <input type="text" ng-model="yourname" placeholder="World"></p>
+            <p>Hello {{yourname || 'World'}}</p>
+
+            <p>总价：<span ng-bind="quantity * cost"></span></p>
+
+            <p>Person firstName <span ng-bind="person.firstName"></span></p>
+        </section>
+
+        <section id="section2" ng-app="app2" ng-init="quantity=1;price=5">
+            <h2>价格计算器</h2>
+
+            <div>数量： <input type="number" ng-model="quantity"></div>
+            <div>价格： <input type="number" ng-model="price"></div>
+
+            <p><b>总价：</b> <span ng-bind="quantity * price"></span></p>
+        </section>
+
+        <section id="section3" ng-app="app3" ng-init="names=[{name:'Jani',country:'Norway'},{country:'Sweden'},{name:'Kai',country:'Denmark'}]">
+            <h2>重复html no-repeat</h2>
+
+            <ul>
+                <li ng-repeat="x in names">
+                    name: {{x.name || "None"}}, country: {{x.country || "None"}}
+                </li>
+            </ul>
+        </section>
+
+        <section id="section4" ng-app="app4" ng-controller="controller4">
+            <h2>控制器 controller</h2>
+
+            <ul>
+                <li ng-repeat="x in names">
+                    {{x.name + "," + x.country}}
+                </li>
+            </ul>
+            <p>names: <span ng-bind="nameValue"></span></p>
+        </section>
+
+        <section id="section5" ng-app="app5" ng-controller="controller5">
+            <h2>过滤器 filter</h2>
+
+            <h3>uppercase</h3>
+            <p>name: <span ng-bind="name | uppercase"></span></p>
+
+            <h3>lowercase</h3>
+            <p>name: <span ng-bind="name | lowercase"></span></p>
+
+            <h3>orderBy</h3>
+            <ul>
+                <li ng-repeat="x in names | orderBy: 'name'">
+                    {{x.name + ", " + x.country}}
+                </li>
+            </ul>
+
+            <h3>filter</h3>
+            <p><input type="text" ng-model="filter"></p>
+            <ul>
+                <li ng-repeat="x in names | filter: filter" ng-bind="x.name + ', ' + x.country">
+                </li>
+            </ul>
+
+            <h3>currency</h3>
+            <p><label>数量：</label><input type="number" ng-model="quantity"></p>
+            <p><label>价格：</label><input type="number" ng-model="cost"></p>
+            <p>总价 <span ng-bind="quantity * cost | currency"></span></p>
+        </section>
+    </article>
+
+    <script>
+        (function() {
+            function getEle(id) {
+                return document.getElementById(id);
+            }
+
+            var app1 = angular.module("app1", []);
+            app1.controller("controller1", function($scope, $http) {
+                $scope.yourname = "陈笛";
+            });
+
+            var app2 = angular.module("app2", []),
+                section2 = getEle("section2");
+
+            angular.bootstrap(section2, ["app2"]);
+
+            var app3 = angular.module("app3", []),
+                section3 = getEle("section3");
+
+            angular.bootstrap(section3, ["app3"]);
+
+            var app4 = angular.module("app4", []),
+                section4 = getEle("section4");
+
+            app4.controller("controller4", function($scope, $http) {
+                var names = $scope.names = [
+                    {name: "Jani", country: "Norway"},
+                    {name: "Hege", country: "Sweden"},
+                    {name: "Kai", country: "Denmark"}
+                ];
+
+                var nameValue = [],
+                    countryValue = [];
+
+                names.forEach(function(item) {
+                    nameValue.push(item.name);
+                    countryValue.push(item.country);
+                });
+
+                $scope.nameValue = nameValue.join(",");
+            });
+
+            angular.bootstrap(section4, ["app4"]);
+
+            var app5 = angular.module("app5", []),
+                section5 = getEle("section5");
+
+            app5.controller("controller5", function($scope, $http) {
+                $scope.name = "Wang ChunYang";
+                $scope.names = [
+                    {name: "Jani", country: "Norway"},
+                    {name: "Hege", country: "Sweden"},
+                    {name: "Kai", country: "Denmark"}
+                ];
+                $scope.quantity = 10;
+                $scope.cost = 13.34;
+                console.log($scope);
+            });
+
+            angular.bootstrap(section5, ["app5"]);
+
+        }());
+    </script>
 </body>
 </html>
