@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>AngularJS</title>
+</head>
+<body>
+    <h1>AngularJS server</h1>
+    <div ng-app="app" ng-controller="ctrl">
+        <p><input type="number" ng-model="number"></p>
+        <p>result: <span ng-bind="result"></span></p>
+    </div>
+
+    <script src="../src/angular.min.js"></script>
+    <script>
+        (function() {
+            var app = angular.module("app", []);
+
+            app.factory("MathServer", function() {
+                return function(a) {
+                    return Math.pow(a, 5);
+                }
+            });
+
+            app.service("powServer", function(MathServer) {
+                this.pow = function(a) {
+                    return MathServer(a);
+                }
+            });
+
+            app.controller("ctrl", function($scope, powServer) {
+                $scope.number = 5;
+                $scope.result = powServer.pow($scope.number);
+            });
+        }());
+    </script>
+</body>
+</html>

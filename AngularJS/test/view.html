@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>AngularJS</title>
+</head>
+<body>
+    <h1>AngularJS view</h1>
+
+    <div ng-app="app">
+        <p><a href="#addStudent">Add Student</a></p>
+        <p><a href="#viewStudent">View Student</a></p>
+
+        <script type="text/ng-template" id="addStudent.html">
+            <h2>Add Student</h2>
+            <p ng-bind="message"></p>
+        </script>
+
+        <script type="text/ng-template" id="viewStudent.html">
+            <h2>View Student</h2>
+            <p ng-bind="message"></p>
+        </script>
+    </div>
+
+    <script src="../src/angular.min.js"></script>
+    <script>
+        (function() {
+            var app = angular.module("app", ["ng-Route"]);
+
+            app.config(["$routeProvider"], function($routeProvider) {
+                $routeProvider.when("/addStudent", {
+                    templateUrl: "addStudent.html",
+                    controller: "addStudentCtrl"
+                }).when("/viewStudent", {
+                    templateUrl: "viewStudent.html",
+                    controller: "viewStudentCtrl"
+                }).other({
+                    redirectTo: "/addStudent"
+                });
+            });
+
+            app.controller("addStudentCtrl", function($scope, $http) {
+                $scope.message = "This page will be used to display add student form";
+            });
+
+            app.controller("viewStudentCtrl", function($scope, $http) {
+                $scope.message = "This page will be used to display all the students";
+            });
+        }());
+    </script>
+</body>
+</html>
