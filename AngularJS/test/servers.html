@@ -33,7 +33,7 @@
                 }
             });
 
-            app.controller("ctrl", function($scope, powServer) {
+            app.controller("ctrl", function($scope, $http, powServer) {
                 $scope.number = 5;
                 $scope.result = powServer.pow($scope.number);
             });
