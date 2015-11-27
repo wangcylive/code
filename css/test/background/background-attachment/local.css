@@ -7,7 +7,7 @@ body {
     width:200px;
     max-height:140px;
     overflow:auto;
-    background:radial-gradient(ellipse farthest-side at 50% 0, hsla(0, 0%, 0%, .1), hsla(0, 0%, 0%, 0)),
+    background:radial-gradient(ellipse farthest-side at 50% 0, hsla(0, 0%, 0%, .1), red),
             radial-gradient(ellipse farthest-side at 50% 100%, hsla(0, 0%, 0%, .1), hsla(0, 0%, 0%, 0));
     background-position:0 0, 0 100%;
     background-size:100% 14px;
