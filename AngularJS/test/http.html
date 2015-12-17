@@ -36,6 +36,12 @@
         (function() {
             var app = angular.module("app", []);
             app.controller("ctrl", function($scope, $http) {
+                $scope.$on("$locationChangeSuccess", function(event, newUrl, oldUrl) {
+                    console.log(event);
+                });
+
+                console.log($scope);
+
                 $http({
                     url: "../data/users.json",
                     method: "get",
