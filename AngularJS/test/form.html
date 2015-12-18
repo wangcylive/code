@@ -7,6 +7,9 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
     <title>AngularJS</title>
+    <style>
+        .warning{color:#f00;}
+    </style>
 </head>
 <body>
     <h1>AngularJS Form</h1>
@@ -37,6 +40,17 @@
                     <button ng-click="reset()">reset</button>
                 </fieldset>
             </form>
+
+            <div id="app2" ng-app="app2" ng-controller="ctrl">
+                <p>remaining <span ng-bind="remaining()" ng-class="{'warning': shouldWarn()}"></span></p>
+                <div class="row">
+                    <textarea cols="30" rows="10" ng-model="message"></textarea>
+                </div>
+                <div class="row">
+                    <button ng-click="send()" ng-disabled="!hasValidLength()">Send</button>
+                    <button ng-click="clear()">Clear</button>
+                </div>
+            </div>
         </section>
     </article>
 
@@ -55,6 +69,35 @@
                     $scope.email = "";
                 }
             });
+
+            var app2 = angular.module("app2", []),
+                app2Dom = getEle("app2");
+
+            app2.constant("MAX_LENGTH", 70);
+
+            app2.controller("ctrl", function($scope, MAX_LENGTH) {
+                console.log(app2);
+                $scope.message = "";
+                $scope.remaining = function() {
+                    return MAX_LENGTH - $scope.message.length;
+                };
+                $scope.hasValidLength = function() {
+                    return $scope.message.length > 0 && $scope.message.length <= 70;
+                };
+                $scope.shouldWarn = function() {
+                    return $scope.message.length > MAX_LENGTH - 20;
+                };
+
+                $scope.send = function() {
+                    alert("send");
+                };
+
+                $scope.clear = function() {
+                    $scope.message = "";
+                }
+            });
+
+            angular.bootstrap(app2Dom, ["app2"]);
         }());
     </script>
 </body>

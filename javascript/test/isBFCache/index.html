@@ -1,34 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
-    <title>判断是否缓存</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>BFCache test</title>
 </head>
 <body>
-<h1>判断是否从历史记录跳转</h1>
-<a href="?name=1">link</a>
-
-<!--<input type="hidden" id="isCache">-->
-<script>
-    (function() {
-        var isBFCache = document.createElement("input");
-        isBFCache.type = "hidden";
-        document.body.appendChild(isBFCache);
-
-        window.addEventListener("pageshow", function(event) {
-            var log = {
-                expected: isBFCache.value !== "",
-                persisted: event.persisted
-            };
-
-            var p = document.createElement("p");
-            p.textContent = JSON.stringify(log);
-            document.body.appendChild(p);
-
-            isBFCache.value = Date.now();
-        }, false);
-    }());
-</script>
+    <h1>BFCache test</h1>
+    <a href="?name=cd">click this link</a>
+    <input type="hidden" id="isBFCache">
+    <script src="main.js"></script>
 </body>
 </html>
