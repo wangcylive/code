@@ -21,11 +21,10 @@
             }, Math.random() * 2000 + 2000);
         });
 
-        console.log(p1);
-
         p1.then(function(value) {
             log.insertAdjacentHTML("beforeend", thisPromiseCount + ") Promise fulfilled (async code end)<br>");
             console.log(value);
+            console.log(p1);
         });
 
         log.insertAdjacentHTML("beforeend", thisPromiseCount + ") Promise made (sync code end)<br>");
@@ -38,29 +37,43 @@
 
 !(function(root, d) {
     function PromiseTest() {
-        this.callbacks = []
+        this.doneList = [];
+        this.failList = [];
+        this.status = "pending";
     }
 
     PromiseTest.prototype = {
         construct: PromiseTest,
         resolve: function(result) {
-            this.complete("resolve", result);
-        },
-        reject: function(result) {
-            this.complete("reject", result);
-        },
-        complete: function(type, result) {
-            while(this.callbacks[0]) {
-                this.callbacks.shift()[type](result);
+            this.status = "resolved";
+            while(this.doneList[0]) {
+                this.doneList.shift().call(this, result);
             }
         },
+        reject: function(result) {
+            this.status = "rejected";
+            while(this.failList[0]) {
+                this.failList.shift().call(this, result);
+            }
+        },
+        done: function(handler) {
+            if(typeof handler === "function") {
+                this.doneList.push(handler);
+            }
+            return this;
+        },
+        fail: function(handler) {
+            if(typeof handler === "function") {
+                this.failList.push(handler);
+            }
+            return this;
+        },
         then: function(resolve, reject) {
-            console.log(resolve);
-            this.callbacks.push({
-                resolve: resolve,
-                reject: reject
-            });
-
+            this.done(resolve).fail(reject);
+            return this;
+        },
+        always: function(handler) {
+            this.done(handler).fail(handler);
             return this;
         }
     };
@@ -80,13 +93,24 @@
         console.log(result, Date.now());
     }).then(function(result) {
         console.log(result, Date.now());
+        console.log(p.status);
 
         p.then(function() {
             console.log("timeout then success", Date.now());
+            console.log(this);
 
             p.then(function() {
                 console.log("timeout2 then success", Date.now());
-            })
+                console.log(p.status);
+            });
+
+            console.log(p);
+
+            setTimeout(function() {
+                p.then(function() {
+                    console.log("timeout3 then success", Date.now(), p.status);
+                })
+            }, 0);
         });
     });
 }(window, document));
