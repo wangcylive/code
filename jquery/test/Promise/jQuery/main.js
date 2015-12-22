@@ -2,14 +2,23 @@
  * Created by Wangcy on 2015/12/18.
  */
 !(function(w, d) {
-    /*var ajax1 = $.get("layout.css");
-    var ajax2 = $.get("layout.css");
+    var ajax1 = $.get("layout.css", {}, "text");
+    var ajax2 = $.get("index.html", {}, "text");
 
-    $.when(ajax1, ajax2).done(function() {
+    /*$.when(ajax1, ajax2).done(function() {
         console.log("ajax1 and ajax2 success");
     }).fail(function() {
         console.log("ajax1 or ajax2 fail");
     });*/
+
+    ajax1.then(function() {
+        console.log("ajax1 success");
+        console.log("ajax2 defer");
+        return ajax2;
+    }).then(function(data) {
+        console.log(data);
+        console.log("ajax2 success");
+    });
 
     /*var log = ajax1.done(function() {
         console.log("success");
@@ -48,7 +57,7 @@
         console.log("wait progress");
     });*/
 
-    $.Deferred(wait).done(function() {
+    /*$.Deferred(wait).done(function() {
         console.log("Deferred wait done1");
-    });
+    });*/
 }(window, document));
