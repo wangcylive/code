@@ -1,0 +1,92 @@
+@media screen {
+    .chrome{position:relative;width:400px;height:400px;border-radius:50%;overflow:hidden;}
+    /*.chrome::before,
+    .chrome::after{content:"";position:absolute;z-index:1;background-color:#000;}
+    .chrome::before{left:200px;top:0;width:1px;height:400px;}
+    .chrome::after{left:0;top:200px;width:400px;height:1px;}*/
+    .chrome div[class|="part"]{position:absolute;width:400px;height:110px;}
+    .chrome div[class|="part"] .main{content:"";position:absolute;width:400px;height:150px;}
+    .chrome .part-red{left:110px;top:0;background-color:#e93c35;}
+    .chrome .part-red .main{right:400px;top:110px;background-color:#e93c35;
+        -webkit-transform-origin:100% 100%;
+        -moz-transform-origin:100% 100%;
+        -ms-transform-origin:100% 100%;
+        -o-transform-origin:100% 100%;
+        transform-origin:100% 100%;
+        -webkit-transform: rotate(60deg) translate(0, 0);
+        -moz-transform: rotate(60deg) translate(0, 0);
+        -ms-transform: rotate(60deg) translate(0, 0);
+        -o-transform: rotate(60deg) translate(0, 0);
+        transform: rotate(60deg) translate(-6px, 0);
+    }
+    .chrome .part-green{right:200px;top:380px;background-color:#5bc15b;
+        -webkit-transform-origin:100% 0;
+        -moz-transform-origin:100% 0;
+        -ms-transform-origin:100% 0;
+        -o-transform-origin:100% 0;
+        transform-origin:100% 0;
+        -webkit-transform: rotate(60deg);
+        -moz-transform: rotate(60deg);
+        -ms-transform: rotate(60deg);
+        -o-transform: rotate(60deg);
+        transform: rotate(60deg);
+    }
+    .chrome .part-green .main{right:-337px;top:-110px;background-color:#5bc15b;
+        -webkit-transform-origin:0 0;
+        -moz-transform-origin:0 0;
+        -ms-transform-origin:0 0;
+        -o-transform-origin:0 0;
+        transform-origin:0 0;
+        -webkit-transform: rotate(60deg) translate(-30px, 0);
+        -moz-transform: rotate(60deg) translate(-30px, 0);
+        -ms-transform: rotate(60deg) translate(-30px, 0);
+        -o-transform: rotate(60deg) translate(-30px, 0);
+        transform: rotate(60deg) translate(-30px, 0);
+    }
+    .chrome .part-yellow{left:356px;top:0;background-color:#fdd901;
+        -webkit-transform-origin:0 100%;
+        -moz-transform-origin:0 100%;
+        -ms-transform-origin:0 100%;
+        -o-transform-origin:0 100%;
+        transform-origin:0 100%;
+        -webkit-transform: rotate(120deg);
+        -moz-transform: rotate(120deg);
+        -ms-transform: rotate(120deg);
+        -o-transform: rotate(120deg);
+        transform: rotate(120deg);
+    }
+    .chrome .part-yellow .main{left:-314px;top:110px;background-color:#fdd901;
+        -webkit-transform-origin:100% 100%;
+        -moz-transform-origin:100% 100%;
+        -ms-transform-origin:100% 100%;
+        -o-transform-origin:100% 100%;
+        transform-origin:100% 100%;
+        -webkit-transform: rotate(60deg) translate(30px, 0);
+        -moz-transform: rotate(60deg) translate(30px, 0);
+        -ms-transform: rotate(60deg) translate(30px, 0);
+        -o-transform: rotate(60deg) translate(30px, 0);
+        transform: rotate(60deg) translate(-18px, 0);
+    }
+    .chrome .circle{position:absolute;left:50%;top:50%;width:182px;height:182px;border-radius:50%;
+        background-image: -webkit-linear-gradient(270deg, #fff, #ddd);
+        background-image: -moz-linear-gradient(270deg, #fff, #ddd);
+        background-image:linear-gradient(180deg, #fff, #ddd);
+        background-color:#fff;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    .chrome .circle .main{position:absolute;left:50%;top:50%;width:154px;height:154px;border-radius:50%;
+        background-image:-webkit-linear-gradient(270deg, #7bbbec, #006699);
+        background-image:-moz-linear-gradient(270deg, #7bbbec, #006699);
+        background-image:linear-gradient(180deg, #7bbbec, #006699);
+        background-color:#125e90;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}

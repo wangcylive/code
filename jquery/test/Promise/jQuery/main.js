@@ -5,20 +5,21 @@
     var ajax1 = $.get("layout.css", {}, "text");
     var ajax2 = $.get("index.html", {}, "text");
 
-    /*$.when(ajax1, ajax2).done(function() {
+    $.when(ajax1, ajax2).done(function(response1, response2) {
+        console.log(response1[0], response2[0]);
         console.log("ajax1 and ajax2 success");
     }).fail(function() {
         console.log("ajax1 or ajax2 fail");
-    });*/
+    });
 
-    ajax1.then(function() {
+    /*ajax1.then(function() {
         console.log("ajax1 success");
         console.log("ajax2 defer");
         return ajax2;
     }).then(function(data) {
         console.log(data);
         console.log("ajax2 success");
-    });
+    });*/
 
     /*var log = ajax1.done(function() {
         console.log("success");
