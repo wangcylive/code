@@ -10,7 +10,7 @@ module.exports = function (grunt) {
     require('load-grunt-config')(grunt, {
         configPath: path.join(process.cwd(), 'grunt/config'),
         config: {
-            pkg: grunt.file.readJSON('package.json'),
+            config: grunt.file.readJSON('package.json'),
             meta: {
                 cwd: '',
                 cwdAll: '**/*',

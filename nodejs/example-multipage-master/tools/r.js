@@ -1588,7 +1588,7 @@ var requirejs, require, define, xpcUtil;
                             config.paths[name] = pkgObj.location;
                         }
 
-                        //Save pointer to main module ID for pkg name.
+                        //Save pointer to main module ID for config name.
                         //Remove leading dot in main, so main paths are normalized,
                         //and remove any trailing .js, since different package
                         //envs have different conventions: some use a module name,
