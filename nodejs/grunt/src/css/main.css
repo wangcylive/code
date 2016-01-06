@@ -26,6 +26,6 @@
     .handle{padding-left:4.2em;}
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (min-width: 640px) {
     .msg-box .main{margin:0 auto;width:600px;}
 }

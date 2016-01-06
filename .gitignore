@@ -1,3 +1,4 @@
 # idea genertate
 .*
 aspnet_client
+node_modules

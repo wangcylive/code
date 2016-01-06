@@ -14,11 +14,15 @@
         form.on("submit", function(event) {
             event.preventDefault();
 
-            $.get("index.html", {
-                name: name.val(),
-                email: email.val(),
-                phone: phone.val()
-            }, function(data) {
+            $.ajax({
+                url: "index.html",
+                data: {
+                    name: $.trim(name.val()),
+                    email: $.trim(email.val()),
+                    phone: $.trim(phone.val())
+                },
+                dataType: "text"
+            }).done(function(data) {
                 console.log(data);
             })
         });

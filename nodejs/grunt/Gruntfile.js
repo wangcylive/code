@@ -8,23 +8,42 @@ module.exports = function(grunt) {
             options: {
                 separator: ";"
             },
-            dist: {
+            /*dist: {
                 src: ["src/zepto.js", "src/iscroll-lite.js", "src/cookies.js"],
                 dest: "build/libs.js"
+            },*/
+            generated: {
+                files: [
+                    {
+                        dest: ".tmp/concat/js/app/main.js",
+                        src: [
+                            "js/base.js",
+                            "js/app/main.js"
+                        ]
+                    }
+                ]
             }
         },
         uglify: {
             options: {
                 banner: "/*! author: <%= config.author %> <%= grunt.template.today(\"yyyy-mm-dd\") %> */\n"
             },
-            my_target: {
+            /*my_target: {
                 files: {
-                    "build/libs.min.js": ["src/zepto.js", "src/iscroll-lite.js", "src/cookies.js"]
+                    "build/js/app/main.js": ["src/js/app/main.js"]
                 }
+            },*/
+            generated: {
+                files: [
+                    {
+                        dest: "build/js/app/main.js",
+                        src: ".tmp/concat/js/app/main.js"
+                    }
+                ]
             }
         },
         clean: {
-            js: ["build"]
+            js: ["build/js/app/*.js", "!build/js/app/*.*.js"]
         },
         cssmin: {
             options: {
@@ -56,14 +75,67 @@ module.exports = function(grunt) {
                 }
             },
             all: ["Gruntfile.js", "src/js/common.js", "src/js/app/*.js"]
+        },
+        filerev: {
+            options: {
+                algorithm: "sha1",
+                length: 8
+            },
+            js: {
+                src: ["build/js/app/*.js"],
+                dest: "build/js/app"
+            }
+        },
+        watch: {
+            scripts: {
+                files: ["src/js/app/*.js", "src/js/base.js"],
+                tasks: ["uglify", "filerev", "clean"],
+                options: {
+
+                }
+            }
+        },
+        useminPrepare: {
+            html: "src/index.html",
+            options: {
+                dest: "build"
+            }
+        },
+        usemin: {
+            html: "src/index.html"
+        },
+        copy: {
+            /*options: {
+                punctuation: ""
+            },*/
+            main: {
+                expand: true,
+                src: ["src/*"],
+                cwd: "",
+                dest: "build/"
+            }
         }
     });
 
-    /*grunt.loadNpmTasks("grunt-contrib-concat");*/
-    //grunt.loadNpmTasks("grunt-contrib-uglify");
-    //grunt.loadNpmTasks("grunt-contrib-clean");
-    //grunt.loadNpmTasks("grunt-contrib-cssmin");
+    /*grunt.loadNpmTasks("grunt-contrib-concat");
+    grunt.loadNpmTasks("grunt-contrib-uglify");
+    grunt.loadNpmTasks("grunt-contrib-cssmin");
+    grunt.loadNpmTasks("grunt-filerev");
+    grunt.loadNpmTasks("grunt-usemin");
     grunt.loadNpmTasks("grunt-contrib-jshint");
+    grunt.loadNpmTasks("grunt-contrib-clean");
+    grunt.loadNpmTasks("grunt-contrib-watch");*/
+    grunt.loadNpmTasks("grunt-contrib-copy");
 
-    grunt.registerTask("default", ["jshint"]);
+    /*grunt.registerTask("default", ["uglify", "filerev", "clean"]);*/
+
+    grunt.registerTask("copy", ["copy"]);
+
+    /*grunt.registerTask("build", [
+        "useminPrepare",
+        "concat:generated",
+        "uglify:generated",
+        "filerev",
+        "usemin"
+    ]);*/
 };
