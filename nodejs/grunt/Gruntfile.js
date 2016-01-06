@@ -105,14 +105,13 @@ module.exports = function(grunt) {
             html: "src/index.html"
         },
         copy: {
-            /*options: {
-                punctuation: ""
-            },*/
             main: {
-                expand: true,
-                src: ["src/*"],
-                cwd: "",
-                dest: "build/"
+                files: [{
+                    expand: true,
+                    cwd: 'src/',
+                    src: ['*'],
+                    dest: 'build/'
+                }]
             }
         }
     });
@@ -129,7 +128,7 @@ module.exports = function(grunt) {
 
     /*grunt.registerTask("default", ["uglify", "filerev", "clean"]);*/
 
-    grunt.registerTask("copy", ["copy"]);
+    grunt.registerTask("default", ["copy"]);
 
     /*grunt.registerTask("build", [
         "useminPrepare",
