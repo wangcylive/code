@@ -5,24 +5,13 @@ module.exports = function(grunt) {
     grunt.initConfig({
         config: grunt.file.readJSON("package.json"),
         concat: {
-            options: {
+            /*options: {
                 separator: ";"
-            },
+            },*/
             /*dist: {
                 src: ["src/zepto.js", "src/iscroll-lite.js", "src/cookies.js"],
                 dest: "build/libs.js"
             },*/
-            generated: {
-                files: [
-                    {
-                        dest: ".tmp/concat/js/app/main.js",
-                        src: [
-                            "js/base.js",
-                            "js/app/main.js"
-                        ]
-                    }
-                ]
-            }
         },
         uglify: {
             options: {
@@ -33,34 +22,12 @@ module.exports = function(grunt) {
                     "build/js/app/main.js": ["src/js/app/main.js"]
                 }
             },*/
-            generated: {
-                files: [
-                    {
-                        dest: "build/js/app/main.js",
-                        src: ".tmp/concat/js/app/main.js"
-                    }
-                ]
-            }
         },
-        clean: {
-            js: ["build/js/app/*.js", "!build/js/app/*.*.js"]
-        },
+        clean: ["build", ".tmp"],
         cssmin: {
             options: {
                 shorthandCompacting: false,  // 简写压缩
                 roundingPrecision: -1  // 舍入精度
-            },
-            target: {
-                /*files: {
-                    "build/css/common.css": ["src/css/base.css", "src/css/form.css"]
-                }*/
-                files: [{
-                    expand: true,
-                    cwd: "src/css",
-                    src: ["*.css", "!form.css"],
-                    dest: "build/css",
-                    ext: ".min.css"
-                }]
             }
         },
         jshint: {
@@ -82,8 +49,12 @@ module.exports = function(grunt) {
                 length: 8
             },
             js: {
-                src: ["build/js/app/*.js"],
+                src: ["build/js/app/main.js"],
                 dest: "build/js/app"
+            },
+            css: {
+                src: ["build/css/layout.css"],
+                dest: "build/css"
             }
         },
         watch: {
@@ -96,45 +67,47 @@ module.exports = function(grunt) {
             }
         },
         useminPrepare: {
-            html: "src/index.html",
+            html: ["src/index.html", "src/main.html"],
             options: {
                 dest: "build"
             }
         },
         usemin: {
-            html: "src/index.html"
+            html: ["build/index.html", "build/main.html"]
         },
         copy: {
             main: {
                 files: [{
                     expand: true,
                     cwd: 'src/',
-                    src: ['*'],
+                    src: ['js/lib/*', "*.html"],
                     dest: 'build/'
                 }]
             }
         }
     });
 
-    /*grunt.loadNpmTasks("grunt-contrib-concat");
+    grunt.loadNpmTasks("grunt-contrib-concat");
     grunt.loadNpmTasks("grunt-contrib-uglify");
     grunt.loadNpmTasks("grunt-contrib-cssmin");
     grunt.loadNpmTasks("grunt-filerev");
     grunt.loadNpmTasks("grunt-usemin");
     grunt.loadNpmTasks("grunt-contrib-jshint");
     grunt.loadNpmTasks("grunt-contrib-clean");
-    grunt.loadNpmTasks("grunt-contrib-watch");*/
+    grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("grunt-contrib-copy");
 
-    /*grunt.registerTask("default", ["uglify", "filerev", "clean"]);*/
 
-    grunt.registerTask("default", ["copy"]);
+    grunt.registerTask("default", ["clean"]);
 
-    /*grunt.registerTask("build", [
+    grunt.registerTask("build", [
         "useminPrepare",
+        "clean",
+        "copy",
         "concat:generated",
+        "cssmin:generated",
         "uglify:generated",
         "filerev",
         "usemin"
-    ]);*/
+    ]);
 };
