@@ -22,8 +22,19 @@ module.exports = function(grunt) {
                     "build/js/app/main.js": ["src/js/app/main.js"]
                 }
             },*/
+            generated: {
+                files: [
+                    {
+                        dest: "build/js/app/main.js",
+                        src: ".tmp/concat/js/app/main.js"
+                    }
+                ]
+            }
         },
-        clean: ["build", ".tmp"],
+        clean: {
+            build: ["build", ".tmp"],
+            end: [".tmp"]
+        },
         cssmin: {
             options: {
                 shorthandCompacting: false,  // 简写压缩
@@ -49,12 +60,10 @@ module.exports = function(grunt) {
                 length: 8
             },
             js: {
-                src: ["build/js/app/main.js"],
-                dest: "build/js/app"
+                src: ["build/js/app/*.js", "build/js/*.js"]
             },
             css: {
-                src: ["build/css/layout.css"],
-                dest: "build/css"
+                src: ["build/css/*.css"]
             }
         },
         watch: {
@@ -67,22 +76,25 @@ module.exports = function(grunt) {
             }
         },
         useminPrepare: {
-            html: ["src/index.html", "src/main.html"],
             options: {
                 dest: "build"
-            }
+            },
+            html: ["src/index.html", "src/main.html"]
         },
         usemin: {
             html: ["build/index.html", "build/main.html"]
         },
         copy: {
             main: {
-                files: [{
-                    expand: true,
-                    cwd: 'src/',
-                    src: ['js/lib/*', "*.html"],
-                    dest: 'build/'
-                }]
+                files: [
+                    {
+                        expand: true,
+                        cwd: "src/",
+                        src: ["*.html", "js/lib/*", "img/*"],
+                        dest: "build/",
+                        flatten: false
+                    }
+                ]
             }
         }
     });
@@ -97,17 +109,17 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("grunt-contrib-copy");
 
-
-    grunt.registerTask("default", ["clean"]);
+    /*grunt.registerTask("default", ["uglify", "filerev", "clean"]);*/
 
     grunt.registerTask("build", [
         "useminPrepare",
-        "clean",
+        "clean:build",
         "copy",
         "concat:generated",
         "cssmin:generated",
         "uglify:generated",
         "filerev",
-        "usemin"
+        "usemin",
+        "clean:end"
     ]);
 };
