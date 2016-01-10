@@ -22,14 +22,14 @@ module.exports = function(grunt) {
                     "build/js/app/main.js": ["src/js/app/main.js"]
                 }
             },*/
-            generated: {
+            /*generated: {
                 files: [
                     {
                         dest: "build/js/app/main.js",
                         src: ".tmp/concat/js/app/main.js"
                     }
                 ]
-            }
+            }*/
         },
         clean: {
             build: ["build", ".tmp"],
