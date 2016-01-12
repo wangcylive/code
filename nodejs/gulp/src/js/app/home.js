@@ -9,6 +9,7 @@
 
     form.on("submit", function(event) {
         event.preventDefault();
+        console.log("click", Date.now());
 
         $.ajax({
             url: "index.html",
