@@ -9,6 +9,10 @@ var minifyCss = require("gulp-minify-css");
 var concat = require("gulp-concat");
 var rev = require("gulp-rev");
 var sourcemaps = require("gulp-sourcemaps");
+var filter = require("gulp-filter");
+var useref = require("gulp-useref");
+var revReplace = require("gulp-rev-replace");
+var gulpif = require("gulp-if");
 
 /*gulp.task("one", function(callback) {
     console.log("one task finish");
@@ -78,7 +82,7 @@ gulp.task("rev:test", ["clean:build"], function() {
 });
 
 gulp.task("sourcemaps:css", function() {
-    gulp.src("src/css/*.css", {base: "src"})
+    return gulp.src("src/css/*.css", {base: "src"})
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(concat("layout.min.css"))
         .pipe(minifyCss())
@@ -87,10 +91,41 @@ gulp.task("sourcemaps:css", function() {
 });
 
 gulp.task("sourcemaps:js", function() {
-    gulp.src(["src/js/lib/jquery-2.1.3.min.js", "src/js/base.js", "src/js/app/home.js"], {base: "src"})
+    return gulp.src(["src/js/lib/jquery-2.1.3.min.js", "src/js/base.js", "src/js/app/home.js"], {base: "src"})
         .pipe(sourcemaps.init())
         .pipe(concat("home.min.js"))
         .pipe(uglify())
         .pipe(sourcemaps.write("../maps/", {sourceRoot: "/src/"}))
         .pipe(gulp.dest("build/js"))
+});
+
+gulp.task("sourcemaps", ["sourcemaps:css", "sourcemaps:js"]);
+
+var jsFilter = filter("**/*.js", {restore: true}),
+    cssFilter = filter("**/*.css", {restore: true}),
+    notHtmlFilter = filter(["**", "!*.html"], {restore: true});
+
+gulp.task("filter:test", function() {
+    gulp.src("src/**")
+        .pipe(jsFilter)
+        .pipe(concat("filter-js.js"))
+        .pipe(gulp.dest("build/"))
+        .pipe(jsFilter.restore)
+        .pipe(concat("all.js"))
+        .pipe(gulp.dest("build/"))
+});
+
+
+gulp.task("build", function() {
+    gulp.src("src/js/lib/*", {base: "src"}).pipe(gulp.dest("build/"));
+
+    gulp.src("src/*.html")
+        .pipe(useref())
+        .pipe(gulpif("*.css", minifyCss()))
+        .pipe(gulpif("*.js", uglify()))
+        .pipe(notHtmlFilter)
+        .pipe(rev())
+        .pipe(notHtmlFilter.restore)
+        .pipe(revReplace())
+        .pipe(gulp.dest("build/"))
 });
