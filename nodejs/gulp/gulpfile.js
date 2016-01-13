@@ -5,7 +5,7 @@ var gulp = require("gulp");
 var del = require("del");
 var vinylPaths = require("vinyl-paths");
 var uglify = require("gulp-uglify");
-var minifyCss = require("gulp-minify-css");
+var cssnano = require("gulp-cssnano");
 var concat = require("gulp-concat");
 var rev = require("gulp-rev");
 var sourcemaps = require("gulp-sourcemaps");
@@ -13,6 +13,7 @@ var filter = require("gulp-filter");
 var useref = require("gulp-useref");
 var revReplace = require("gulp-rev-replace");
 var gulpif = require("gulp-if");
+var assetManifest = require("gulp-asset-manifest");
 
 /*gulp.task("one", function(callback) {
     console.log("one task finish");
@@ -26,10 +27,12 @@ gulp.task("two", ["one"], function() {
 gulp.task("default", ["one", "two"]);*/
 
 
-gulp.task("clean:build", function(callback) {
-    del([
-        "build"
-    ], callback());
+gulp.task("clean:build", function() {
+    return del(["build"]);
+});
+
+gulp.task("clean:test", function() {
+    console.log(del.sync(["build/*", "!build/index.html"]));
 });
 
 /*var watch = gulp.watch("src/css/base.css");
@@ -62,7 +65,7 @@ gulp.task("optimize:js", function() {
 gulp.task("optimize:css", function() {
     gulp.src(["src/css/*.css"])
         .pipe(concat("main.css"))
-        .pipe(minifyCss())
+        .pipe(cssnano())
         .pipe(rev())
         .pipe(gulp.dest("build/"))
         .pipe(rev.manifest("manifest.json", {merge: true}))
@@ -85,7 +88,7 @@ gulp.task("sourcemaps:css", function() {
     return gulp.src("src/css/*.css", {base: "src"})
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(concat("layout.min.css"))
-        .pipe(minifyCss())
+        .pipe(cssnano())
         .pipe(sourcemaps.write("../maps/", {sourceRoot: "/src/"}))
         .pipe(gulp.dest("build/css"))
 });
@@ -116,16 +119,32 @@ gulp.task("filter:test", function() {
 });
 
 
-gulp.task("build", function() {
+gulp.task("build", ["clean:build"], function() {
     gulp.src("src/js/lib/*", {base: "src"}).pipe(gulp.dest("build/"));
 
     gulp.src("src/*.html")
         .pipe(useref())
-        .pipe(gulpif("*.css", minifyCss()))
+        .pipe(sourcemaps.init())
+        .pipe(gulpif("*.css", cssnano()))
         .pipe(gulpif("*.js", uglify()))
         .pipe(notHtmlFilter)
         .pipe(rev())
+        .pipe(sourcemaps.write("maps/"))
         .pipe(notHtmlFilter.restore)
         .pipe(revReplace())
         .pipe(gulp.dest("build/"))
+        .pipe(rev.manifest("build-manifest.json", {merge: true}))
+        .pipe(gulp.dest("_manifest"))
+});
+
+
+gulp.task("json", function() {
+    var fs = require("fs");
+    var pkg = require("./package.json");
+
+    fs.writeFile("_manifest/test.json", JSON.stringify([1,2,3], null, "  "), function(err) {
+        if(err) {
+            throw err;
+        }
+    });
 });
