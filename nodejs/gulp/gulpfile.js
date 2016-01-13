@@ -3,7 +3,6 @@
  */
 var gulp = require("gulp");
 var del = require("del");
-var vinylPaths = require("vinyl-paths");
 var uglify = require("gulp-uglify");
 var cssnano = require("gulp-cssnano");
 var concat = require("gulp-concat");
@@ -13,7 +12,6 @@ var filter = require("gulp-filter");
 var useref = require("gulp-useref");
 var revReplace = require("gulp-rev-replace");
 var gulpif = require("gulp-if");
-var assetManifest = require("gulp-asset-manifest");
 
 /*gulp.task("one", function(callback) {
     console.log("one task finish");
@@ -129,22 +127,33 @@ gulp.task("build", ["clean:build"], function() {
         .pipe(gulpif("*.js", uglify()))
         .pipe(notHtmlFilter)
         .pipe(rev())
-        .pipe(sourcemaps.write("maps/"))
+        .pipe(sourcemaps.write("../_maps/"))
         .pipe(notHtmlFilter.restore)
         .pipe(revReplace())
         .pipe(gulp.dest("build/"))
-        .pipe(rev.manifest("build-manifest.json", {merge: true}))
-        .pipe(gulp.dest("_manifest"))
+        .pipe(rev.manifest("build.json", {merge: true}))
+        .pipe(gulp.dest("_manifest/"))
 });
 
 
 gulp.task("json", function() {
     var fs = require("fs");
-    var pkg = require("./package.json");
+    var buildJson = require("./_manifest/build.json");
 
-    fs.writeFile("_manifest/test.json", JSON.stringify([1,2,3], null, "  "), function(err) {
-        if(err) {
-            throw err;
-        }
+    fs.readFile("_manifest/reversions.json", "utf8", function(err, data) {
+        var object = {
+            name: "reversions",
+            buildList: []
+        };
+
+        var text = JSON.stringify(object);
+        if(!err) text = data;
+
+        var updateObject = JSON.parse(text);
+        updateObject.buildList.unshift(buildJson);
+
+        fs.writeFile("_manifest/reversions.json", JSON.stringify(updateObject, null, "  "), function(err) {
+            if(err) throw err;
+        });
     });
 });
