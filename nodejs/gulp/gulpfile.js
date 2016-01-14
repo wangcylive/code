@@ -116,11 +116,16 @@ gulp.task("filter:test", function() {
         .pipe(gulp.dest("build/"))
 });
 
+gulp.task("cleanBuild", function() {
+    return del("build");
+});
 
-gulp.task("build", ["clean:build"], function() {
-    gulp.src("src/js/lib/*", {base: "src"}).pipe(gulp.dest("build/"));
+gulp.task("copyFile", ["cleanBuild"], function() {
+    return gulp.src("src/js/lib/*", {base: "src"}).pipe(gulp.dest("build/"));
+});
 
-    gulp.src("src/*.html")
+gulp.task("outputFile", ["copyFile"], function() {
+    return gulp.src("src/*.html")
         .pipe(useref())
         .pipe(sourcemaps.init())
         .pipe(gulpif("*.css", cssnano()))
@@ -132,28 +137,35 @@ gulp.task("build", ["clean:build"], function() {
         .pipe(revReplace())
         .pipe(gulp.dest("build/"))
         .pipe(rev.manifest("build.json", {merge: true}))
-        .pipe(gulp.dest("_manifest/"))
+        .pipe(gulp.dest("_manifest/"));
 });
 
-
-gulp.task("json", function() {
+gulp.task("manifest", ["outputFile"], function() {
+    var buildDate = new Date();
     var fs = require("fs");
     var buildJson = require("./_manifest/build.json");
 
     fs.readFile("_manifest/reversions.json", "utf8", function(err, data) {
-        var object = {
+        var rootObject = {
             name: "reversions",
             buildList: []
         };
 
-        var text = JSON.stringify(object);
-        if(!err) text = data;
+        var defaultText = JSON.stringify(rootObject);
+        if(data) defaultText = data;
 
-        var updateObject = JSON.parse(text);
-        updateObject.buildList.unshift(buildJson);
+        var pushObject = {
+            date: buildDate.toString(),
+            list: buildJson
+        };
+
+        var updateObject = JSON.parse(defaultText);
+        updateObject.buildList.unshift(pushObject);
 
         fs.writeFile("_manifest/reversions.json", JSON.stringify(updateObject, null, "  "), function(err) {
             if(err) throw err;
         });
     });
 });
+
+gulp.task("buildAsset", ["manifest"]);
