@@ -16,7 +16,12 @@
         <ul>
             <li><code>animation-name: none | IDENT[,none | IDENT]*;</code></li>
             <li><code>animation-duration: &lt;time&gt;[,&lt;time&gt;]*</code></li>
-            <li><code>animation-timing-function:ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(&lt;number&gt;, &lt;number&gt;, &lt;number&gt;, &lt;number&gt;) </code></li>
+            <li>
+                <code>animation-timing-function:ease | linear | ease-in | ease-out | ease-in-out |
+                cubic-bezier(&lt;number&gt;, &lt;number&gt;, &lt;number&gt;, &lt;number&gt;) | step-start
+                    | step-end | steps(number, end)
+                </code>
+            </li>
             <li><code>animation-delay: &lt;time&gt;[,&lt;time&gt;]*</code></li>
             <li><code>animation-iteration-count:infinite | &lt;number&gt; [, infinite | &lt;number&gt;]* </code></li>
             <li><code>animation-direction: normal | reverse | alternate | alternate-reverse [, normal | reverse | alternate | alternate-reverse]* </code></li>
@@ -34,6 +39,17 @@
         <div class="list animated alternate count-3 translateX ease-in-out">ease-in-out</div>
         <div class="list animated alternate count-3 translateX linear">linear</div>
         <div class="list animated alternate count-3 translateX cubic-bezier">cubic-bezier</div>
+    </div>
+
+    <div class="step-fn">
+        <div class="table animated step">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
     </div>
 
     <h2>animation-delay</h2>
@@ -61,14 +77,20 @@
     </div>
 
     <h2>animation-fill-mode</h2>
+    <ul>
+        <li><code>forwards</code>动画结束时保留动画结束时的状态</li>
+        <li><code>backwards</code>动画开始时出现在第一帧的状态，在有delay时候可以看出区别</li>
+        <li><code>both</code>开始和结束时都应保留关键帧定义的状态</li>
+    </ul>
 
     <div class="fill-mode">
-        <div class="list animated translateXfrom">none</div>
-        <div class="list animated translateXfrom forwards">forwards</div>
-        <div class="list animated translateXfrom forwards reverse">forwards<br>reverse</div>
-        <div class="list animated translateXfrom backwards">backwards</div>
-        <div class="list animated translateXfrom backwards reverse">backwards<br>reverse</div>
-        <div class="list animated translateXfrom both">both</div>
+        <div class="list animated translateXfrom delay">none</div>
+        <div class="list animated translateXfrom delay forwards">forwards</div>
+        <div class="list animated translateXfrom delay forwards reverse">forwards<br>reverse</div>
+        <div class="list animated translateXfrom delay backwards">backwards</div>
+        <div class="list animated translateXfrom delay backwards">backwards<br>delay</div>
+        <div class="list animated translateXfrom delay backwards reverse">backwards<br>reverse</div>
+        <div class="list animated translateXfrom delay both">both</div>
     </div>
 
     <p>
