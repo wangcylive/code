@@ -95,7 +95,7 @@
         -webkit-animation-direction:alternate-reverse;
         animation-direction:alternate-reverse;
     }
-    
+    .fill-mode .list{line-height:1.2;}
 }
 
 @-webkit-keyframes reversal {
@@ -171,8 +171,8 @@
 
 @-webkit-keyframes translateXfrom {
     0% {
-        -webkit-transform:translateX(0);
-        transform:translateX(0);
+        -webkit-transform:translateX(150px);
+        transform:translateX(150px);
     }
     100% {
         -webkit-transform:translateX(500px);
@@ -181,8 +181,8 @@
 }
 @keyframes translateXfrom {
     0% {
-        -webkit-transform:translateX(0);
-        transform:translateX(0);
+        -webkit-transform:translateX(150px);
+        transform:translateX(150px);
     }
     100% {
         -webkit-transform:translateX(500px);
