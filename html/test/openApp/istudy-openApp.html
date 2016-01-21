@@ -29,6 +29,12 @@
         <p>
             <a href="xiaoyuanh5://www.istudy.com.cn?type=503&courseId=QI4ZANMk8Ac9toRxQNN&courseTitle=%E6%B5%8B%E8%AF%95%E5%A4%9A%E5%AF%B9%E5%A4%9A%E8%AF%BE%E7%A8%8B2&courseImageUrl=image/icon/QY4dVoxgxoQUwENMBkh.jpg&coursePrice=500&courseState=2&expertId=U4EgkRB8IBJcRg0x9lsA">报名弹窗</a>
         </p>
+        <p>
+            <a href="xiaoyuanh5://www.istudy.com.cn?type=305&paramType=1&callback=getUserInfo">获取用户信息</a>
+        </p>
+        <p>
+            <a href="xiaoyuanh5://www.istudy.com.cn?type=305&paramType=2&callback=getVersion">获取App信息</a>
+        </p>
     </section>
 
     <section>
@@ -64,6 +70,13 @@
 </article>
 
 <script>
+    function getUserInfo(a) {
+        alert(JSON.stringify(a));
+    }
+
+    function getVersion(a) {
+        alert(a);
+    }
     var ios = {
         userId: 0,
         cityId: "gz",

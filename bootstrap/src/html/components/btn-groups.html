@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>bootstrap</title>
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/bootstrap-theme.css">
+    <script src="../../js/lib/jquery-2.1.4.js"></script>
+    <script src="../../js/lib/bootstrap.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>btn-groups</h1>
+    <div class="btn-group" role="group" aria-label="choose button">
+        <button class="btn btn-default">Left</button>
+        <button class="btn btn-default">Middle</button>
+        <button class="btn btn-default">Right</button>
+    </div>
+    <div class="btn-group" role="group" aria-label="choose button">
+        <button class="btn btn-primary"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span> Left</button>
+        <button class="btn btn-primary">Middle</button>
+        <button class="btn btn-primary">Right <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></button>
+    </div>
+    <hr>
+    <div class="btn-toolbar" role="toolbar" aria-label="toolbar">
+        <div class="btn-group" role="group" aria-label="group">
+            <button class="btn btn-default">1</button>
+            <button class="btn btn-default">2</button>
+            <button class="btn btn-default">3</button>
+        </div>
+        <div class="btn-group" role="group" aria-label="group">
+            <button class="btn btn-info">1</button>
+            <button class="btn btn-info">2</button>
+            <button class="btn btn-info">3</button>
+            <button class="btn btn-info">4</button>
+        </div>
+        <div class="btn-group btn-group-sm" role="group" aria-label="group">
+            <button class="btn btn-success">1</button>
+            <button class="btn btn-success">2</button>
+            <button class="btn btn-success">3</button>
+        </div>
+    </div>
+    <hr>
+    <div class="btn-group" role="group" aria-label="group">
+        <button class="btn btn-default">1</button>
+        <button class="btn btn-default">2</button>
+        <div class="btn-group" role="group" aria-label="group">
+            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+                Dropdown <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Dropdown link 1</a></li>
+                <li><a href="#">Dropdown link 2</a></li>
+                <li><a href="#">Dropdown link 3</a></li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="btn-group btn-group-justified" role="group" aria-label="group">
+        <div class="btn-group">
+            <button class="btn btn-default">1</button>
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-default">2</button>
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-default">3</button>
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-default">4</button>
+        </div>
+    </div>
+    <hr>
+    <div class="btn-group dropup" role="group" aria-label="group">
+        <button class="btn btn-success" data-toggle="dropdown">Action</button>
+        <button class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <div class="dropdown-menu">
+            <li class="dropdown-header">Header</li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li class="divider" role="separator"></li>
+            <li><a href="#">3</a></li>
+        </div>
+    </div>
+</div>
+</body>
+</html>
