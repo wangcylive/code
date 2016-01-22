@@ -101,6 +101,17 @@
     .fill-mode .list{line-height:1.2;animation-duration:5s;}
 }
 
+@-webkit-keyframes step {
+    0% {
+        -webkit-transform: translateX(0);
+        background-color:#f00;
+    }
+    100% {
+        -webkit-transform: translateX(-600px);
+        background-color:#ff0;
+    }
+}
+
 @keyframes step {
     0% {
         transform: translateX(0);
@@ -124,6 +135,7 @@
     }
 }
 .animated.step{
+    -webkit-animation: step steps(6, end) infinite 5s;
     animation-name: step;
     animation-timing-function: steps(6, end);
     animation-iteration-count: infinite;

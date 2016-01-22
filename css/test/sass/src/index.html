@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>sass</title>
+<link href="css/layout.css" rel="stylesheet">
+</head>
+<body>
+    <div id="page">
+        <div class="page-header">
+            <div class="page-nav">
+                <a href="javascript:;" role="button" class="btn-unfold" id="btnUnfoldNav">展开</a>
+                <ul class="clearfix" id="navList" role="navigation">
+                    <li><a href="javascript:;">homo</a></li>
+                    <li><a href="javascript:;">object</a></li>
+                    <li><a href="javascript:;">contact us</a></li>
+                    <li><a href="javascript:;">about us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="page-body clearfix">
+            <div class="main float-left">
+                <form action="javascript:;" autocomplete="off" novalidate class="form">
+                    <fieldset>
+                        <legend>注册</legend>
+                        <div class="form-group">
+                            <label for="email" class="control-label">邮箱：</label>
+                            <input type="email" class="form-control" id="email" placeholder="请输入邮箱">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="control-label">手机：</label>
+                            <input type="tel" class="form-control" id="phone" placeholder="请输入电话号码">
+                        </div>
+                        <div class="form-group">
+                            <label for="userName" class="control-label">用户名：</label>
+                            <input type="text" class="form-control" id="userName" placeholder="请输入用户名">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="control-label">密码：</label>
+                            <input type="password" class="form-control" id="password" placeholder="请输入6-18位密码">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword" class="control-label">确认密码：</label>
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="请再次输入密码">
+                        </div>
+                        <div class="button">
+                            <button type="submit" class="btn btn-submit" id="btnSubmit">提交</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="sidebar float-right">
+                <h2>注册后您将可以使用本站的所有功能</h2>
+            </div>
+        </div>
+        <div class="page-footer">
+            <div class="copyright">&copy;2014 wangcy™-sass-test</div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

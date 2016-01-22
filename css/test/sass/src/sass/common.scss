@@ -1,0 +1,94 @@
+@import "bourbon/_bourbon";
+
+@media screen {
+    $placeholder-color: #999;
+    $input-border-radius: 5px;
+    %input-style {
+        padding:5px;border:1px solid #999;border-radius:$input-border-radius;background-color:#fcfcfc;
+    }
+    %input-disabled-style {
+        border:1px solid #d4d4d4;border-radius:$input-border-radius;color:#ababab;
+    }
+
+    body, h1, h2, h3, h4, h5, h6, dl, dd, ul, ol, p, blockquote, form, fieldset, figure{margin:0;}
+    ul, ol, menu, th, td, legend, fieldset{padding:0;}
+    html{font-size:100%;}
+    body{font:1em/1.5 tahoma, arial, "\5b8b\4f53", sans-serif;}
+    ul, ol, menu{list-style-type:none;}
+    table{border-spacing:0;border-collapse:collapse;}
+
+    h1{font-size:1.666667em;}
+    h2{font-size:1.5em;}
+    h3{font-size:1.333333em;}
+    h4{font-size:1.166667em;}
+    h5,
+    h6{font-size:1.083333em;}
+
+    .clearfix{zoom:1;}
+    .clearfix:before, .clearfix:after{content:"";display:table;}
+    .clearfix:after{clear:both;}
+    .float-left{float:left;}
+    .float-right{float:right;}
+
+    a{text-decoration:none;}
+    a:hover, a:active{text-decoration:underline;}
+
+    .relative{position:relative;}
+    .absolute{position:absolute;}
+    .fixed{position:fixed;_position:absolute;}
+
+    .text-center{text-align:center;}
+    .text-right{text-align:right;}
+    .text-left{text-align:left;}
+    .text-justify{text-align:justify;}
+    .text-ellipsis{white-space:nowrap;word-wrap:normal;overflow:hidden;text-overflow:ellipsis;}
+
+    .show{display:block;}
+    .hide{display:none;}
+    .invisible{visibility:hidden;}
+
+    input,
+    button,
+    select{color:#333;}
+
+    input:not([type]){
+        @extend %input-style
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="url"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="search"],
+    input[type="date"],
+    input[type="month"],
+    input[type="week"],
+    input[type="time"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    select{
+        @extend %input-style;
+    }
+
+    input:disabled,
+    button:disabled,
+    select:disabled{
+        @extend %input-disabled-style;
+    }
+    
+    ::-webkit-input-placeholder{color: $placeholder-color;}
+    ::-moz-placeholder{color: $placeholder-color;}
+    :-ms-input-placeholder{color: $placeholder-color;}
+
+    label:active{
+        @include user-select();
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3) and (max-width: 767px) {
+    input[type="number"]::-webkit-inner-spin-button{
+        -webkit-appearance:none;
+    }
+}
