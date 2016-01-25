@@ -14,11 +14,15 @@ var gulp = require("gulp"),
     gulpif = require("gulp-if"),
     sass = require("gulp-sass");
 
-gulp.task("build:sass", function() {
+gulp.task("sass", function() {
     gulp.src("src/sass/layout.scss")
         .pipe(sass({
             outputStyle: "expanded",
             indentWidth: 4
         }).on("error", sass.logError))
         .pipe(gulp.dest("src/css"))
+});
+
+gulp.task("watchSass", function() {
+    gulp.watch("src/sass/layout.scss", ["sass"]);
 });
