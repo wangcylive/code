@@ -169,3 +169,16 @@ gulp.task("manifest", ["outputFile"], function() {
 });
 
 gulp.task("buildAsset", ["manifest"]);
+
+// sftp test
+var sftp = require("gulp-sftp");
+gulp.task("sftp", function() {
+    gulp.src("build/**")
+        .pipe(sftp({
+            host: "10.10.10.201",
+            port: "22",
+            user: "xiaoyuan",
+            pass: "xiaoyuan",
+            remotePath: "/home/xiaoyuan/tomcat/SNSContent/webapps/ROOT/_sftp/"
+        }))
+});

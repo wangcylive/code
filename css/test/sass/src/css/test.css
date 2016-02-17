@@ -1,0 +1,84 @@
+@media screen {
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    h3 {
+        font-size: 1.2em;
+    }
+    body {
+        color: #333;
+    }
+    a, a:link {
+        text-decoration: underline;
+    }
+    a:hover, a:active {
+        text-decoration: none;
+    }
+    .center-demo {
+        margin-left: auto;
+        margin-right: auto;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+    .demo-ul li {
+        border-top: 1px solid #ccc;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .demo-ol li {
+        border-top: 2px dashed #666;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .demo-ul2 li {
+        border-top: 1px solid #ccc;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .demo-3 {
+        -webkit-transition: color 0.3s, font-size 0.5s;
+        -moz-transition: color 0.3s, font-size 0.5s;
+        -o-transition: color 0.3s, font-size 0.5s;
+        transition: color 0.3s, font-size 0.5s;
+    }
+    .btn, .btn-primary,
+    .btn-success,
+    .btn-fail,
+    .btn-warning,
+    .btn-info,
+    .btn-default {
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        background-color: #fff;
+        color: #666;
+    }
+}
+
+@media screen {
+    .demo-5 {
+        -webkit-transition: color 5s;
+        -moz-transition: color 5s;
+        -o-transition: color 5s;
+        transition: color 5s;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .demo-5 {
+        -webkit-transition: color 2s, background-color 4s;
+        -moz-transition: color 2s, background-color 4s;
+        -o-transition: color 2s, background-color 4s;
+        transition: color 2s, background-color 4s;
+    }
+}

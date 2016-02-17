@@ -1,0 +1,103 @@
+@mixin center-block {
+    margin-left: auto;
+    margin-right: auto;
+}
+@mixin border-radius($value: 5px) {
+    -webkit-border-radius: $value;
+    -moz-border-radius: $value;
+    border-radius: $value;
+}
+@mixin horizontal-line($border:1px solid #ccc, $padding: 10px) {
+    border-top: $border;
+    padding-top: $padding;
+    padding-bottom: $padding;
+}
+@mixin transition($transition...) {
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+@mixin max-screen($res) {
+    @media only screen and (max-width: $res) {
+        @content;
+    }
+}
+$text-default: #333;
+$text-success: #0f0;
+
+@media screen {
+    $heading: (h1: 2em, h2: 1.5em, h3: 1.2em);
+    @each $header, $size in $heading {
+        #{$header} {
+            font-size: $size;
+        }
+    }
+
+    body {
+        color: $text-default;
+    }
+
+    a {
+        text-decoration: underline;
+        &:link {
+            @extend a;
+        }
+        &:hover,
+        &:active{
+            text-decoration: none;
+        }
+    }
+
+    .center-demo {
+        @include center-block;
+        @include border-radius(3px);
+    }
+    .demo-ul li {
+        @include horizontal-line();
+    }
+    .demo-ol li {
+        @include horizontal-line(2px dashed #666, 5px);
+    }
+    .demo-ul2 li{
+        @include horizontal-line($padding: 15px);
+    }
+    .demo-3{
+        @include transition(color .3s, font-size .5s);
+    }
+
+    %btn {
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        @include border-radius(3px);
+        background-color: #fff;
+        color: #666;
+    }
+    .btn{
+        @extend %btn;
+    }
+    .btn-primary,
+    .btn-success,
+    .btn-fail,
+    .btn-warning,
+    .btn-info,
+    .btn-default{
+        @extend %btn
+    }
+}
+
+@media screen {
+    .demo-5{
+        @include transition(color 5s);
+    }
+}
+
+@include max-screen(480px) {
+    .demo-5{
+        @include transition(color 2s, background-color 4s);
+    }
+}
