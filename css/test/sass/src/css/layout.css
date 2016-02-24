@@ -149,7 +149,7 @@
 
 @media screen {
     body {
-        color: #333;
+        color: green;
     }
     #page {
         max-width: 1240px;
