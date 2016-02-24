@@ -6,7 +6,7 @@
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Grunt Demo</title>
-    <!-- build:css css/layout.css -->
+    <!-- build:css /css/layout.css -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/form.css">
     <link rel="stylesheet" href="css/main.css">
@@ -38,14 +38,16 @@
         </form>
     </div>
 
+    <!--build:js /js/lib/jquery.min.js-->
     <script src="js/lib/jquery-2.1.3.min.js"></script>
+    <!--endbuild-->
 
-    <!--build:js  js/app/home-lib.js-->
+    <!--build:js /js/app/home-lib.js-->
     <script src="js/lib/iscroll-lite.min.js"></script>
     <script src="js/lib/cookies.min.js"></script>
     <!--endbuild-->
 
-    <!-- build:js js/app/home.js -->
+    <!-- build:js /js/app/home.js -->
     <script src="js/base.js"></script>
     <script src="js/app/home.js"></script>
     <!-- endbuild -->

@@ -11,6 +11,7 @@ var sourcemaps = require("gulp-sourcemaps");
 var filter = require("gulp-filter");
 var useref = require("gulp-useref");
 var revReplace = require("gulp-rev-replace");
+var replace = require("gulp-replace");
 var gulpif = require("gulp-if");
 
 /*gulp.task("one", function(callback) {
@@ -104,7 +105,7 @@ gulp.task("sourcemaps", ["sourcemaps:css", "sourcemaps:js"]);
 
 var jsFilter = filter("**/*.js", {restore: true}),
     cssFilter = filter("**/*.css", {restore: true}),
-    notHtmlFilter = filter(["**", "!*.html"], {restore: true});
+    notHtmlFilter = filter(["**", "!**/*.html"], {restore: true});
 
 gulp.task("filter:test", function() {
     gulp.src("src/**")
@@ -124,20 +125,43 @@ gulp.task("copyFile", ["cleanBuild"], function() {
     return gulp.src("src/js/lib/*", {base: "src"}).pipe(gulp.dest("build/"));
 });
 
-gulp.task("outputFile", ["copyFile"], function() {
-    return gulp.src("src/*.html")
+gulp.task("outputFile", ["cleanBuild"], function() {
+    var assets = filter(["**/*.css", "**/*.js"], {restore: true});
+
+    return gulp.src("src/**/*.html")
         .pipe(useref())
-        .pipe(sourcemaps.init())
+        //.pipe(sourcemaps.init())
         .pipe(gulpif("*.css", cssnano()))
         .pipe(gulpif("*.js", uglify()))
-        .pipe(notHtmlFilter)
+        .pipe(assets)
         .pipe(rev())
-        .pipe(sourcemaps.write("../_maps/"))
-        .pipe(notHtmlFilter.restore)
+        //.pipe(sourcemaps.write("../_maps/"))
+        .pipe(assets.restore)
         .pipe(revReplace())
         .pipe(gulp.dest("build/"))
-        .pipe(rev.manifest("build.json", {merge: true}))
-        .pipe(gulp.dest("_manifest/"));
+        //.pipe(rev.manifest("build.json", {merge: true}))
+        //.pipe(gulp.dest("_manifest/"));
+});
+
+gulp.task("cdn", function() {
+    var script = /(<script[^>]+src="?)([^">\s]*)("?[^>]*>)/gi,
+        link = /(<link[^>]+href="?)([^">\s]*)("?[^>]*>)/gi,
+        absolutePath = /^(https?:)?\/\//;
+
+    var cdnPath = "//static.istudy.com.cn";
+
+    function cdnReplace(match, p1, p2, p3) {
+        if(!absolutePath.test(p2)) {
+            return p1 + cdnPath + p2 + p3;
+        } else {
+            return match;
+        }
+    }
+
+    return gulp.src("build/index.html")
+        .pipe(replace(script, cdnReplace))
+        .pipe(replace(link, cdnReplace))
+        .pipe(gulp.dest("cdn"));
 });
 
 gulp.task("manifest", ["outputFile"], function() {
