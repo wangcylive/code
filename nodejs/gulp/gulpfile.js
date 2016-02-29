@@ -144,9 +144,16 @@ gulp.task("outputFile", ["cleanBuild"], function() {
 });
 
 gulp.task("cdn", function() {
-    var script = /(<script[^>]+src="?)([^">\s]*)("?[^>]*>)/gi,
-        link = /(<link[^>]+href="?)([^">\s]*)("?[^>]*>)/gi,
-        absolutePath = /^(https?:)?\/\//;
+
+    // html tags
+    var script = /(<script[^>]+src=['"\\]*)([^'">\s\\]*)(['"\s\\]*[^>]*>)/gi,
+        link = /(<link[^>]+href=['"\\]*)([^'">\s\\]*)(['"\s\\]*[^>]*>)/gi,
+        img = /(<img[^>]+src=['"\\]*)([^'">\s\\]*)(['"\s\\]*[^>]*>)/gi;
+
+    // css tags
+    var background = /(url\(['"\\]*)([^'"\\\)]*)(['"\\]*\))/gi;
+
+    var absolutePath = /^(https?:)?\/\//;
 
     var cdnPath = "//static.istudy.com.cn";
 
