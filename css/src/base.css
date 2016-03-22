@@ -31,4 +31,17 @@
     .invisible{visibility:hidden;}
 
     .center-block{margin-left:auto;margin-right:auto;display:block;}
+
+    .border-box{
+        -webkit-box-sizing:border-box;
+        -moz-box-sizing:border-box;
+        box-sizing:border-box;
+    }
+    .select-none{
+        -webkit-user-select:none;
+        -moz-user-select:none;
+        -ms-user-select:none;
+        user-select:none;
+    }
+    .event-none{pointer-events:none;}
 }
