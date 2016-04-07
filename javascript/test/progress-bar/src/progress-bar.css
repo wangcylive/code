@@ -1,0 +1,20 @@
+@media screen {
+    #progressBar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 999;
+        width: 100%;
+        font-size: 0;
+        line-height: 0;
+        height: 2px;
+        background-color: rgb(60, 126, 247);
+        background-image: -moz-linear-gradient(0deg, rgb(81, 141, 240) 0%, rgb(76, 215, 228) 100%);
+        background-image: -webkit-linear-gradient(0deg, rgb(81, 141, 240) 0%, rgb(76, 215, 228) 100%);
+        background-image: -ms-linear-gradient(0deg, rgb(81, 141, 240) 0%, rgb(76, 215, 228) 100%);
+        background-image: linear-gradient(90deg, rgb(81, 141, 240) 0%, rgb(76, 215, 228) 100%);
+        box-shadow: 1px 0 3px 1px rgba(0, 0, 0, .1);
+        opacity: 0;
+        display: none;
+    }
+}

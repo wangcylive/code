@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>progress bar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="src/progress-bar.css">
+    <style>
+        ul{list-style:none;}
+        li{margin-bottom:2em;}
+        button{display:block;height:30px;width:100px;}
+    </style>
+</head>
+<body>
+    <h1>progress bar</h1>
+    <ul>
+        <li><button id="start">start()</button></li>
+        <li><button id="stop">stop()</button></li>
+        <li><button id="set">set()</button></li>
+        <li><button id="done">done()</button></li>
+    </ul>
+
+    <script src="src/progress-bar.js"></script>
+    <script>
+        (function(root, doc) {
+            root.progress = progressBar();
+
+            var btnStart = doc.getElementById("start"),
+                btnStop = doc.getElementById("stop"),
+                btnSet = doc.getElementById("set"),
+                btnDone = doc.getElementById("done");
+
+            btnStart.addEventListener("click", function() {
+                progress.start();
+            }, false);
+
+            btnStop.addEventListener("click", function() {
+                progress.stop();
+            }, false);
+
+            btnSet.addEventListener("click", function() {
+                progress.set(0.5);
+            }, false);
+
+            btnDone.addEventListener("click", function() {
+                progress.done();
+            }, false);
+        }(window, document));
+    </script>
+</body>
+</html>
