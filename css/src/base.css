@@ -27,7 +27,7 @@
     .text-ellipsis{white-space:nowrap;word-wrap:normal;overflow:hidden;text-overflow:ellipsis;}
 
     .show{display:block;}
-    .none{display:none;}
+    .hide{display:none;}
     .invisible{visibility:hidden;}
 
     .center-block{margin-left:auto;margin-right:auto;display:block;}

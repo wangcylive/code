@@ -30,16 +30,16 @@
     <h2>浮动</h2>
     <p><b>clearfix</b>清除浮动，添加父级元素类上</p>
     <div class="clearfix">
-        <div class="ftl" style="border:1px solid red;"><b>flo-l</b>左浮动</div>
-        <div class="ftr" style="border:1px solid blue;"><b>flo-r</b>右浮动</div>
+        <div class="float-left" style="border:1px solid red;"><b>float-left</b>左浮动</div>
+        <div class="float-right" style="border:1px solid blue;"><b>float-right</b>右浮动</div>
     </div>
     <!-- end 浮动 -->
 
     <br>
     
     <h2>缩进</h2>
-    <p>添加<strong>indent</strong>首行缩进<strong>两个文字大小</strong></p>
-    <div class="indent">
+    <p>添加<strong>text-indent</strong>首行缩进<strong>两个文字大小</strong></p>
+    <div class="text-indent">
         <p>It reminds me of my days on the rifle range preparing for duty in Vietnam.这使我回想起在射击场上训练准备去越南服役的那些日子。http://www.hao123.com;</p>
         <p>N-COUNT The range of something is the maximum area in which it can reach things or detect things. </p>
     </div>
@@ -48,45 +48,45 @@
     <br>
 
     <h2>隐藏文字</h2>
-    <p><b>toe</b>隐藏文字，用省略号代替</p>
-    <div style="width:300px;" class="toe">It reminds me of my days on the rifle range preparing for duty in Vietnam.这使我回想起在射击场上训练准备去越南服役的那些日子。http://www.hao123.com;</div>
+    <p><b>text-ellipsis</b>隐藏文字，用省略号代替</p>
+    <div style="width:300px;" class="text-ellipsis">It reminds me of my days on the rifle range preparing for duty in Vietnam.这使我回想起在射击场上训练准备去越南服役的那些日子。http://www.hao123.com;</div>
     <!-- end 隐藏文字 -->
 
     <br>
 
     <h2>文字对齐方式</h2>
-    <p><b>tal</b>左对齐；<b>tar</b>右对齐；<b>taj</b>两端对齐</p>
+    <p><b>text-left</b>左对齐；<b>text-right</b>右对齐；<b>text-justify</b>两端对齐</p>
     <div style="width:300px;border:1px solid #999;">
-        <p class="tal">It reminds me of my days on the rifle range.</p>
-        <p class="tar">http://www.hao123.com</p>
-        <p class="tac">It reminds me of my days on the rifle range.</p>
-        <p class="taj">It reminds me of my days on the rifle range preparing for duty in Vietnam.这使我回想起在射击场上训练准备去越南服役的那些日子。</p>
+        <p class="text-left">It reminds me of my days on the rifle range.</p>
+        <p class="text-right">http://www.hao123.com</p>
+        <p class="text-center">It reminds me of my days on the rifle range.</p>
+        <p class="text-justify">It reminds me of my days on the rifle range preparing for duty in Vietnam.这使我回想起在射击场上训练准备去越南服役的那些日子。</p>
     </div>
     <!-- end 文字对齐 -->
     
     <br>
     
     <h2>border-box盒模型</h2>
-    <p><b>box-b</b>设置<i>border</i>和<i>padding</i>也不会改变对象的实际宽度</p>
-    <div class="box-b" style="width:300px;padding:30px;border:1px solid #999;">笛笛笛</div>
+    <p><b>border-box</b>设置<i>border</i>和<i>padding</i>也不会改变对象的实际宽度</p>
+    <div class="border-box" style="width:300px;padding:30px;border:1px solid #999;">笛笛笛</div>
     <!-- end border-box盒模型 -->
 
     <br>
     
     <h2>定位</h2>
     <p><b>relative</b>相对定位；<b>absolute</b>绝对定位；<b>fixed</b>固定定位</p>
-    <div class="relative box-b" style="width:300px;padding:30px;border:5px double #999;">
+    <div class="relative border-box" style="width:300px;padding:30px;border:5px double #999;">
         <div class="absolute" style="left:0;top:0;width:50px;height:50px;background-color:red;color:#fff;">绝对定位</div>
     </div>
-    <a href="#" class="fixed tac" style="right:0;bottom:0;width:50px;padding:15px 0;background-color:#666;color:#fff;">返回<br>顶部</a>
+    <a href="#" class="fixed text-center" style="right:0;bottom:0;width:50px;padding:15px 0;background-color:#666;color:#fff;">返回<br>顶部</a>
     <!-- end 定位 -->
     
     <br>
 
     <h2>显示</h2>
-    <p><b>none</b>隐藏元素，不占空间，背景图片不会加载；<b>hidden</b>隐藏元素，占空间，背景图片加载</p>
-    <div class="none" style="height:100px;background-image:url(../../resources/images/01.gif?dis-n);"></div>
-    <div class="hidden" style="height:100px;background-image:url(../../resources/images/01.gif?vis-h);"></div>
+    <p><b>hide</b>隐藏元素，不占空间，背景图片不会加载；<b>invisible</b>隐藏元素，占空间，背景图片加载</p>
+    <div class="hide" style="height:100px;background-image:url(../../resources/images/01.gif?dis-n);"></div>
+    <div class="invisible" style="height:100px;background-image:url(../../resources/images/01.gif?vis-h);"></div>
     <!-- end 显示 -->
     
     <br>
@@ -105,8 +105,8 @@
     <br>
     
     <h2>选择</h2>
-    <p><b>us-none</b>设置不能选中</p>
-    <div class="us-none">这里是一段文字</div>
+    <p><b>select-none</b>设置不能选中</p>
+    <div class="select-none">这里是一段文字</div>
     <!-- end 选择 -->
 
     <br>
