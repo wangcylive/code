@@ -1,21 +1,47 @@
-function changeWidth() {
-    var changeWidthTimeout = document.getElementById("changeWidthTimeout");
+;(function(root, doc) {
+    var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+            window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+    var cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
 
     (function() {
-        var value = parseFloat(changeWidthTimeout.style.width);
+        var changeWidthTimeout = doc.getElementById("changeWidthTimeout");
 
-        if(value < 100) {
-            changeWidthTimeout.style.width = value + 0.1 + "%";
-            setTimeout(arguments.callee, 17);
+        var isRun = 1;
+
+        var timeout;
+
+        function fn() {
+            var value = parseFloat(changeWidthTimeout.style.width);
+
+            if(value < 100) {
+                changeWidthTimeout.style.width = value + 0.1 + "%";
+                timeout = setTimeout(fn, 17);
+            } else {
+                clearTimeout(timeout);
+            }
         }
-        
+
+        fn();
+
+        changeWidthTimeout.addEventListener("click", function() {
+            if(isRun) {
+                clearTimeout(timeout);
+                isRun = 0;
+            } else {
+                fn();
+                isRun = 1;
+            }
+        }, false);
     }());
 
-    var changeWidthInterval = document.getElementById("changeWidthInterval");
-
     (function() {
+        var changeWidthInterval = doc.getElementById("changeWidthInterval");
 
-        function f() {
+        var isRun = 1;
+
+        var interval;
+
+        function fn() {
             var value = parseFloat(changeWidthInterval.style.width);
 
             if(value < 100) {
@@ -23,24 +49,45 @@ function changeWidth() {
             }
         }
 
-        setInterval(f, 17);
+        interval = setInterval(fn, 17);
+
+        changeWidthInterval.addEventListener("click", function() {
+            if(isRun) {
+                clearInterval(interval);
+                isRun = 0;
+            } else {
+                interval = setInterval(fn, 17);
+                isRun = 1;
+            }
+        }, false);
     }());
 
-    var changeWidthRequestAnimationFrame = document.getElementById("changeWidthRequestAnimationFrame");
-
     (function() {
+        var changeWidthRequestAnimationFrame = doc.getElementById("changeWidthRequestAnimationFrame");
 
-        function f() {
+        var frame;
+
+        var isRun = 1;
+
+        function fn() {
             var value = parseFloat(changeWidthRequestAnimationFrame.style.width);
 
             if(value < 100) {
                 changeWidthRequestAnimationFrame.style.width = value + 0.1 + "%";
-                requestAnimationFrame(f);
+                frame = requestAnimationFrame(fn);
             }
         }
 
-        requestAnimationFrame(f);
-    }());
-}
+        fn();
 
-changeWidth();
+        changeWidthRequestAnimationFrame.addEventListener("click", function() {
+            if(isRun) {
+                cancelAnimationFrame(frame);
+                isRun = 0;
+            } else {
+                fn();
+                isRun = 1;
+            }
+        }, false);
+    }());
+}(window, document));

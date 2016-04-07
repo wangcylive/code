@@ -13,17 +13,4 @@
     .links{}
     .links a{display:block;height:30px;}
     .height{height:40rem;background-color:#00496b;}
-
-    .icon-refresh{display:block;position:fixed;left:50%;top:0;z-index:100;margin:-40px 0 0 -20px;width:40px;height:40px;
-        background:url(icon-refresh.png) 0 0 no-repeat;background-size:80px 40px;
-        -webkit-backface-visibility:hidden;
-        -moz-backface-visibility:hidden;
-        -ms-backface-visibility:hidden;
-        backface-visibility:hidden;
-        -webkit-transform-style:preserve-3d;
-        -moz-transform-style:preserve-3d;
-        -ms-transform-style:preserve-3d;
-        transform-style:preserve-3d;
-    }
-    .icon-refresh.on{background-position:-40px 0;}
 }

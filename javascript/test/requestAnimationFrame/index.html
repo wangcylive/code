@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
 <title>requestAnimationFrame</title>
 <style type="text/css">
-    .change-width{margin-bottom:8px;width:100px;height:100px;background-color:blue;
+    .change-width{margin-bottom:8px;width:100px;height:50px;background-color:blue;
         -webkit-transform:translate3d(0, 0, 0);
         -ms-transform:translate3d(0, 0, 0);
         -o-transform:translate3d(0, 0, 0);
@@ -15,8 +15,15 @@
 </style>
 </head>
 <body>
+    <h1>RequestAnimationFrame performance</h1>
+
+    <h2>setTimeout</h2>
     <div id="changeWidthTimeout" class="change-width" style="width:10%;"></div>
+
+    <h2>setInterval</h2>
     <div id="changeWidthInterval" class="change-width" style="width:10%;"></div>
+
+    <h2>requestAnimationFrame</h2>
     <div id="changeWidthRequestAnimationFrame" class="change-width" style="width:10%;"></div>
 
     <script src="index.js"></script>
