@@ -13,4 +13,6 @@
     .links{}
     .links a{display:block;height:30px;}
     .height{height:40rem;background-color:#00496b;}
+
+    .btn-off{margin:1em 0;display:block;width:50%;height:3em;border-radius:6px;}
 }

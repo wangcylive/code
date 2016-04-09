@@ -6,6 +6,9 @@
         window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
     var cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
 
+    window.requestAnimationFrame = requestAnimationFrame;
+    window.cancelAnimationFrame = cancelAnimationFrame;
+
     function styleHyphenFormat(propertyName) {
         function format(match) {
             return "-" + match.toLowerCase();

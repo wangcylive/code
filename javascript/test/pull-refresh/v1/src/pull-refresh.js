@@ -96,7 +96,7 @@
             maxDistance = 110,     // 最大下拉距离
             triggerDistance = 70;  // 触发时间距离
 
-        var triggerColor = "rgb(60, 126, 247)";
+        var triggerColor = "rgb(66, 133, 244)";
 
         var rgb = triggerColor.substring(4, triggerColor.length - 1).split(","),
             R = parseInt(rgb[0]),
@@ -120,9 +120,9 @@
             transform = getCssPrefix("transform"),
             transition = getCssPrefix("transition");
 
-        var startScreenY = {},   // 记录touchStart屏幕点Y坐标,identifier记录screenY
-            isTop,               // 判断触摸触发的时候页面滚动条是否在顶部
-            touchIdentifier;     // 记录第一次touchStart触发点identifier,touchEnd时候需要判断是否为同一个触摸点
+        var touchStartScreenY = {},   // 记录touchStart屏幕点Y坐标,identifier记录screenY
+            isTop,                    // 判断触摸触发的时候页面滚动条是否在顶部
+            touchIdentifier;          // 记录第一次touchStart触发点identifier,touchEnd时候需要判断是否为同一个触摸点
 
         var transitionStatus = 0;  // 记录刷新动画过渡状态,一共有4个状态[-1, 0, 1, 2]
 
@@ -135,7 +135,7 @@
                 changedTouch = changedTouches[0],
                 touch = touches[0];
 
-            startScreenY[changedTouch.identifier] = changedTouch.screenY;
+            touchStartScreenY[changedTouch.identifier] = changedTouch.screenY;
 
             if(touches.length === 1) {
                 touchIdentifier = touch.identifier;
@@ -149,7 +149,7 @@
                 touch = touches[0];
 
             if(touch.identifier == touchIdentifier) {
-                var moveY = touch.screenY - startScreenY[touchIdentifier],
+                var moveY = touch.screenY - touchStartScreenY[touchIdentifier],
                     changeY = moveY / changeRatio,
                     range = Math.min(1, changeY / triggerDistance);
 
@@ -159,9 +159,9 @@
 
                 if(isTop && moveY >= 0 && !transitionStatus) {
                     translateY = Math.min(maxDistance, changeY);
-                    rotate = moveY;
+                    rotate = moveY * 2;
 
-                    iconStyle[transform] = "translateY(" + translateY + "px) rotate(" + rotate * 1.3 + "deg)";
+                    iconStyle[transform] = "translateY(" + translateY + "px) rotate(" + rotate + "deg)";
                     iconStyle.backgroundColor = "rgb(" + parseInt(255 - (255 - R) * range) + ", " + parseInt(255 - (255 - G) * range) +
                         ", " + parseInt(255 - (255 - B) * range) + ")";
 
@@ -175,8 +175,8 @@
                 changedTouch = changedTouches[0],
                 touches = event.touches;
 
-            if(changedTouch.identifier == touchIdentifier) {
-                var moveY = changedTouch.screenY - startScreenY[touchIdentifier],
+            if(changedTouch.identifier == touchIdentifier || touches.length == 0) {
+                var moveY = changedTouch.screenY - touchStartScreenY[touchIdentifier],
                     changeY = moveY / changeRatio;
 
                 if(isTop && moveY > 0 && !transitionStatus) {
@@ -196,25 +196,23 @@
             }
 
             if(touches.length == 0) {
-                startScreenY = {};
+                touchStartScreenY = {};
             }
         }, false);
 
-        root.addEventListener("touchcancel", function() {
+        root.addEventListener("touchcancel", _reset);
+
+        function _reset() {
             iconNode.removeAttribute("style");
 
             transitionStatus = 0;
 
             touchIdentifier = undefined;
-        });
+        }
 
         iconNode.addEventListener(transitionEnd, function() {
             if(transitionStatus == -1) {  // 未能触发刷新动作
-                iconNode.removeAttribute("style");
-
-                transitionStatus = 0;
-
-                touchIdentifier = undefined;
+                _reset();
             } else if(transitionStatus == 1) {  // 刷新动画第一步
                 iconStyle[transition] = "all .4s linear";
                 iconStyle[transform] = "translateY(" + triggerDistance + "px) rotate(" + (720 + rotate) + "deg)";
@@ -228,10 +226,7 @@
 
                 transitionStatus = 3;
             } else if(transitionStatus == 3) {  // 完成刷新动画,执行刷新回调函数
-                iconNode.removeAttribute("style");
-                transitionStatus = 0;
-
-                touchIdentifier = undefined;
+                _reset();
 
                 for(var i = 0; i < doneList.length; i++) {
                     doneList[i]();
@@ -244,21 +239,21 @@
                 doneList.push(callback);
             }
 
-            return returnValue;
+            return object;
         }
 
         function off() {
-            doneList = [];
+            doneList.length = 0;
 
-            return returnValue;
+            return object;
         }
 
-        var returnValue = {
+        var object = {
             done: done,
             off: off
         };
 
-        return returnValue;
+        return object;
 
     }
 

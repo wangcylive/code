@@ -11,8 +11,13 @@
         console.log(2);
     });
 
-    var listNode = document.getElementById("list"),
+    var btnOff = document.getElementById("btnOff"),
+        listNode = document.getElementById("list"),
         listStyle = listNode.style;
+
+    btnOff.addEventListener("click", function() {
+        refreshMethod.off();
+    }, false);
 
     function toHex(num) {
         var string = num.toString(16);
