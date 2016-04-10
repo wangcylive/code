@@ -1,7 +1,7 @@
 /**
  * Created by wangchunyang on 16/4/2.
  */
-;(function(root, doc) {
+;(function() {
     var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
         window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
     var cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
@@ -35,7 +35,7 @@
 
     var getCssPrefix = (function() {
         var prx = ["", "-webkit-", "-moz-", "-ms-", "-o-"],
-            div = doc.createElement("div"),
+            div = document.createElement("div"),
             style = div.style,
             value;
 
@@ -105,7 +105,6 @@
             triggerDistance = 70;  // 触发时间距离
 
         var triggerColor = "rgb(66, 133, 244)";
-        //var triggerColor = "rgb(26, 107, 240)";
 
         var rgb = triggerColor.substring(4, triggerColor.length - 1).split(","),
             R = parseInt(rgb[0]),
@@ -118,11 +117,11 @@
             doneList = [],
             failList = [];
 
-        var body = doc.body,
-            iconNode = doc.getElementById("pullRefresh");
+        var body = document.body,
+            iconNode = document.getElementById("pullRefresh");
 
         if(null === iconNode) {
-            iconNode = doc.createElement("div");
+            iconNode = document.createElement("div");
             iconNode.id = "pullRefresh";
             body.appendChild(iconNode);
         }
@@ -142,7 +141,7 @@
         var translateY,   // icon滑动Y轴值
             rotate;       // icon旋转角度
 
-        root.addEventListener("touchstart", function(event) {
+        window.addEventListener("touchstart", function(event) {
             var changedTouches = event.changedTouches,
                 touches = event.touches,
                 changedTouch = changedTouches[0],
@@ -153,20 +152,20 @@
             if(touches.length === 1) {
                 touchIdentifier = touch.identifier;
 
-                isTop = body.scrollTop == 0;
+                isTop = body.scrollTop === 0;
             }
         }, false);
 
-        root.addEventListener("touchmove", function(event) {
+        window.addEventListener("touchmove", function(event) {
             var touches = event.touches,
                 touch = touches[0];
 
-            if(touch.identifier == touchIdentifier) {
+            if(touch.identifier === touchIdentifier) {
                 var moveY = touch.screenY - touchStartScreenY[touchIdentifier],
                     changeY = moveY / changeRatio,
                     range = Math.min(1, changeY / triggerDistance);
 
-                if(body.scrollTop == 0 && moveY >= 0) {
+                if(body.scrollTop === 0 && moveY >= 0) {
                     event.preventDefault();
                 }
 
@@ -182,12 +181,12 @@
 
         }, false);
 
-        root.addEventListener("touchend", function(event) {
+        window.addEventListener("touchend", function(event) {
             var changedTouches = event.changedTouches,
                 changedTouch = changedTouches[0],
                 touches = event.touches;
 
-            if(changedTouch.identifier == touchIdentifier || touches.length == 0) {
+            if(changedTouch.identifier === touchIdentifier || touches.length === 0) {
                 var moveY = changedTouch.screenY - touchStartScreenY[touchIdentifier],
                     changeY = moveY / changeRatio;
 
@@ -211,16 +210,16 @@
                 }
             }
 
-            if(touches.length == 0) {
+            if(touches.length === 0) {
                 touchStartScreenY = {};
             }
         }, false);
 
-        root.addEventListener("touchcancel", function() {
-            _reset();
-
-            cancelAnimationFrame(requestID);
-        });
+        window.addEventListener("touchcancel", function() {
+            if(readyState === "complete") {
+                _reset();
+            }
+        }, false);
 
         function _reset() {  // 复原函数
             iconNode.removeAttribute("style");
@@ -350,5 +349,5 @@
 
     }
 
-    root.pullRefresh = pullRefresh;
-}(window, document));
+    window.pullRefresh = pullRefresh;
+}());

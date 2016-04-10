@@ -1,7 +1,7 @@
 /**
  * Created by wangchunyang on 16/4/6.
  */
-;(function (root, doc) {
+;(function () {
     var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
         window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
     var cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
@@ -95,23 +95,23 @@
             transition = getCssPrefix("transition"),
             transitionEnd = getTransitionEndEvent();
 
-        var progressNode = doc.getElementById("progressBar");
+        var progressNode = document.getElementById("progressBar");
 
         if (progressNode == null) {
-            progressNode = doc.createElement("div");
+            progressNode = document.createElement("div");
             progressNode.id = "progressBar";
-            doc.body.appendChild(progressNode);
+            document.body.appendChild(progressNode);
         }
 
         var transitionStatus = 0;  // 记录过渡动画状态[-1, 0, 1, 2], -1用来记录是否执行过start或者set
 
         progressNode.addEventListener(transitionEnd, function() {
-            if(transitionStatus == 1) {
+            if(transitionStatus === 1) {
                 progressNode.style.opacity = 0;
                 progressNode.style[transition] = "opacity .5s ease-in";
 
                 transitionStatus = 2;
-            } else if(transitionStatus == 2) {
+            } else if(transitionStatus === 2) {
                 progressNode.removeAttribute("style");
                 progressNode.style.display = "none";
 
@@ -160,7 +160,7 @@
         }
 
         function set(number) {
-            if (typeof number == "number" && number > 0 && number < 1) {
+            if (typeof number === "number" && number > 0 && number < 1) {
                 progressNode.style.display = "block";
                 progressNode.style.opacity = 1;
                 progressNode.style[transform] = "translate3d(" + -progressValue + "%, 0, 0)";
@@ -200,5 +200,5 @@
         }
     }
 
-    root.progressBar = progressBar;
-}(window, document));
+    window.progressBar = progressBar;
+}());
