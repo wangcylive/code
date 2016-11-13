@@ -1,8 +1,0 @@
-@media screen {
-    body, h1, h2, h3, h4, h5, h6, dl, dd, ul, ol, p, blockquote, form, fieldset, figure, button{margin:0;}
-    ul, ol, menu, th, td, legend, fieldset{padding:0;}
-    html{font-size:100%;-webkit-tap-highlight-color:transparent;}
-    body{font:1em/1.5 tahoma, arial, "\5b8b\4f53", sans-serif;word-wrap:break-word;}
-    ul, ol, menu{list-style-type:none;}
-    table{border-spacing:0;border-collapse:collapse;}
-}

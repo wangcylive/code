@@ -7,9 +7,37 @@
     <meta name="renderer" content="webkit">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
-    <title></title>
+    <title>iframe test</title>
 </head>
 <body>
+<h1>Iframe Test</h1>
 
+<iframe src="iframe.html" width="300" height="300" id="iframe"></iframe>
+<script type="text/javascript">
+	var iframe = document.getElementById("iframe");
+    
+    iframe.onload = function() {
+        console.log(iframe.contentWindow.document.body);
+
+	   console.log(iframe.contentDocument);
+    }
+
+	
+    
+    function defaultDisplay(nodeName) {
+        var doc = document;
+
+        var elem = doc.createElement(nodeName);
+        doc.body.appendChild(elem);
+
+        var display = window.getComputedStyle(elem, "")["display"];
+
+        document.body.removeChild(elem);
+
+        return display;
+    }
+    
+    console.log(defaultDisplay("select"));
+</script>
 </body>
 </html>

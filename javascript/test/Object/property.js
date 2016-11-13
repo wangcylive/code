@@ -1,10 +1,11 @@
 /**
  * Created by silent on 2014/12/7.
+ * 默认情况下，使用  Object.defineProperty() 增加的属性值是不可改变的
  * 数据属性 包含一个数据值的位置。在这个位置可以读取和写入
- * Configurable: 表示能否通过 delete 删除属性从而重新定义属性，能够修改属性的特性，或者能否把属性修改为访问器属性。默认值为 true
- * Enumerable: 表示能否通过 for-in 循环返回属性。默认值为 true
- * Writable: 表示能否修改属性的值。默认值为 true
- * Value: 包含这个属性的数据值。读取属性值得时候，从这个位置读；写入属性值得时候，把新值保存在这个位置。默认值为 undefined
+ * configurable: 表示能否通过 delete 删除属性从而重新定义属性，能够修改属性的特性，或者能否把属性修改为访问器属性。默认值为 true
+ * enumerable: 表示能否通过 for-in 循环返回属性。默认值为 true
+ * writable: 表示能否修改属性的值。默认值为 true
+ * value: 包含这个属性的数据值。读取属性值得时候，从这个位置读；写入属性值得时候，把新值保存在这个位置。默认值为 undefined
  *
  * 必须使用 Object.defineProperty() 方法修改属性默认特性，包含3个参数：属性所在对象，属性的名字和一个描述符的对象
  */
