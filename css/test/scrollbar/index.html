@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="renderer" content="webkit|ie-comp|ie-stand">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <title>scrollbar</title>
 <link href="index.css" rel="stylesheet">
 </head>
@@ -42,7 +42,42 @@
         7
     </textarea>
 
+    <button class="btn">点击弹窗</button>
+
+    <div class="overlay" style="display: none;"></div>
+    <div class="modal-box" style="display: none;">
+        <button>关闭</button>
+    </div>
+
     <script>
+        (function() {
+            var btn = document.querySelector(".btn"),
+                overlay = document.querySelector(".overlay"),
+                modalBox = document.querySelector(".modal-box"),
+                btnClose = modalBox.querySelector("button");
+
+            var body = document.body;
+
+            btn.onclick = function() {
+                var scrollTop = body.scrollTop;
+
+                body.classList.add("lock");
+                body.style.top = -scrollTop + "px";
+
+                overlay.style.display = "";
+                modalBox.style.display = "";
+            };
+
+            btnClose.onclick = function() {
+                body.classList.remove("lock");
+                body.scrollTop = Math.abs(parseInt(body.style.top) || 0);
+                body.style.top = "";
+
+                overlay.style.display = "none";
+                modalBox.style.display = "none";
+            }
+        }());
+
         /*(function() {
             alert(window.devicePixelRatio + "\n" + window.screen.width + "*" + window.screen.height);
         }());*/
