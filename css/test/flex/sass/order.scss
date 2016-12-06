@@ -1,0 +1,29 @@
+@import "../../../resources/sass/bourbon";
+
+@media screen {
+    .flex {
+        margin: 20px 0;
+        @include display(flex);
+        @include justify-content(space-between);
+        height: 160px;
+        background-color: #ccc;
+
+        .item {
+            background-color: #00a7c8;
+
+            @include flex(0 1 10%);
+
+            &:nth-child(3) {
+                @include order(-1);
+            }
+
+            &:nth-child(4) {
+                @include order(-1);
+            }
+
+            &:last-child {
+                @include order(0);
+            }
+        }
+    }
+}

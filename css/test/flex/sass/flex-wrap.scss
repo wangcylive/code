@@ -1,0 +1,69 @@
+@import "../../../resources/sass/bourbon";
+
+@media screen {
+    .flex {
+        margin: 20px 0;
+        @include display(flex);
+        height: 100px;
+        background-color: #ccc;
+        font-size: 14px;
+
+        .item {
+            background-color: #00a7c8;
+            color: #fff;
+        }
+    }
+
+    .flex-01 {
+        @include flex-direction(row);
+        @include flex-wrap(normal);
+        overflow: auto;
+
+        .item {
+            @include flex(1 0 20%);
+
+            + .item {
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .flex-02 {
+        height: 200px;
+        @include flex-direction(row);
+        @include flex-wrap(wrap);
+        @include justify-content(space-around);
+        @include align-content(space-around);
+
+        .item {
+            min-height: 80px;
+            @include flex(0 0 31%);
+        }
+    }
+
+    .flex-03 {
+        @include flex-direction(column);
+        @include flex-wrap(normal);
+        height: 200px;
+        overflow: auto;
+
+        .item {
+            @include flex(0 0 20%);
+
+            + .item {
+                margin-top: 10px;
+            }
+        }
+    }
+
+    .flex-04 {
+        @include flex-direction(column-reverse);
+        @include flex-wrap(wrap);
+        @include justify-content(space-between);
+        height: 200px;
+
+        .item {
+            @include flex(0 0 31%);
+        }
+    }
+}

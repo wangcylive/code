@@ -15,7 +15,7 @@ var gulp = require("gulp"),
     sass = require("gulp-sass");
 
 gulp.task("sass", function() {
-    gulp.src("src/sass/test.scss")
+    gulp.src("src/sass/test.sass")
         .pipe(sass({
             outputStyle: "expanded",
             indentWidth: 4
@@ -24,5 +24,5 @@ gulp.task("sass", function() {
 });
 
 gulp.task("watchSass", function() {
-    gulp.watch("src/sass/test.scss", ["sass"]);
+    gulp.watch("src/sass/test.sass", ["sass"]);
 });
